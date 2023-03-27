@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        for(let i=1; i<=10; i++) {
+            if(i % 2 ===1) {
+                continue;
+            }
+            document.write(`${i}<br>`)
+        }
+    </script>
+    
+    <script>
+        function sqr(x) {
+            return x * x;
+        }
+        var sqrNum = sqr;
+        document.write(sqr(4) + "<br>")
+        document.write(sqrNum(4));
+    </script>
+</body>
+</html>
+<!-- 값으로서의 함수
+     (1) 자바스크립트에서 함수는 문법적 구문일 뿐만 아니라 값(value)이기도 함
+     (2) 따라서 함수가 변수에 대입될 수도 있으며, 다른 함수의 인수로 전달될 수도 있음-->

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON 객체</title>
+    <!-- 중괄호{ } 안에 쓰는 게 JSON의 표기법 -->
+    <script>
+        function init() {
+            //key와 value 사이는 콜론(:)으로 구분한다.
+            //하나의 객체를 나타내고 그 값 emp에 저장한다.
+        var emp = { "name" : "민들레", "age" : "25", "tel": "111-1234", "address" : "서울"};
+        var msg = "";
+            //객체 emp에 값을 선언했기 때문에 emp.name 하면 emp 객체에서 name의 값을 가져오는 것
+            msg += "이름" + emp.name + "<br>" + "나이" + emp.age + "<br>"+ "전화" + emp.tel + "<br>" + "주소" + emp.address + "<br>"
+            // 위의 값을 바디태그에서 id가 result인 태그에 innerHTML으로 출력한다.
+            document.getElementById("result").innerHTML = msg;
+        }
+    </script>
+</head>
+<body onclick="init()">
+    <h2>JSON 표기법</h2>
+    <div id="result"></div>
+    
+</body>
+</html>

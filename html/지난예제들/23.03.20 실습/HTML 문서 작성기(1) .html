@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서 작성기 만들기</title>
+    <script>
+        var win = null;
+        function showHTML() {
+            //win 변수에 데이터가 없거나 닫혀있다면
+            if(win == null || wil.closed)
+            // 새로운 윈도우(브라우저) 생성(연결할 url 없음, 새창, 가로 300 높이200)
+            win = window.open(" ", "outwin", "width=300, height=200");
+            // 함수가 실행되면 srcText id인 textarea 태그의 DOM 객체 생성
+            var textArea = document.getElementById("srcText");
+            // win (객체) 변수의 문서를 열고 open()
+            win.documet.open();
+            // 창에 textArea 객체의 값을 입력함
+            win.document.wirte(textArea.value);
+            // 창 생성 및 작성이 완료 됐으므로 객체 출력 스트림을 종료
+            win.document.close();
+        }
+    </script>
+</head>
+<body>
+    <h3>HTML 문서 작성기 동적 구성</h3><hr>
+    <p>아래에 HTML 문서를 작성하고 올바른 버튼을 클릭해 보세요.
+        새 윈도우에 HTML 문서가 출력 됩니다.</p>
+    <textarea id="srcText" cols="50" rows="10"></textarea>
+    <br><br>
+    <button onclick="showHTML();">HTML 문서 출력하기</button>
+</body>
+</html>
+document.open()
+현재 브라우저에 출력된 HTML 콘텐츠를 지우고 새로운 HTML 페이지 시작
+즉, document 객체에 담긴 DOM 트리를 지우고 새로 시작
+document.close()
+현재 브라우저에 출력된 HTML 페이지 완성
+더 이상 document.write() 할 수 없음
+이벤트(event)란, 웹 브라우저나 사용자가 실행하는 어떤 동작을 말한다.
+예) 웹 문서에서 마우스 버튼을 클릭하는 것, 웹 브라우저가 웹 페이지를 불러오는 것 등
+
+사용자가 웹 문서 영역을 벗어나서 클릭하는 행위는 이벤트가 아니다.
+예) 브라우저 창의 제목 표시줄을 클릭하는 것은 이벤트가 아님
+
+폼과 관련된 이벤트
+    blur 폼 요소에 포커스를 잃었을 때 발생
+    change 목록이나 체크상태 등이 변경되었을 때 발생
+    focus 폼 요소에 포커스를 놓았을 때 발생
+    reset 폼이 리셋되었을 때 발생
+    submit submit 버튼을 클릭했을 때 발생
+
+이벤트가 발생하면 그에 따른 연결 동작이 있어야 한다.
+이렇게 이벤트를 처리하는 것을 이벤트 처리기 or 이벤트 핸들러(event handler)라고 한다.
+1) HTML 태그에 연결하기
+    이벤트가 발생한 HTML 태그에 직접 함수를 연결한다
+    <태그 on이벤트명 = "함수명">
+    <button onclick="alert('클릭')">Click</button>
+
+2) 웹 요소에 직접 함수 연결하기
+    스크립트 소스를 변경해도 HTML 마크업에는 영향을 주지 않게 하려면 이벤트 처리기도 스크립트 소스에서 처리하는 것이 좃다
+    요소. on이벤트명 = 함수
+
+const button = documetn.querySelector("button");
+button.onclick = function() {
+    documetn.body.style.backgroundColor = "green";
+}
+
+클릭했을 때 (onclick) 실행할 함수를 표현식으로 할당
+
+함수를 미리 만들어 두었다면 그 함수를 지정해도 된다. 이 때, 실행할 함수 이름 뒤에 중괄호()를 사용하지 않는다.
+function changeBackground() {
+    document.body.style.bacgroundColor = "green";
+}
+const button = document.querySelector("button");
+button.onclick = changeBackground; // () 중괄호 생략
+
+3) addEventListener() 사용하기
+    이벤트 리스너는 어떤 DOM 요소에서도 사용할 수 있다. / addEventListener() 함수를 사용
+요소.addEventListener(이벤트함수, 캡처 여부);
+요소 : 이벤트가 발생한 요소
+이벤트 : 이벤트 유형
+
+단, 여기에서는 이벤트 이름 앞에 on을 붙이지 않고 click이나 keypress처럼 이벤트 이름을 그대로 사용
+함수 : 이벤트가 발생했을 때 실행할 함수. / 기존에 있는 함수를 사용해도 되고 직접 익명 함수를 작성해도 된다.
+캡처 여부 : 이벤트를 캡쳐링 하는지의 여부 / true 면 캡처링을, false면 버블링을 한다는 의미
+           선택사항이며 기본값은 false

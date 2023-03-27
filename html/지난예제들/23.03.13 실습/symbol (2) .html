@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol </title>
+</head>
+<!-- 
+symbol (심볼)
+ES6에 새롭게 추가된 원시 유형의 자료형
+심볼의 가장 큰 특징은 유일성을 보장한다는 것 / 객체 프로퍼티의 키로 사용할 수 있다
+자바스크립트 프로그램에서 오픈 소스를 가져와 사용하거나 다른 팀원이 만든 객체들을 함께 사용할 경우 객체의 키 이름이 중복될 수도 있다.
+키 이름을 심볼로 지정하면 서로 충돌이 발생하지 않는다.
+ -->
+<body>
+    <script>
+
+/* 
+심볼을 만들 때는 symbol()함수를 사용한다.
+심볼은 한 번 만들면 변경할 수도 없고, 같은 값을 가진 심볼을 만들 수도 없다.
+symbol()
+let var1 = symbol();
+let var2 = symbol();
+var1과 var2는 똑같아 보이지만, 심볼은 유일한 값이기 때문에 두 변수는 같지 않다.
+var1 === var2  -> false */
+
+        let id = Symbol()
+        const member= {
+            name : "kim",
+            [id] : 12345
+        }
+/*
+심볼을 키로 사용할 때에는 [키]처럼 대괄호로 묶어서 표현한다.
+키에 접근할 때에도 마침표가 아닌 대괄호를 사용한다.
+ex) member객체를 만들면서 id 키를 고유하게 만들기.  */
+    </script>
+
+<!-- 
+iterable 객체
+반복 가능한 (iterable, 이터러블) 객체는 배열을 일반화한 객체이다. 이터러블이라는 개념을 사용하면 어떤 객체에든
+for..of 반복문을 적용할 수 있다. 
+배열은 대표적인 이터러블이다. 배열 외에도 다수의 내장 객체가 반복이 가능하고, 문자열 역시 이터러블의 예시이다.
+
+배열이 아닌 객체가 있는데, 이 객체가 어떤 것들의 컬렉션(목록, 집합 등)을 나타내고 있는 경우, for..of 문법을 적용할 수만 있다면
+컬렉션을 순회하는데 유용할 것이다.
+ -->
+
+<script>
+/*  
+symble.iterator
+for..of를 적용하기에 적합해 보이는 배열이 아닌 객체를 만든다.
+let range = {
+     from:1,
+     to: 5
+ }; */
+ 
+ //아래와 같이 for..of 가 동작할 수 있도록 하는 게 목표이다. for (let num of range) ... num=1,2,3,4,5
+
+</script>
+
+ <script>
+/* 
+symble.iterator
+for..of를 적용하기에 적합해 보이는 배열이 아닌 객체를 만든다.
+ */
+let range = {
+    from:1,
+    to: 5
+};
+
+//1. for..of 최초 호출 시 , symbol.iterator가 호출됩니다.
+range[Symbol.iterator] = function() {
+    //2. ymbol.iterator는 이터레이터 객체를 반환하고, 이후 for..of는 반환된 이터레이터 객체만을 대상으로 동작하는데, 이 때 다음값도 정해진다.
+    return {
+        current: this.from,
+        last: this.to,
+    //3. for..of 반복문에 의해 반복마다 next()가 호출된다.
+    next (){
+        if (this.current <= this.last) {
+            return{ done:false, value: this.current++};
+        } else {
+            return {done: true};
+        }
+    }
+  };
+};
+// 의도한 대로 동작하는 지 확인해본다.
+for (let num of range) {
+    alert(num);   //1, 2, 3, 4, 5
+}
+
+//문자열도 대표적인 이터러블 중 하나
+for (let char of "test") {
+    //글자 하나당 한 번 실행된다. 총 4회 호출 
+alert ( char );  // t , e, s, t가 차례대로 출력됨
+}
+/* 
+range[Symbol.iterator]()가 객체 range 자체를 반환합니다. 반환된 객체엔 필수 메서드인 next()가 있고,
+this.current에 반복이 얼마나 진행되었는 지를 나타내는 값도 저장되어 있습니다.
+*/
+
+/* 
+UTF-16은 보조 문자를 서로게이트 쌍으로 처리한다. 운영체제는 간격 없는 표시를 처리하는 방식과 유사하게
+서로게이트 쌍을 처리한다. 표시 시 서로게이트 쌍은 유니코드 표준에서 규정한 대로 유니스크립트를 통해 하나의 문자 모양으로 표시된다.
+서로게이트 쌍(surrogate pair)에도 잘 동작한다. */
+ </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스 이벤트 객체의 프로퍼티</title>
+    <style>
+        /* div 태그는 텍스트가 출력 될 부분 */
+        div {
+            background: skyblue;
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <h3>마우스 이벤트 객체의 프로퍼티와 onmousemove</h3>
+    <p>이미지 위에 마우스를 움직일 때 onmousemove리스너가 실행되고,
+    마우스 위치를 보여줌</p>
+    <img src="C:\media\mio.png" onmousemove="where(event)">
+    <p>
+<!-- 이 부분에 좌표 정보를 생성한다 / 초기에 아무것도 입력하지 않아 보이지 않음 -->
+    <div id="div"></div>
+    <script>
+        //id 가 div인 태그의 값을 변수 div에 시작한다.
+        var div = document.getElementById("div");
+        function where(e) {
+            /* js에서 좌표는 좌상단이 0,0이며, 우 하단으로 갈수록 증가한다.
+            var text = "버튼 = " + e.button + "<br>" */
+            var text = " "
+            text += "(screenX, screenY) = " + e.screenX + "," + e.screenY + "<br>";//현재 화면을 기준
+            text += "(clientX, clientY) = " + e.clientX + "," + e.clientY + "<br>";
+            text += "(offsetX, offsetY) = " + e.offsetX + "," + e.offsetY + "<br>";
+
+            /* 입력된 텍스트 정보를 div 태그에 전송
+            clientX, clientY 브라우저 윈도우의 문서출력영역 내의 마우스 좌표
+            offsetX, offsetY 타겟 (이벤트영역) 객체 내에서의 마우스 좌표 */
+            div.innerHTML = text;
+        }
+    </script>
+    </p>
+</body>
+</html>

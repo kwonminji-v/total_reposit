@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>do-while과 break 사용</title>
+</head>
+<body>
+    <h3>암호를 입력하라!</h3>
+    <script>
+        /* 암호 초기 값
+           미리 설정해 둔 암호를 입력해야만 아래 do-while문 탈출
+           do-while문은 무조건 한 번 실행 */
+        var password = "1234";
+        do {
+            //myInput 변수에 prompt에서 입력 받은 값 대입
+            myInput = prompt("비밀번호를 입력하세요","암호");
+            //while문을 활용한 암호 맞추기 문데이다.
+            //password 변수에 들어있는 문장을 맞추면 while문을 탈출할 수 있다.
+        }while(password != myInput)
+                document.write("통과");
+    </script>
+</body>
+</html>
+<script>
+    
+const gitBook = {
+    title : "깃&깃허브 입문",
+    pubDate : "2023-02-28",
+    pages : 272,
+    finished : true
+}
+
+for(key in gitBook) {
+    document.write(`${key} : ${gitBook[key]}<br>`);
+}
+</script>
+객체에서 사용할 수 있는 반복문.
+for..in 구문은 반복해서 객체의 키를 가져온다.
+각 키의 값을 알고 싶다면 가져온 키를 사용해서 객체에 접근한다.
+배열도 객체이기 때문에 배열에서도 for..in구문을 사용할 수 있다.
+for (변수 in 객체) {...}

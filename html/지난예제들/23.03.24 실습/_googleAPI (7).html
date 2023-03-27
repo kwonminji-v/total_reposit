@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=구글API키"></script>
+    <script>
+        //구글맵에 알고 싶은 위도, 경도 좌표 입력
+        var myCenter = new google.maps.LatLng(37.498146, 127.027557);
+        function myMap() {
+            //mapProp 변수에 다음 값들을 지정
+            var mapProp = {
+                center:myCenter,  //표시될 지도의 중심은 입력한 좌표
+                zoom:5,    //zoom : 확대되는 정도
+                mapTypeId:google.maps.MapTypeId.RoadMap  // map 출력 방식, 로드맵 형태
+            };
+        //지정된 구글맵 정보를 div 태그에 출력 -> new google.maps.Map(지도 출력 요소, 지도 정보)
+            var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+            //지정된 위치에 마커 생성
+            var marker = new google.maps.Marker ({
+                position:myCenter,  //마커 찍을 위도 경도 좌표
+                animation:google.maps.Animation.BOUNCE  //마커 애니메어션 (바운스)
+            });
+            marker.setMap(map);
+        }
+    </script>
+</head>
+<!-- onload 명령을 활용해 myMap 함수를 실행 -->
+<body onload="myMap()">
+    <div id="googleMap" style="width: 500px; height: 380px;"></div>
+
+    
+</body>
+</html>

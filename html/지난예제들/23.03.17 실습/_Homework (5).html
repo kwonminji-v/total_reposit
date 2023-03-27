@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="slideShow">
+        <ul class="slides">
+            <!-- 인라인 속성을 가진 li 태그를 활용 -->
+            <li><img src="c:\media/boy.png" alt=" " width="300px" height="300px"></li>
+            <li><img src="c:\media/math_img_1.jpg" alt=" " width="300px" height="300px"></li>
+            <li><img src="c:\media/math_img_2.jpg" alt=" " width="300px" height="300px"></li>
+            <li><img src="c:\media/math_img_3.jpg" alt=" " width="300px" height="300px"></li>
+            <li><img src="c:\media/img.png" alt=" " width="300px" height="300px"></li>
+            <li><img src="c:\media/girl.png" alt=" " width="300px" height="300px"></li>
+        </ul>
+        <p class="controller">
+    <!-- &lang : 왼쪽 방향 화살표 -->
+    <!-- &rang : 오른쪽 방향 화살표 -->
+    <span class="prev">&lang;</span>
+    <span class="next">&rang;</span>
+     </p>
+    </div>
+</body>
+    <script>
+        let slides = document.querySelector('.slides'), //전체 슬라이드 컨테이너
+            slideImg = document.querySelectorAll('.slides li'), // 모든 슬라이드들
+            currentIdx = 0, //현재 슬라이드 index
+            slideCount = slideImg.length,  //슬라이드 개수
+            prev = document.querySelector('.prev'); // 이전 버튼
+            next = document.querySelector('.next'); // 다음 버튼
+            slideWidth = 300;  //한개의 슬라이드 넓이
+            slideMargin = 100;  //슬라이드 간의 margin 값b
+
+            //전체 슬라이드 컨테이너 넓이 설정
+            slides.style.width = (slideWidth + slideMargin) * slideCount + 'px';
+            /* 각 슬라이드의 너비 (slideWidth)와 여백(slideMargin)을 더한 값에
+               슬라이드의 총 개수(slideCount)를 곱하고, 결과에 'px'를 붙여 최종 너비를 픽셀 단위로 설정한다. */
+
+            function moveSlide(num) {
+            // 슬라이드를 이동하는 기능을 수행하며, 매개변수 num을 사용해 몇 번째 슬라이드로 이동할 지 지정
+                slides.style.left = -num * 400 + 'px';
+            // 슬라이드를 이동하는데 사용되는 CSS 속성인 left 값을 변경 / 음수로 만들어서 왼쪽으로 이동
+                currentIdx = num;
+            // 현재 슬라이드 인덱스(currentIdx)를 매개변수 num 값으로 변경합니다. 업데이트!
+            }
+
+            prev.addEventListener("click", function() {
+                /* 첫 번째 슬라이드로 표시 됐을 때는 이전버튼 눌러도 반응이 없게하기 위해
+                   currentIdx !==0일 때만 moveSlide 함수를 불러온다. */
+                   if(currentIdx !==0 ) {
+                       moveSlide(currentIdx-1);
+                    }
+                    console.log(currentIdx);
+            });
+            next.addEventListener("click" , function() {
+                /* 마지막 슬라이드로 표시 됐을 땐 다음 버튼 눌러도 아무런 반응이 없게하기 위해
+                   currentIdx !== slideCount - 1 일때만 moveSlide함수 불러옴 */
+                console.log(currentIdx);
+                if (currentIdx !== slideCount - 1) {
+                    moveSlide(currentIdx + 1);
+                }
+            });
+            
+    </script>
+</html>

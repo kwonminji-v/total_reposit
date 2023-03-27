@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON 로그인</title>
+    <script>
+        function logIn() {
+            //JSON 객체 생성 
+            var emp = {"name" : "홍길동", "point" : "15000", "id" : "hong", "pw" : "1234"};
+            //함수를 실행하면 id와 pw태그 객체를 생성해 작성된 데이터를 획득
+            //변수 a와 b에 각각 사용자의 입력값을 저장한다.
+            var a = document.getElementById("id").value;
+            var b = document.getElementById("pw").value;
+            //JSON으로 입력된 emp(emp.id)정보가 사용자로부터 입력된 정보 (a)와 같으면
+            if (emp.id == a && emp.pw == b)
+            //JSON으로 저장된 정보쌍의 나머지 두가지가 출력됨
+            //바디 태그 내 아이디가 confirm인 태그에 이름과 포인트가 출력된다.
+            document.getElementById("confirm").innerHTML
+            = "<spam style = 'color:green'>" + emp.name + "님 환영합니다. <br> 현재 포인트는"
+                + emp.point + "점 입니다. </span>"; 
+            else  //틀리면 바디 태그 내 아이디가 confirm인 태그에 에러 메세지 표시
+            document.getElementById("confirm").innerHTML
+                ="<span style = 'color:red'> 아이디 또는 비밀번호가 틀립니다.</span>";
+            }
+    </script>
+</head>
+<body>
+    <label for="input">[로그인 화면]</label><br><br>
+    <!-- 사용자가 입력한 값이 id, name "id"값에 저장되는 것 -->
+    <input type="id" name="id" id="id"> 아이디를 입력하세요 <br>
+    <!-- 사용자가 입력한 값이 id, name "pw"값에 저장되는 것 -->
+    <input type="password" name="pw" id="pw"> 비밀 번호를 입력하세요 <br>
+    <!-- 버튼을 누르면, logIn() 함수 실행 -->
+    <input type="button" onclick="logIn()" value="logIn" name="" id="">
+    <!-- 여기엔 조건문에서 innerHTML로 저장한 메세지가 출력되는 것 -->
+    <div id="confirm"></div>
+</body>
+</html>
+<!-- 
+JSON은 네트워크 데이터 전송방식의 표준 Format으로 사용되고 있다.
+JSON은 String 문자열이므로 실제 자바스크립트에서 사용하기 위해 파싱을 하여 객체로 사용할 수 있는데,
+이럴 때 사용하는 객체가 바로 JSON 객체이다.
+JSON 객체에는 parse와 stringify가 내장되어 있어
+string -> object로 parse
+object -> string으로 stringify 변환해 주는 것이다.
+ -->
+
+<!-- 
+
+동기와 비동기에 대해서 설명할 때 가장좋은 예시가 바로 "커피숍"이다. 
+
+<동기 처리 방식>
+커피숍에서 줄을 서고 있는 상황을 생각해보자(심지어 직원도 1명). 
+맨 앞에 있는 손님이 커피를 주문하고, 그 커피를 받을 때까지 계속 기다려야 한다면? 즉, "커피를 주문하기 위해서는 한줄로 서서 한명씩만 주문이 가능하다는 것"
+이러한 처리 순서를 동기 방식이라고 부른다. 이 때 blocking이라고 부른다. 동기적인 작업에 의해서 이후의 작업이 "막히게 된 것"
+
+<비동기 처리 방식>
+하지만 반대로 옆에 있는 커피숍은 주문을 받고 진동벨을 고객에게 전달하는 시스템을 가지고 있다. 
+심지어 직원도 2명이어서 한명은 주문을 받고 한명은 커피를 내리면서 진동벨로 손님에게 알려주고 있다.
+각자의 파트별로 맡아서 일을 하고 있는 것입니다. 
+이 카페가 바로 비동기적인 방식, 병렬적으로 자신의 역할을 수행했다고 말할 수 있습니다. 
+결과가 주어지는데 시간이 걸려도, 막히지 않고(non-blocking) 다른 작업을 할 수 있기 떄문에 효율적으로 사용할 수 있다.
+
+-->

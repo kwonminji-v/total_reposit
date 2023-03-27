@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단 - for문</title>
+    <style>
+        div {
+            display: inline-block;
+            padding: 0 20px 30px 20px;
+            margin: 15px;
+            border: 1px solid #ccc;
+        }
+
+        div h3 {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        for (let k = 2; k <= 9; k++) {
+            document.write("<div>");
+                document.write("<h3>" + k + "단</h3>");
+            for (let i = 1; i <= 9; i++) {
+                document.write(`${k} X ${i} = ${k * i}<br>`);
+            }
+            document.write("</div>");
+        } 
+    </script>
+</body>
+
+</html>

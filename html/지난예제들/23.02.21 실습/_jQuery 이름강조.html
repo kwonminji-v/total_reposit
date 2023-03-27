@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-3.6.3.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('button').click(function(){
+                $('.name').addClass('yellow')
+            });
+        });
+    </script>
+    <style>
+        .yellow {
+            font-weight: bold;
+            font-size: 40px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <p class="name">김길동</p>
+    <p>02-111-1111</p>
+    <p class="name">이길룡</p>
+    <p>042-111-1111</p>
+    <p class="name">홍길동</p>
+    <p>032-111-1111</p>
+    <button>이름 강조</button>
+</body>
+</html>

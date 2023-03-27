@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 전역 함수</title>
+    <!-- eval() 함수
+     예) var res = eval("2*3+4*6") // 계산결과 res는 30
+        
+        parseInt() 함수
+         예) var 1 = parseInt("32");  //"32"를 10진수로 변환한다. 정수 32 리턴
+         var n = parseInt("0x32");    //"0x32"를 16진수로 해석한다. 정수 50 리턴
+        
+        isNaN() 함수 : 숫자 인지 아닌지 판단할 수 있다.
+        parseInt 함수에서 텍스트를 숫자로 전환할 때 문자인 경우 NaN을 리턴하는 것과 같ㄷ
+         예)
+        isNaN(32) //false리턴
+        isNaN("32") //false리턴
+        isNaN("hello") //true리턴
+    isNaN() 함수는 어떤 값이 NaN인지 판별합니다. 
+    주어진 값이 NaN이면 true, 아니면 false.
+    NaN 값은 산술 연산이 정의되지 않은 결과 또는 표현할 수 없는 결과를 도출하면 생성
+    isNaN(value) - 매개변수가 숫자인지 검사하는 함수입니다. (NaN)은 Not a Number입니다.
+    value : 검사할 값을 입력합니다
+    매개변수가 숫자가 아니면 true, 숫자이면 false를 반환합니다.
+        -->
+</head>
+<body>
+    <script>
+        //셋다 자주 쓰이는 함수이므로 알고 있는 것이 좋다.
+        function evalParseIntIsNaN() {
+        //eval : 문자열로 표현된 자바스크립트 코드를 실행하는 함수
+        //"" 묶어서 문자열로 만들지 않아도 계산된다.
+        var res = eval("2*3+4*6");  //res는 30
+
+        document.write ("eval(\"2*3+4*6\")는" + res + "<br>");
+
+        var m = parseInt("32");    //"32"를 10진수로 전환, 정수 32리턴
+
+        document.write("eval(\"32\")는" + m + "<br>");
+
+        var n = parseInt("0x32");  //"0x32"를 16진수로 전환, 정수 50리턴
+
+        document.write ("eval(\"0x32\")는" + n + "<br>");
+        //parseInt("hello") 문자열을 파싱하여 정수로 변환 (숫자 없으면 NaN 반환)
+
+        n = parseInt("hello");
+        /* isNaN(var) : 전달된 값이 NaN인지를 검사하여 그 결과를 반환
+           전달받은 값이 숫자가 아닐 때 true
+           "123"처럼 문자열로 감싸도 강제로 숫자로 변환하여 검사값 false */
+
+        if(isNaN(n)) { // true
+            document.write("hello는 숫자가 아닙니다.");
+        }
+
+    }
+    </script>
+    <h3>eval(), parseInt(), isNaN() 실습</h3>
+    <script>
+        //정의한 함수 호출
+        evalParseIntIsNaN();
+    </script>
+</body>
+</html>
+<!-- isNaN("문자열"); //true 전달된 값이 NaN인지를 검사하여 그 결과를 반환한다.
+     eval() : 문자열로 표현된 자바스크립트 코드를 실행하는 함수
+     함수정의 
+     function 함수이름(매개변수1, 매개변수2,...) {
+            함수가 호출되었을 때 실행하고자 하는 실행문;
+     }
+매개변수(parameter)는 함수를 호출할 때 인수(argument)로 전달된 값을 함수 내부에서 사용할 수 있게 해주는 변수 -->

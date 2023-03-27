@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>브라우저의 크기가 변해도 태그 위치는 변하지 않는다 (절대배치)</title>
+</head>
+<style>
+    /* position : absolute;  -> 부모 요소의 위치 (없으면 body)를 기준으로 요소 배치 */
+    div {
+        display: inline-block;
+        position: absolute;
+        border: 1px solid lightgray;
+    }
+    div > p {
+        display: inline-block;
+        position: absolute;
+        height: 20px;
+        width: 15px;
+        background: lightgray;
+    }
+</style>
+<body>
+    <h3>Merry Christmas!</h3>
+    <p>여러분이 탄생하셨습니다.</p>
+    <div>
+        <img src="c:\media\\christmastree.png" alt="크리스마스 트리" width="200" height="200">
+        <!-- 절대 배치는 좌표값을 따름,
+             상대 배치는 이전에 존재하는 이미지를 기준으로 배치함
+             그래서 상대 배치는 상황에 따라 위치가 변함 -->
+    <p style="left:50px; top:30px;">M</p>
+    <p style="left:100px; top:00px;">M</p>
+    <!-- <p style="left:100px; top:80px;">M</p> -->
+    <p style="left:150px; top:110px;">M</p>
+    <p style="left:30px; top:130px;">M</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event basic</title>
+    <script src="http://code.jquery.com/jquery-3.6.3.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('h2').hide();
+            $('p').hide();
+            $("button").click(function () {
+                $('h2').fadeToggle();
+                $('p').fadeToggle();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button type="button">Toggle show</button>
+    <h2>Lorem ipsum dolor sit amet</h2>
+    <p>sorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</body>
+</html>
+<!-- 선언적 함수
+    function sum(a,b) {
+            함수명 (매개변수 , 매개변수)
+    return a+b;
+    반환    값
+
+    익명함수
+    var 변수명 = function() {
+        실행문;
+    }
+
+    내장함수
+    자바스크립트가 자체적으로 가지고 있는 함수이다. isNaN()emd...not a number
+    } -->

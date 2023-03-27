@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스 커서를 갖다대면 값이 숨겨짐</title>
+    <!-- hover 기능을 활용해, span 태그에 있는 글자들을 감춤 -->
+    <!-- span { visibility : hidden} -->
+    <style>
+        span:hover {
+            visibility: hidden;
+        }
+        /* visibility 속성은 HTML 요소가 웹 페이지에 표현될지 아닐지만을 결정한다
+        따라서 웹 페이지에는 나타나지 않더라도 레이아웃 내에는 여전히 존재하게 되며,
+        코드 내에서도 당연히 존재한다.
+        visibility 속성을 자바스크립트와 함께 사용하면 매우 복잡한 메뉴나 레이아웃을 쉽게 만들 수 있다.
+        
+        visible : 해당 HTML 요소를 웹 페이지에 나타낸다
+        hidden : HTML 요소를 웹 페이지에 나타내지 않는다. 하지만 여전히 웹 페이지의 레이아웃에는 존재
+        collapse : 이 속성값은 동적인 테이블에서만 사용할 수 있으며, 테이블의 테두리를 한 줄만 보여준다*/
+    </style>
+</head>
+<body>
+    <h3>다음 빈 곳에 숨은 단어는 ?</h3>
+    <ul>
+        <li>I(<span>love</span>) you.</li>
+        <li>CSS is Cascading( <span>Style</span> ) Sheet.</li>
+        <li>응답하라 ( <span>1988</span> ).</li>
+    </ul>
+</body>
+</html>
+<!-- 요소를 숨기는 방법 2가지
+    p.none { display : none; }      공간 없음 / 가시성 속성
+    p.hidden { visibility:hidden; } 공간 있음 / 디스플레이 속성-->

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>join_form</title>
+
+</head>
+
+<body>
+    <h3>회원 가입 양식</h3>
+    <form>
+        <table>
+            <tr>
+                <td>- 아이디</td>
+                <td><input type="text" name="login"></td>
+            </tr>
+            <tr>
+                <td>- 비밀번호</td>
+                <td><input type="password" name="pwd"></td>
+            </tr>
+            <tr>
+                <td>- 비밀번호 확인</td>
+                <td><input type="password" name="pwd"></td>
+            </tr>
+            <tr>
+                <td>- 이름</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td>- 성별</td>
+                <td><input type="radio" name="gender" value="여성">여성<input type="radio" name="gender" value="남성">남성</td>
+
+            </tr>
+            <tr>
+                <td>- 전화번호</td>
+                <td> <select name="tel">
+                        <option value="02">02</option>
+                        <option value="031">031</option>
+                        </selcet>
+                        - <input type="text"> 
+                        <!-- - 문자가 삽입이 되지 않아, 사이트 상의 요소 태그에서 수정을 진행해 봄 -->
+                        - <input type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>- 이메일</td>
+                <td><input type="text"> @
+                    <select name="domain name">
+                        <option value=" ">선택</option>
+                        <option value=" ">daum.net</option>
+                        <option value=" ">naver.com</option>
+                        <option value=" ">naver.com</option>
+                        <option value=" ">nate.com</option>
+                    </select>
+                </td>
+                <!-- select tag ,  option tag 사용 -->
+            </tr>
+            <tr>
+                <td>- 자기소개</td>
+                <td> <textarea name="text" id="text" rows="8" cols="70"></textarea> </td>
+            </tr>
+            <tr>
+                <th colspan="2"><button type="submit">회원가입</button></th>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

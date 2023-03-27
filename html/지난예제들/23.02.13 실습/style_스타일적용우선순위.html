@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스타일 합치기 및 오버라이딩</title>
+    <!-- css 파일 external.css 파일 코드를 받음 href="external.css"로 받음 -->
+    <!-- 우선순위 3 -->
+    <link rel="stylesheet" href="external.css" type="text/css">
+    <!-- 내부에 코딩된 스타일 태그 / 두 가지가 중첩되면 내장 코드가 우선으로 적용된다. -->
+    <!-- 우선순위 2 -->
+    <style>
+        p {color: blue; font-size: 12px;}
+    </style>
+</head>
+<body>
+
+    <h3>p 태그에 중첩된 스타일</h3><!-- 이하는 p태그가 아니라 style이 적용되지 않음 -->
+    <p>Hello, students!</p>  <!-- 해당 문장은 위의 p 태그 스타일이 적용됨 -->
+    <p style="font-size:  25px;">안녕하세요 교수님!</p> <!-- 우선순위 1 -->
+    <!-- 해당 문장은 위의 p태그와 지금 추가된 스타일이 둘 다 적용됨 -->
+</body>
+</html>
+<!-- 스타일 적용의 우선순위
+태그에 적용 가능한 스타일 우선순위 (1이 가장 낮음) 
+1. 브라우저의 디폴트 스타일 P { color : black; font-size : 16px}
+2. 스타일 시트 파일에 선언된 스타일 p {background : mistrose;}
+3. <style>
+    태그에 선언된 스타일
+   </style
+4.style 속성에 선언된 스타일 <p style="font-size : 25px;">하이</p> #제일 우선적용#-->
+
+<!-- 선택자 (selector)
+HTML 태그의 모양을 꾸밀 스타일 시트를 선택하는 기능
+여러 유형의 셀렉터가 있음.
+p 태그에 3가지 style이 선언되었다.
+<body>내에 <p> 태그에 직접적인 style 속성정의
+<head> 부분에 선언한 style
+외부 style sheet 파일에 선언된 style
+내부부터 외부로의 우선순위이기 때문에
+"안녕하세요 교수님"의 경우 3가지가 다 적용되고
+"Hello students"는 2번과 3번만 적용된다 -->

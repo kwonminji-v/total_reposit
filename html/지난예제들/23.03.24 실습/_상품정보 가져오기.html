@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 정보 가져오기</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            border: 1ps solid #ccc;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>상품 정보</h1>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const url = "https://reqres.in/api/products/10"
+        const result = document.querySelector("#result");
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.send();
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                let product = JSON.parse(xhr.responseText);
+                console.log(product);
+                result.innerHTML = `<p>상품명 : ${product.data.name}</p> <p>생산년도 : ${product.data.year}</p>`;
+            }
+        }
+    </script>
+</body>
+<!-- const url = "https://reqres.in/api/products/10" -->
+</html>

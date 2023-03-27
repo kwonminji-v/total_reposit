@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스 대면 사과로 변경</title>
+    <script src="http://code.jquery.com/jquery-3.6.3.js"></script>
+    <!-- <script>
+        $(document).ready(function() {
+            $('p').mouseover(function(){
+                
+            })
+        });
+    </script>
+</head>
+<body>
+    <h2>마우스를 올려보세요</h2>
+    <hr>
+    <p><img src="c:\media\banana.png"></p>
+</body>
+</html> -->
+</head>
+<body>
+    <h3>마우스를 올려보세요</h3><hr>
+    <!-- 마우스 이벤트 , 마우스가 이미지에 이동하면 이벤트 실행 초기 이미지 지정
+         onmouseover : 마우스 올렸을 대 , onmouseout : 마우스 치웠을 때 -->
+         <img src="c:\media\puppy.png" alt="이미지"
+            onmouseover="this.src='c:\\media\\apple.png'"
+            onmouseout="this.src='c:\\media\\banana.png'">
+</body>
+<!-- 이벤트 처리기
+이벤트가 발생하는 것을 감지하는 역할이다.
+핸들러 : 하나의 요소에 하나의 이벤트 처리가 가능하다.
+        이벤트가 발생했을 때 그 처리를 담당하는 실행함수를 가르킨다.
+    
+리스너 : 하나의 요소에 복수의 이벤트 처릭 ㅏ가능하다.
+        특정한 이벤트 대해서 일어날 동적을 정의할 수 있다.
+        리스너 + 핸들러를 합쳐서 이벤트 리스너라고도 한다.
+        구체적으로 예를 들면
+        click 이벤트 / onclick 이벤트 리스너 / function(){} 이벤트 핸들러
+    
+        웹 브라우저는 이벤트리스너에 연결된 이벤트 핸들러를 실행하게 된다.-->

@@ -1,0 +1,10 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+header {
+    width: 100vw;
+    height: 10vh;
+    background-color: gray;
+    border: 2px solid red;
+}

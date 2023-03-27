@@ -1,0 +1,31 @@
+<script>
+    const gitBook = {
+        title : "깃&깃허브 입문",
+        pubDate : "2023-02-28",
+        pages : 272,
+        finished : true
+    }
+    
+    for(key in gitBook) {
+        document.write(`${key} : ${gitBook[key]}<br>`);
+    }
+    </script>
+
+    객체에서 사용할 수 있는 반복문.
+    for..in 구문은 반복해서 객체의 키를 가져온다.
+    각 키의 값을 알고 싶다면 가져온 키를 사용해서 객체에 접근한다.
+    배열도 객체이기 때문에 배열에서도 for..in구문을 사용할 수 있다.
+    for (변수 in 객체) {...}
+
+    이름 값 , 키 값
+
+    <script>
+        const students = ["Park","Kim","Lee","Kang"];
+            for (let student of students) {
+                document.write(`${student}.`);
+            }
+    </script>
+
+    문자열이나 배열처럼 그 안의 값이 순서대로 나열되어 있는 객체를 이터러블(iterable)
+    객체라고 함. 이터러블 객체에서는 for...of 문을 사용할 수 있다.
+    for (변수 of 객체) {...}

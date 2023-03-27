@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 id="title"  onclick="change()">My Profile</h1>
+    <div id="profile">
+        <img src="c:\media\pf.png" alt="도레미">
+        <div id="desc">
+            <p class="user"><span>이름 : 권민지</span></p>
+            <p class="user">주소 : 용인시</p>
+            <p class="user">연락처 : 1234-5678</p>
+        </div>
+    </div>
+    <script>
+        span.onclick = () => {title.classList.toggle('style.color=red')}
+
+        title.onclick = () => {
+            if(!title.classList.contains("clicked")){
+                title.classList.tog('clicked');
+            } else {
+                title.classList.remove('clicked')
+            }
+        }
+
+    //  toggle로 해보기 
+    //     title.onclick = () => {title.classList.toggle('clicked')}
+    </script>
+
+<!-- 
+title이라는 변수에는 HTML 문서에서 선택된 DOM 요소가 저장되어 있음
+onclick 속성에 이벤트 핸들러 함수가 할당되어 있음
+이벤트 핸들러 함수는 다음과 같이 동작함
+title 클래스가 "clicked"를 포함하지 않으면
+if((!title.classList.contains("clicked"))), 다음 동작을 수행합니다.
+title 요소를 클릭하면 "clicked" 클래스를 추가하거나 제거하여 클릭한 상태를 토글합니다.
+
+getElementsByClassName() 메서드는 HTML Collection이 반환된다
+HTMLCollection은 배열과 비슷한 형태를 가지고 있지만, 실제로는 배열이 아닌 유사 배열 객체이다
+배열과 다르게 forEach()와 같은 배열 메서드를 사용할 수 없다
+
+따라서, getElementsByClassName() 메서드로 선택한 요소에 대해서는 for 루프나 Array.from() 메서드를 사용하여
+배열 형태로 변환해주어야 forEach()와 같은 배열 메서드를 사용할 수 있다. -->
+</body>
+
+</html>

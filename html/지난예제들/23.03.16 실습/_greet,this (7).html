@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const myObj = {
+            name: "Alice",
+            greet: function() {
+                console.log(`Hello, ${this.name}!`);
+            },
+        };
+        myObj.greet();   //"Hello, Alice!"
+        // 일반 함수에서의 this는 함수가 호출되는 시점에 결정된다
+        // this는 myObj 객체를 가리킨다.
+    </script>
+    <script>
+        const myObj = {
+            name: "Alice",
+            greet: function() {
+            const greetLater = () => {
+                console.log(`Hello, ${this.name}!`);
+            };
+            setTimeout(greetLater,1000);
+        }
+    };
+    myObj.greet();     //"Hello, Alice!"  1초 후에 출력됨.
+
+    /* 
+    
+    화살표 함수에서의 this는 상위 스코프의 this값을 그대로 상속합니다. 
+    화살표 함수 내부에서 this를 참조하면, 화살표 함수는 감싸는 가장 가까운 일반 함수나 객체를 가리키게 된다.
+    this는 myObj 객체를 가리킨다.
+    
+    일반 함수에서 this 키워드는 함수가 호출될 때, 호출한 객체에 의해 결정된다.
+    즉, 함수 내에서 this 키워드를  사용하면 호출한 객체를 참조한다. 일반 함수에서 this의 값은 함수를 호출한
+    객체에 따라 동적으로 결정되기 때문에, 런타임 중에 값이 바뀔 수 있습니다.
+    반면에, 화살표 함수에서 this 키워드는 함수가 정의된 위치의 상위 스코프를 참조한다.
+    화살표 함수는 자신만의 this를 생성하지 않고, 함수가 선언된 위치의 this를 그대로 상속받는다
+    따라서, 화살표 함수에서 this 키워드는 함수가 정의된 위치에서 결정되며, 런타임 중에 바뀌지 않는다.
+    
+    */
+
+    </script>
+    <!-- 
+    myObj 객체에는 greet 메서드와 greetArrow 메서드가 있습니다.
+    greet 메서드는 일반 함수로 정의되어 있으며, greetArrow 메서드는 화살표 함수로 정의되어 있습니다.
+    greet 메서드에서 this 키워드는 myObj 객체를 가리키며, greetArrow 메서드에서 this 키워드는 상위 스코프의 this 값을 참조합니다.
+
+    따라서, 다음과 같이 myObj 객체의 greet 메서드를 호출하면 "Hello, Alice!"가 출력되지만,
+    greetArrow 메서드를 호출하면 "Hello, undefined!" 가 출력됩니다.
+
+    콜백 함수에서의 this는 함수를 호출하는 방법에 따라 달라집니다.
+    콜백 함수를 일반 함수로 정의하면, this는 콜백 함수를 호출한 객체를 가리키게 된다.
+    반면, 콜백 함수를 화살표 함수로 정의하면, this는 상위 스코프의 this 값을 그대로 상속한다.
+
+     -->
+</body>
+<div></div>
+</html>

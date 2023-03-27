@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>출근 스위치문을 만들어보자</title>
+</head>
+<body>
+    <h3>출퇴근 판독</h3>
+    <script>
+        /* prompt는 사용자에게 값을 입력 받을 시작 창
+           prompt("A", "B") A : 처음 뜨는 메세지, B : 입력 값 예시 */
+           var day = prompt("홍길동님, 요일을 입력해주세요", " ex) 월 ");
+           /* var에는 변수가 들어간다 java는 switch안에 상수가 들어갔는데
+              javaScript는 변수의 자료형을 정의하지 않기에 문자도 가능 */
+            switch(day) {
+                /* 서로 결과가 같은 것이 연속될 때는 별도의 break 없이 써도 무관하다.
+                   어차피 gogogo에 입력되는 값이 같기 때문이다.(몇번을 입력 받아도 상관 없다.) */
+            case "월" : gogogo="출근";
+            case "화" : gogogo="출근";
+            case "수" : gogogo="출근";
+            case "목" : gogogo="출근";
+            case "금" : gogogo="출근";
+            break;
+            case "토" : gogogo="휴무";
+            case "일" : gogogo="휴무";
+            break;
+            default : gogogo="잘못된 입력"
+            alert("잘못된 입력입니다.");
+            }
+            // 입력값이 0이 아니면 요일을 출력한다.
+            if(gogogo!=0)
+                document.write(day + "요일은" + gogogo + "입니다.")
+    </script>
+</body>
+</html>
+<!-- 람다식이란 ?
+     익명 함수 (anonymous function)을 이용해서 익명 개체를 생성하기 위한 식이다. -->

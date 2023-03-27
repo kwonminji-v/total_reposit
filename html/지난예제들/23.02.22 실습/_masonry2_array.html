@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <script src="http://code.jquery.com/jquery-3.6.3.js"></script>
+    <script src="http://masonry.desandro.com/masonry.pkgd.min.js"></script>
+    <style>
+        /* 모든 요소에 스타일 지정 */
+        .box {
+            margin: 5px;
+            width: 100px;
+        }
+    </style>
+    <script>
+        //이미지 배열 생성
+        var files = ['c:\\media/apple.png', 'c:\\media/banana.png', 'c:\\media/mango.png'];
+        // 제이쿼리 시작
+        $(document).ready(function() {
+            //반복 100번
+            for(var i =0; i < 100; i++) {
+                //랜덤한 이미지 요소 생성 후 class='box' 추가 후 랜덤 높이 설정 후 body 요소에 삽입
+                $('<img src=' + files[Math.floor(Math.random() * 3)] + '>').addClass('box').css({
+                    height: Math.floor(Math.random() * 100) + 50    
+                }).appendTo('body');
+            }
+            // body 요소 내부에 있는 요소들을 정렬
+            $('body').masonry ({
+                //각 요소들의 폭은 110으로 설정
+                cloumnWidth: 110
+            });
+        });
+    </script>
+</head> 
+
+<body>
+    
+</body>
+</html>

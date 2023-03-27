@@ -1,0 +1,199 @@
+데이터 교환 방식
+서버와 클라이언트 간에 자료를 주고받기 위해 양쪽 모두 이해할 수 있는 형식을 사용해야한다.
+    XML은 컴퓨터에서 처리하는 모든 문서의 표준 형식이기 때문에 웹에서 사용가능
+    최근에는 JSON이라는 형식을 더 많이 사용한다.
+
+JSON - 클라이언트와 서버간의 HTTP 통신을 위한 텍스트 데이터 포맷(대부분 프로그래밍 언어에서 사용 가능)
+
+JSON의 특징
+    텍스트로만 구성되었기 때문에 서버와 클라이언트 사이에 주고 받을 때 전송 속도가 아주 빠르다.
+    JSON은 프로그래밍 언어나 플랫폼에 대해 독립적이기 때문에 C++이나 자바, 자바스크립트, 파이썬 등 많은 언어에서 사용할 수 있다.
+    자바스크립트 사용자라면 누구나 알고 있는 표기법을 사용하기 때문에 읽기도 쉽고 필요에 따라 자바스크립트 객체로 변환하기도 쉽다.
+
+    자바스크립트의 객체 리터럴과 유사하게 키와 값으로 구성된 순수한 텍스트이다.
+    {
+        "이름" : 값,
+        .........
+    }
+
+    중괄호 { } 사이에 '이름'과 '값'으로 구성된다.
+    JSON에서는 '이름' 부분에 반드시 큰 따옴표를 붙이는 것이 큰 차이점
+JSON의 '이름'
+    반드시 큰따옴표(" ")로 묶어야 한다.
+    '이름'에 작은 따옴표를 사용하거나 큰 따옴표가 없는 이름은 사용하 수 없습니다.
+
+JSON 이름에는 공백 space나 하이픈(-), 언더바(_)를 함께 사용할 수 있다.
+문법적으로 다음 형식도 가능
+{ "full name" : "도레미"}
+{ "full-name" : "도레미"}
+    하지만 이름에 공백이나 하이픈이 있을 경우 프로그램을 통해 그 이름에 접근할 때
+    쉽지 않기 때문에 둘 이상의 단어로 된 이름을 사용한다면 언더스코어(_)를 사용하는 것이 좋다.
+{ "full_name" : "도레미"}   
+
+JSON에서의 '값'
+객체에서는 '값' 부분에 함수(메서드)도 사용할 수 있지만
+JSON의 '값'에는 숫자, 문자열, boolean, null, 배열만 사용할 수 있고, 함수는 사용할 수 없다.
+
+JSON의 구조 
+    이름과 값의 쌍으로 이루어지고, 데이터는 쉼표(,)로 나열된다.
+    객체(object)는 중괄호 ({})로 둘러쌓아 표현한다.
+    배열(array)는 대괄호([])로 둘러쌓아 표현한다.
+
+JSON의 데이터
+    JSON의 데이터는 이름과 값의 쌍으로 구성되는 데이터 이름, 콜론(:) 값의 순서로 구성된다.
+    "데이터 이름" : 값     , ex) "name" : "식빵"
+
+데이터의 값으로는 아래 6가지가 올 수 있다.
+숫자(number), 문자열(String), 불리언(boolean), 객체(object), 배열(array), NULL
+    숫자형 : JSON에서는 정수와 실수 모두 사용 할 수 있지만, 8진수, 16진수는 지원하지 않는다.
+    문자열 : JSON 문자열은 항상 큰따옴표(" ")로 묶어야 한다.
+    논리값과 NULL : true/false 값을 가지는 논리형을 사용할 수도 있고, null유형도 사용할 수 있다.
+    문자열, 배열 : 문자열이나 배열을 값으로 사용할 수 있다.
+    JSON 문자열 안에 또다른 JSON 문자열을 넣을 수도 있다.
+    JSON에서 배열을 사용할 때에도 일반 ㅈ배열과 마찬가지로 대괄호([])를 사용한다.
+
+JSON 문자열
+    JSON 문자열 안에 또 다른 JSON 문자열을 지정할 수 있다. 
+
+객체를 JSON형식으로 변환하기
+<<클라이언트에서>> 정보를 처리할 때는 객체를 사용한다.
+객체를 JSON형식으로 저장하거나, JSON 형식을 요구하는 서버로 넘기려면 
+    -> 객체를 JSON 형식으로 변환해야 한다. 이것을 직렬화(serializing)이라고 한다.
+    JSON.stringify(객체) -> 객체를 JSON 포맷의 문자열화 할 때 쓰이는 메서드!
+
+let student = {name : "도레미", major:"컴퓨터 공학", grade:2 }
+let json = JSON.stringify(student)
+
+JSON을 객체로 변환하기
+    <<서버에서>> 가져온 JSON 자료를 사용하려면 객체 형태로 변환해야 한다
+    -> 이것을 파싱(parsing)이라고 한다.
+    JSON.parse(JSON 문자열)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON stringify와 parse</title>
+
+</head>
+
+<body>
+    <script>
+        user = { name:'admin', email: 'minji6313@yahoo.com', phone: '010-512-4565'};
+        //user에 저장된 값을 출력 [object object]
+        alert(user);
+        //stringfy : JSON 객체를 String 객체로 변환해준다.
+        userStr = JSON.stringify(user);
+        //userStr : name:'admin', email: 'minji6313@yahoo.com', phone: '010-512-4565'
+        alert(userStr);  //parse : string 객체를 JSON객체로 변환해준다.
+        JSON.parse(userStr, function (key,value){
+            alert(key + " " + value);
+        })
+    </script>    
+</body>
+</html>
+AJAX 서버와의 비동기 통신을 위한 방법
+Asynchronous Javascript And Xml
+AJAX란 , 서버에 요청하는 것과 서버의 응답이 한꺼번에 일어나지 않는 것을 말합니다.
+(요청한 후, 응답을 기다리는 동안 다른 요청을 할 수 있습니다.)
+비동기적인 통신을 위해 서버와 클라이언트 사이에 주고받은 통신 방법이 XMLHttpRequest입니다.
+ES6 이후에는 fetch를 사용하고 있습니다.
+
+XMLHttpRequest 객체
+웹 브라우저에서 서버로 데이터를 요청하고 서버에서 자료를 받아올 때는 
+HTTP 통산이 가능한 XMLHttpRequest 객체를 사용한다.
+XMLHttpRequest 객체의 프로퍼티와 메서드를 사용해서 자료를 주고받거나 상태를 체크한다.
+웹 페이지 전체가 아니라 필요한 부분만 자료만 가져올 수 있다.
+
+XMLHttpRequest
+XML이라는 자료를 'HTTP' 프로토콜을 사용해서 'Request(요청)'한다. 클라이언트가 자료를 요청 서버가 응답한다.
+
+new 예약어를 사용해서 XMLHttpRequest 객체의 인스턴스를 만든다.
+new XMLHttpRequest()
+XMLHttpRequest 객체를 만들면 서버로 자료를 요청하고 자료를 받아올 수 있다.
+let xhr = new XMLHttpRequest()
+1. XMLHttpRequest을 만들어준다
+2. 어떤 자료를 가져올 지 알려준다
+3. 클라이언트가 서버로 ,HTTP요청을 보낸다.
+4. 서버에서 처리해준다.
+5. 자료를 로딩하기 (자료를 다시 전송해주었다.)
+6. 응답 자료를 처리하기 (출력설계를 진행)
+
+open() - 어떤 자료를 가져올 지 지정
+    서버로 자료를 요청할 때 어떤 방식을 사용할 지, 어떤 자료가 필요한지, 그리고 비동기 처리 여부를 지정
+    open(방식, 자료위치, 비동기 여부)
+    방식 : HTTP 요청 방식을 지정한다. GET이나 POST 중 하나이고 , 대문자로 사용해야한다.
+    자료 위치 : 요청할 서버의 URL을 지정한다.
+    비동기 여부 : 비동기 요청인지, 동기 요청인지의 여부를 판단하는항복. true - 비동기   
+    false-동기  기본적으로 비 동기 처리하므로 따로 지정하지 않으면 비동기로 처리한다. 
+
+send() - 서버로 요청 전송
+send(내용)
+send( ) - 괄호안에 들어가는 매개변수는 옵션이다.
+POST 방식을 사용할 경우에는 "test.txt".txt 파일에 비동기 방식으로 연결하려면
+XMLHttpRequest    xrt.open("GET","Test.txt","true")''
+
+JSON 가져오기 연습
+JSON자료는 기본적으로 서버에 저장되어 있다.
+연습을 위해 사용자 컴퓨터를 서버로 만들어 주는 vscod의 '라이브 서버'를 사용하다
+
+ready 프로퍼티
+ready 프로퍼티는 XMLHttpRequest 객체의 현재상태를 나타냅니다. 
+객체에서 서버로 자료를요청했는지, 자료가 도착했는지, 사용할 준비가 되었는지 등을 알 수 있다.
+0 아직 아무 요청도 하지 않은 상태이다.
+1 서버로 자료를 요청하고 성공한 상태이다.
+2 서버 요청에 대한 응답으로 헤더가 도착한 상태이다.
+3 서버에서 자료들이 로딩 중인 상태입니다.
+4 자료 처리가 끝나서 프로그램에서 사용할 수 있는 상대이다.
+0 1 2 3 4 순서대로 반복한다.
+status : 200성공
+statusText : "OK"
+
+readystate 값은 요청이 성공했는지를 알려주기 때문에 만약 서버에 없는 파일을 요청하더라도 readystate 값은 4
+요청에 성공하고 서버에 필요한 파일을 가져왔는지 체크하려면 ready 프로퍼티 값이 4이면서도 state 프로퍼티 값이 200일 경우
+
+ xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4&& xhr.state === 200) {
+        //자료가 있고, 가져오는데에 성공했다면
+        ....
+    }
+ }
+
+ response, resposeText 프로퍼티
+ respose : 요청에 대한 응답
+ responseText : 요청에 대한 응답이 문자열 형태로 저장된다. 이 값을 프로그래밍에 사용.
+ responseType : 응답 데이터의 종류
+ responseURL : 응답을 보낸 URL
+ responseXML : HTML이나 XML 같은 형식의 데이터를 받아올 때 사용
+
+ 콘솔 창에 다음과 같이 입력하면 어떤값을 가져왔는지 알 수 있다.
+ xhr.responseText 가져온 값 확인하기
+
+ https://jsonplaceholder.typicode.com/users
+
+fetch 함수는 XMLHttpRequest 객체와 마찬가지로 HTTP 요청 전송 기능을 제공하는 클라이언트 사이드 web API이다.
+const url = 'https://jsonplaceholder.typicode.com/users';
+fetch(url)
+.then(response => response.json())
+.then(users => console.log(users));
+
+fetch(url) 코드는 url 주소에서 데이터를 가져오는 promise 객체를 반환한다.
+이 Promise 객체에 대해 then() 메서드를 체이닝 하여, Promise가 처리될 경우 호출되는 콜백 함수를 등록한다.
+
+첫 번째 then() 메서드에서는 이전 Promise 객체가 처리된 결과인 JSON 데이터를 받아와서,
+console.log() 함수를 호출하여 콘솔에 출력한다.
+이 때, 출력되는 데이터는 JSON 데이터를 자바스크립트 객체로 파싱한 결과이다.
+
+
+Promise 
+  - Promise 생성자 함수는 비동기 처리를 수행할 콜백함수를 인수로 전달받는데,
+    이 콜백 함수는 resolve와 reject 함수를 인수로 전달받는다.
+    콜백을 사용했을 때의 복잡함을 피하기 위해, ES6부터 "프로미스(Promise)" 등장.
+    처리에 성공했을 때 실행할 함수와 성공하지 못했을 때 실행한 함수를 미리 약속
+    프로미스를 사용하려면 Promise 객체를 먼저 만들어야 한다.
+    성공했을 때, 실행할 함수 resolve()와 실패했을 때 실행할 함수 reject()도 함께 지정
+    new Promise(resolve, reject)
+    프로미스는 객체를 생성(제작)하는 부분과 소비하는 부분으로 나뉜다.
+    프로미스 제작 코드에서 '성공'과 '실패'를 확인한 후 소비코드로 알려준다.

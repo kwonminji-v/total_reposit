@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- select 태그 : 제시된 항목 중 하나를 선택하게 하는 태그
+        select & option tag 양식 : <select>
+                    <option value="선택사항1">선택사항1</option>
+                    <option value="선택사항2">선택사항2</option> 
+                    </select>
+         콤보박스 / 드롭다운 박스와 비슷한 형태
+         option태그를 넣어서 목록을 구성  
+         option태그의 value : 해당 option 태그가 선택되었을 때 전송되는 값
+         없다면 태그 안의 문자열이 값으로 전송
+         -->
+    <form action=" ">
+        <select name="year">
+            <option value=" ">출생년도</option>
+            <option value=" ">2022</option>
+            <option value=" ">2021</option>
+            <option value="2020">2020</option> 
+            <!-- "" value 값 안이 아닌 >< 사이에 값을 입력해야 버튼에 값이 입력되고
+                 ""에만 값을 입력한 후 출력하면 공백값이 나오게된다. -->
+        </select>
+        <button>전송</button>
+    </form>
+</body>
+
+</html>

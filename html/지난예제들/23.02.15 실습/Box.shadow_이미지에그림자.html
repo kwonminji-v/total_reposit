@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지에 스타일 적용</title>
+    <style>
+        img {
+            padding : 20px;
+            margin: 20px;
+        }
+        .shadow1 { /* Bottom right coner*/
+            box-shadow: 5px -5px 10px #000;
+        }
+        .shadow2 { /* Up right coner*/
+            box-shadow: 5px -5px 10px #000;
+        }
+    </style>
+</head>
+<body>
+    <img src="c:\media\pic1.jpg" class="shadow1">
+    <img src="c:\media\pic2.jpg" class="shadow2">
+</body>
+</html>
+<!-- 배경 색이나 이미지 지정
+     background-color, background-image
+     둘 다 지정되면 배경 이미지가 출력되지 않는 영역에 배경색이 출력된다.
+     div {
+        background-color : skyblue;
+        background-image : url("sopongebob.png")
+     }
+    position
+    텍스트, 이미지, 표 등의 요소를 웹 문서에 배치할 때 사용하는 속성
+     
+    배경 이미지 위치 , background-position
+    background-position : center center; /*박스 중간에 이미지 출력*/
+
+    배경 이미지 반복 출력, background-repeat
+    background-repeat : repeat-y; 세로 이미지 반복 출력 
+                        repeat-x; 가로 이미지 반복 출력
+                        no-repeat; 반복 없음
+                        repeat; 가로세로 반복-->

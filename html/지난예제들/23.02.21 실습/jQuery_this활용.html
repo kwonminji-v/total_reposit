@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this활용</title>
+    <script>
+        function   change(obj, size, color) {
+            obj.style.color = color;
+            obj.style.fontsize = size;
+        }
+    </script>
+</head>
+<body>
+<h3>this 활용</h3>
+    <button onclick="change(this,'30px','red')">버튼</button>
+    <button onclick="change(this,'30px','blue')">버튼</button>
+<div onclick="change(this,'25px','orange')">여기 클릭하면 크기와 색 변경</div>
+</body>
+</html>
+<!-- this 키워드
+객체 자신을 가리키는 자바스크립트 키워드
+DOM 객체에서 객체 자신을 가리키는 용도로 사용
+예 ) <div>태그 자신의 배경을 orange 색으로 변경
+     <div onclick="this.style.backgroundColor='orange'">
+        버튼이 클릭되면 자신의 배경색을 변경한다
+     <button onclick="this.style.backgroundColor='orange'"> -->
+
+<!-- .animate를 이용해서 다양한 애니메이션 함수 적용
+     show() : 선택된 요소를 보이게 함
+     hide() : 선택된 요소를 숨김
+     toggle() : 보여지고 숨겨지는 동작을 하나로 진행
+    
+     stop() : 애니메이션 효과 중지
+    
+     fadeIn / Out() : 선택된 요소를 서서히 보이게하거나 사라지게 한다.
+     fadeToggle() : 서서히 보이게 하거나 사라지게 한다.
+     fadeTo() : 선택된 요소로 서서히 투명하게 보이게 한다.
+    
+     slideUp / Down : 선택된 요소를 밀어 올리거나 / 내린다.
+     slideToggle() : 선택된 요소를 올리거나 내리는 동작을 반복
+    
+    문자열 속도 설정 값
+        slow 600ms
+        normal 500ms
+        fast 400ms
+    .animate 사용자 지정효과를 생성한다.
+    animate() 메소드 사용 형태
+        1) $(selector).animate(속성 객체);
+        2) $(selector).animate(속성 객체, 시간);
+        3) $(selector).animate(속성 객체, 시간, 콜백 함수);
+    
+    animate() 메소드를 사용해 div 태그의 width 속성과 height 속성 변경
+    left 속성과 top 속성과 같은 위치 속성을 사용하려면 position 속성을 absolute 또는 relative로 지정
+
+    메소드 체이닝 사용한 애니메이션 실행
+    animate() 메소드는 메소드 체이닝을 사용하면 애니메이션이 종료도니 후에도 새로운 애니메이션을 연속해서 실행하게 만들 수 있음
+
+    애니메이션 예약
+        animate() 메소드 또는 delay() 메소드 사용
+        예약된 애니메이션은 차례대로 실행됨
+    
+    delay() 메소드 -> 애니메이션을 특정한 시간만큼 정지하시오
+        animate() 메소드 사이에 입력 / 매개변수로는 숫자를 입력
+
+    stop() 메소드 -> 애니메이션을 완전히 정지
+        매개변수로 불리언을 입력하고. 매개변수 clearQueue : 종료할 애니메이션 지정  Queue란, 먼저 들어간 게 (입력) 나중에 나온다.(출력)
+        false(기본값) : 현재 실행 중인 애니메이션 멈춤
+        true : 예약된 모든 애니메이션 제거
+        매개변수 goToEnd : 종료 상태 지정 / 매개변수 사용시 animate() 메소디에서 지정한 최종 수치로 변경해 정지
+    -->

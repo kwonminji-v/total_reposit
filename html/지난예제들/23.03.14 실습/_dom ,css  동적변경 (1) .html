@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 스타일 동적 변경</title>
+</head>
+<body>
+    <script>
+        // 함수 change생성
+        function change() {
+            //getElementById: mySpan 태그 객체 생성하고 태그에 스타일 적용
+            let span = document.getElementById("mySpan");
+            //위에서 생성한 변수 span에 각각의 속성값을 적용 시킨다.
+            span.style.color = "green"; //글자색
+            span.style.fontSize = "30px" //글자 크기 
+            //↓ display 지정 안해주면 line으로 "이것은" 옆에 나타남.
+            span.style.display="block"; //블록 박스로 변경
+            //지정 안 해주면 화면 넓이에 맞춰 끝까지 박스가 생성됨.
+            span.style.width="6em"; //박스의 폭 6글자 크기
+            span.style.border = "3px dotted magenta";  //3픽셀 점선 magenta 테두리
+            span.style.margin = "20px";  //상하 좌우 여백 20px
+        }
+    </script>
+<h3>CSS 스타일 동적 변경</h3>
+<p style="color:blue">이것은 <!-- 처음 출력 값은 red -->
+<span id="mySpan" style="color:red">문장입니다.</span></p>
+<!-- onclick : 버튼을 클릭하면 change() 함수 실행 -->
+<input type="button" value="스타일 변경" onclick="change()">
+</body>
+</html>
+<!-- 
+웹 요소에 접근하기
+웹 문서에서 원하는 요소를 찾아가는 것을 "접근한다(access)"라고 한다
+querySelector(), querySelectorAll() 함수
+선택자 
+id 이름 앞에는 해시 기호(#), class 이름 앞에는 마침표(.), 태그는 기호 없이 태그명 사용
+반환 값
+querySelector( ) 메서든느 한 개의 값만 반환
+querySelectorAll( ) 메서드는 반환 값이 여러 개일때, 모두 반환 노드리스트로 저장됨
+document.getElementById ("id명")
+document.getElementByClassName ("클래스명")
+document.getElementByTagName ("태그명")
+querySelector()를 사용하면 둘 이상의 선택자를 조합해서 접근할 수 있음 (ex. #detail > p)
+
+접근한 요소의 텍스트 내용을 가져오거나 지정할 때는 innerText, innerHTML, textContent 프로퍼티를 사용한다.
+innerText : 순수 텍스트를 가져오거나 , 해당 요소에 텍스트 지정
+innerHTML : 태그와 함께 텍스트를 가져오거나, 해당 요소에 태그와 함께 텍스트 지정
+textContent : 텍스트를 가져오되, 화면에 보이는대로가 아니라 소스에 있는대로 가져옴
+(화면에서 감춘 요소에서도 내용을 가져올 수 있고, 소스에 공백이 여러 개 일경우 그 공백도 모두 가져옴)
+ex. 요소.textContent = "내용"
+
+클릭해서 텍스트 내용 또는 이미지 바꾸기
+1) 문서 소스 확인하기
+2) 제목 부분 클릭했을 때 변경하기        변수.onclick = 함수
+3) 이미지 부분 클릭했을 때 변경하기      이미지요소.src = 이미지 파일 경로
+ -->

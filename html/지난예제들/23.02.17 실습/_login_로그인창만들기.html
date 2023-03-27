@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log-in</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+    /* ↓ 전체 선택자로 마진과 패딩값을 초기화 하고, box 너비를 설정해준다 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+    /* ↓ 로그인 창 전체의 스타일 값을 적용해준다. 
+    (id 및 패스워드 기입할 수 있는 로그인 창 전체의 위치를 잡아줌) */
+        .login {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            /* border :1px solid black; */
+        }
+    /* ↓ Login 단어가 적힌 박스 디자인 설정 값 */
+        .login h1 {
+            font-size: 30px;
+            margin: 20px;
+            font-weight: bold;
+            
+        }
+    /* ↓ ID,PASSWORD,JOIN의 위치와 블럭 설정을 묶어서 한번에 해줌 */
+        .login .box {
+            position: relative;
+            display: block;
+        }
+    /* ↓ ID,PASSWORD 블럭의 디테일한 디자인을 해줌 너비, 높이 등등 */
+        .login .box input {
+            width: 300px; /* ID,PASSWORD 버튼의 가로 길이 설정 */
+            height: 50px; /* ID,PASSWORD 버튼의 폭(높이) 설정 */
+            border: none;
+            border-bottom: 2px solid #adadad; /* ID,PASSWORD 버튼의 아래에만 테두리 선을 만들어줌 */
+            outline: none; /* ID,PASSWORD 버튼 테두리를 감싸는 바깥선 설정 */
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+    /* ↓ JOIN이 적힌 버튼 디테일한 디자인을 해줌 너비, 높이 등등 */   
+        .btn {
+            width: 300px; /* JOIN 버튼의 가로 길이 설정 */
+            height: 50px; /* JOIN 버튼의 폭(높이) 설정 */
+            margin-bottom: 20px; /* JOIN 버튼의 하단 ID 패스워드 찾기와 회원가입블럭간의 거리 */
+            background: linear-gradient(125deg, #81ecec,#7869ec,#81ecec);
+            background-position: left;
+            background-size: 200%;/* JOIN 버튼의 transition이 설정 */
+            transition: 0.4s; /* JOIN 버튼의 그라데이션이 자연스럽게(느리게) 변화하는 것처럼 설정해줌 */
+            color: white; /* JOIN 버튼의 글자 색상 */
+            border: none;/* JOIN 버튼의 테두리 설정 */
+            cursor: pointer;
+            font-weight: bold;
+        }
+    /* ↓ JOIN버튼에 커서가 다가갔을때의 반응 */
+        .btn:hover {
+            background-position: right;
+        }
+        .bottom p {
+            display: inline;
+            font-size: 15px;
+            padding: 10px;
+        }
+        .bottom p a {
+            text-decoration: none;
+            color: gray;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="login">
+        <form action="#">
+            <h1>Login</h1>
+            <div class="box">
+                <input type="text" name="id" id="id" placeholder="ID">
+            </div>
+            <div class="box">
+                <input type="password" name="pass" id="pass" placeholder="PASSWORD">
+            </div>
+            <div class="box">
+                <button type="submit" class="btn" value="JOIN">J O I N</button>
+            </div>
+            <div class="bottom">
+                <p><a href="#">ID/Passowrd 찾기</a></p>
+                <p><a href="./signup.html">회원가입</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

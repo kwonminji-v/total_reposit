@@ -1,0 +1,161 @@
+<<<<<<< HEAD:Project_1/css/project(1) footer.css
+.footer_box_title {
+
+  font-weight: 600;
+  line-height: 3em;
+  line-height: 26px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.footer_box {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 10px 0px 10px;
+}
+.footer_box li {
+  padding: 10px 5px 12px 0px;
+}
+
+.footer_box li a {
+  cursor: pointer;
+  color: black;
+}
+.page_rec {
+  display: flex;
+  align-items: center;
+  height: 20%;
+  font-size: 110%;
+  padding: 5px;
+  background-color: #313639;
+  color: white;
+}
+.page_rec:hover {
+  background-color: red;
+}
+.footer_logobox {
+  box-sizing: border-box;
+  margin-top: 10px;
+  display: flex;
+}
+.footer_logobox li a {
+  border: 1px solid white;
+  padding: 0.6vw;
+  font-size: 18pt;
+  color: white;
+  background-color: #313639;
+  display: flex;
+}
+a[title ^="insta"]:hover, a[title ^="youtu"]:hover, a[title ^="faceb"]:hover, a[title ^="lnked"]:hover, 
+a[title ^="twitt"]:hover, a[title ^="pinte"]:hover {
+    background : rgb(231, 42, 13);
+}
+footer>div>.last {
+  padding: 40px;
+  background-color: #061a25;
+  color: white;
+  width: 100%;
+}
+footer>.last>p {
+  font-size: 11pt;
+  margin-left: 30px;
+}
+.page_rec_in {
+  box-sizing: border-box;
+  display: flex;
+}
+.page_rec_in li{
+  border: 1px solid white;
+  padding: 0.6vw;
+  font-size: 18pt;
+  color: white;
+  background-color: #313639;
+  display: inline;
+  margin-bottom: 20px;
+}
+=======
+footer {
+    width: 100%;
+    height: 310px;
+    margin: auto;
+    padding: 11px 0px 0 3px; /* 각각 위 오른쪽 아래 왼쪽 */
+    display: flex;
+    flex-direction: column; /* 요소들을 수평정렬 */
+    font-size: 13px;
+  }
+  .notice_box {
+    flex: 1;
+    display: flex;
+    justify-content: space-between; /* 양끝 정렬 */
+    align-items: center;
+    border-bottom: 1px solid #f1f3f6;
+  }
+  .notice_box a {
+    font-weight: bold;
+    color: black;
+  }
+  .aside_box {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f1f3f6;
+  }
+  .area_user {
+    flex: 4;
+    line-height: 2em; /* 줄간격 */
+  }
+  .area_user_row {
+    display: flex;
+  }
+  .area_user_row span {
+    flex: 1;
+  }
+  .area_user_row ul {
+    flex: 6;
+  }
+  .aur_title {
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .area_user_row ul > li {
+    display: inline-block; /* li 수평정렬하는 방법 */
+    margin-left: 8px;
+  }
+  .area_col {
+    flex: 1;
+    display: flex;
+  }
+  .area_col .ac_content {
+    line-height: 20px;
+  }
+  .area_col .ac_img {
+    width: 60px;
+    height: 60px;
+    padding-left: 10px;
+  }
+  .bottom_box {
+    flex: 3;
+    padding-top: 20px;
+    font-size: 11px;
+  }
+  .bottom_box ul > li {
+    display: inline-block; /* 수평정렬 */
+    margin-left: 8px;
+  }
+  .bottom_box ul > li:last-child {
+    /* 마지막 li요소 (Naver Corp.) 굵게 */
+    font-weight: bold;
+  }
+  footer>div>.last {
+    padding: 40px;
+    background-color: #061a25;
+    color: white;
+    width: 100%;
+  }
+  footer>.last>p {
+    font-size: 11pt;
+    margin-left: 30px;
+  }
+
+
+  
+>>>>>>> 598875116ea00e0b6ab95cd47d35eb33f41a110e:first_project/css/project(1) footer.css

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 210px;
+            height: 70px;
+            background: red;
+            color: yellow;
+            border: 1px solid black;
+            transition: width 1.5s;
+        }
+        #div1 { transition-timing-function: linear;}
+        #div2 { transition-timing-function: ease;}
+        #div3 { transition-timing-function: ease-in;}
+        #div4 { transition-timing-function: ease-out;}
+        #div5 { transition-timing-function: ease-in-out;}
+        #div6 { transition-timing-function: cubic-bezier(0.1, 0.0, 0.1, 1.0);}
+        div:hover { width: 500px;}
+    </style>
+</head>
+<body>
+    <div id="div1" style="top: 100px">linear : 처음부터 끝까지 같은 속도</div>
+    <div id="div2" style="top: 150px">ease : 느리게 시작하여 점점 빨라졌다가 느리게 끝남</div>
+    <div id="div3" style="top: 200px">ease-in : 느리게 시작하여 점점 빨라지다가 일정한 속도에 다다르면 같은 속도를 유지</div>
+    <div id="div4" style="top: 250px">ease-out : 일정한 속도의 등속 변화로 시작해서 점점 느려지면서 끝남</div>
+    <div id="div5" style="top: 300px">ease-in-out : 느리게 시작하여 느리게 끝남 </div>
+    <div id="div6" style="top: 350px">cubic-bezier(n, n, n, n) : 처음과 끝의 속도를 설정</div>
+</body>
+</html>
+<!--  linear : 처음부터 끝까지 같은 속도
+    ease : 느리게 시작하여 점점 빨라졌다가 느리게 끝남
+    ease-in : 느리게 시작하여 점점 빨라지다가 일정한 속도에 다다르면 같은 속도를 유지
+    ease-out : 일정한 속도의 등속 변화로 시작해서 점점 느려지면서 끝남
+    ease-in-out : 느리게 시작하여 느리게 끝남 
+    cubic-bezier(n, n, n, n) : 처음과 끝의 속도를 설정 -->

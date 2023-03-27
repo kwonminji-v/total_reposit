@@ -1,0 +1,103 @@
+<<<<<<< HEAD:Project_1/css/container2.css
+#container2{
+            
+    width:99vw;
+    height:100vh;
+    background-color: black;
+   
+}
+#container2> main{
+    width:100%;
+    height:50%;
+    display:flex;
+    position: relative;
+}
+
+#container2> main >#text{
+    position: absolute;
+    right: 20px;
+    width:20%;
+    height:100%;
+    margin:0px 5%;
+    min-width: 245px;
+    
+}
+#container2> main >#text>#title{
+    font-size:30px;
+    padding-top:20px;
+    
+}
+#container2> main >#image{
+    position: absolute;
+   
+    width:70%;
+    height:100%;
+    background-image: url("porsche-container2.jpeg");
+    background-size: cover;
+    background-position: center center;
+}
+#container2 > section{
+    width:100%;
+    height:10%;
+    background-color: rgb(0, 0, 0);
+}
+#container2> footer{
+    width:100%;
+    height:40%;
+    display:flex;
+    position: relative;
+
+}
+#container2> footer>#text{
+    position: absolute;
+    top: 35%;
+    padding: auto;
+    width:20%;
+    height:100%;
+    margin:0px 5%;
+    min-width: 245px;
+    color: white;
+
+}
+
+
+#container2> footer >#text>#title{
+    font-size:30px;
+    
+}
+#container2> footer>#video{
+    position: absolute;
+    top: 20%;
+    right: 0;
+    width:70%;
+    height:100%;
+    object-fit: cover;
+=======
+#container2 {
+  width: 99vw;
+  height: 60vh;
+  display: flex;
+  background-color: black;
+}
+#container2 > .img {
+  background: url("../img/porsche-preview.jpeg") center center no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+#container2 .intro {
+  color: white;
+  width: 40vw;
+  padding: 0 30px;
+  margin-right: 30px;
+  margin-top: 50px;
+  font-size: 16px;
+  text-align:left;
+  word-spacing: -1px;
+  
+}
+.bold{
+  font-size: 50px;
+  font-weight: bold;
+>>>>>>> 598875116ea00e0b6ab95cd47d35eb33f41a110e:first_project/css/container2.css
+}

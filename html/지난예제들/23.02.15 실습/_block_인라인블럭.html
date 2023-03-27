@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인라인블럭</title>
+    <style>
+        div {
+           border: 2px solid yellowgreen;
+           color: blue;
+           background: aliceblue;
+        }
+        span{
+            border: 3px dotted red;
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    
+    <h3>인라인, 인라인 블럭, 블럭</h3>
+    <!-- style="displya:none" 명령에 의해 출력되지 않음 -->
+    나는 <div style="display :none ;">div(none)</div>입니다.<br><br>
+    <!-- inline이란
+         컨텐츠(출력대상) 범위를 감싸고 있는 선, 컨텐츠와 패딩을 구분하는 선이다.
+         display : inline = 해당 요소는 일반적인 인라인 요소처럼 전, 후 줄 바꿈 없이 한 줄로 이어짐 -->
+   
+    나는 <div style="display : inline;">div(inline)</div>입니다.<br><br>
+    <!-- display : inline-block = 해당 요소는 기본적으로 인라인 요소의 특성을 갖지만
+                                  인라인 요소에서 사용 불가능 했던 width, height, margin
+                                  padding의 속성의 사용이 가능해짐-->
+    
+    나는<div style="display: inline-block; height : 50px">div(inline-block)</div>입니다.<br><br>
+    <!-- display: block = 해당 요소는 일반적인 블럭 요소처럼 전 , 후 줄바꿈이 발생 -->
+
+    나는 <div>div<span style ="display: block">div(block)</span>입니다.<br><br></div>
+</body>
+</html>
+
+<!-- 배경 색이나 이미지 지정
+     background-color, background-image
+     둘 다 지정되면 배경 이미지가 출력되지 않는 영역에 배경색이 출력된다.
+     div {
+        background-color : skyblue;
+        background-image : url("sopongebob.png")
+     }
+    position
+    텍스트, 이미지, 표 등의 요소를 웹 문서에 배치할 때 사용하는 속성
+     
+    배경 이미지 위치 , background-position
+    background-position : center center; /*박스 중간에 이미지 출력*/
+
+    배경 이미지 반복 출력, background-repeat
+    background-repeat : repeat-y; 세로 이미지 반복 출력 
+                        repeat-x; 가로 이미지 반복 출력
+                        no-repeat; 반복 없음
+                        repeat; 가로세로 반복-->

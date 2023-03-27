@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if 문 사용하여 짝수 홀수 구분</title>
+</head>
+<body>
+    <!-- <script>
+        let userNumger = 0;
+        let userNumber = prompt("숫자를 입력하세요");
+        let age = (userNumber%2==0 ) ? "입력하신 숫자는 짝수입니다."
+        : "입력하신 숫자는 홀수입니다.";
+        alert(age);
+
+    </script> -->
+
+
+    <script>
+        
+        let result = document.getElementById("result");
+        function promptEX() {
+        let number = pompt("숫자를 입력하세요");
+       if (number%2==0) {
+        result.innerHTML = "입력하신 값은 짝수입니다.";
+       }
+       else (number$2!=0) {
+        result.innterHTML = "입력하신 값은 홀수입니다.";
+       }
+    }
+    </script>
+
+    <button onclick="promptEX">프롬프터 다이얼로그</button>
+</body>
+</html>
+<script>
+let userNumber = prompt("숫자를 입력하세요");
+
+if (userNumber !== null) {
+    userNumber = parseInt(userNumber); // null이 아니라면 정수로 변환
+    (userNumber % 2 ===0) ? alert (`${userNumber} : 짝수`) : alert(`${userNumber} : 홀수`);
+}</script>

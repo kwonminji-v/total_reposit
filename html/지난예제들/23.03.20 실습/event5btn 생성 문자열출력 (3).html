@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event-5 버튼 클릭</title>
+    <style>
+        input {
+            width: 300px;
+            height: 38px;
+            text-align: center;
+        }
+
+        #bttn {
+            padding: 10px 20px;
+            border-style: 1px solid #ccc;
+        }
+
+        #result {
+            margin-top: 50px;
+            padding: 15px 20px;
+            background-color: azure;
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: bold;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>
+        글자를 입력하세요 
+        <input type="text" name="" id="word"></p>
+        <button id="bttn" onclick="">버튼</button>
+    </div>
+    <textarea id="result" cols="5" rows="2"></textarea>
+
+</body>
+<script>
+
+const button = document.querySelector("button");
+
+button.addEventListener("click", () => {
+    const word = document.querySelector("#word").value;
+    const result = document.querySelector("#result");
+    let count = word.length;
+
+    result.innerText = `${count}`;
+});
+
+
+</script>
+</html>
+
+<script>
+
+</script>

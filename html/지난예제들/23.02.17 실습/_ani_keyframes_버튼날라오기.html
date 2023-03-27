@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>질문 있습니다 날라오기</title>
+    <!-- <style>
+        img {
+            padding:0;
+            margin: 0;
+        }
+        @keyframes question {
+            0% { left: 0px; }
+            100% { left: 300px;}
+        }
+        #fly {
+            position: relative;
+            animation: fly, 1s, linear, infinite, 3, 0, 0;
+        }
+    </style> -->
+    <style>
+        @keyframes imagerotation {
+            /* translate로 초기 위치 지정 (x축으로 300px)
+                나중 위치는 x축으로 0px*/
+            0% { transform: translate(300px);}
+            100% { transform : translate(0px);}
+        }
+        /* p태그에 애니메이션 입력 */
+        p {
+            animation-name: imagerotation;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-iteration-count: 3;
+        }
+    </style>
+</head>
+<body>
+    <h2>질문있습니다.</h2>
+    <p><img src="C:\media\question.png" alt="물음표" id="fly"> 
+    질문 있습니다.</p>
+</body>
+</html>
+
+
+
+
+
+<!-- @keyframes 어노테이션 사용
+<style>
+    @keyframes imagerotation {
+        /* translate로 초기 위치 지정 (x축으로 300px)
+            나중 위치는 x축으로 0px*/
+        0% { transform: translate(300px);}
+        1005 { transform : translate(0px);}
+    }
+    /* p태그에 애니메이션 입력 */
+    p {
+        animation-name: imagerotation;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-iteration-count: 3;
+    }
+</style>
+    <h3>질문있습니다.</h3>
+    <img src="C:\media\question.png" alt="물음표" width="15px" height="15px"> 질문 있습니다. -->

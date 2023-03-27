@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="C:\Users\Administrator\Desktop\jquery\jquery-3.6.3.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            //변수를 선언한다.
+            var text = $('h1').text();
+            var html = $('h1').html();
+
+            // 출력한다
+            alert("text: " + text);
+            alert("html: " + html);
+        });
+    </script>
+</head>
+<body>
+    <h1>Header - 0</h1>
+    <h1>Header - 1</h1>
+</body>
+</html>
+<!-- 글자조작
+innerHTML과 textContent 속성처럼 태그 적용 여부에 따라 두가지 메소드 중 목적에 맞는 메소드 사용
+html()  문서 객체 내부의 HTML 태그 조작  html() 메소드를 사용하면 첫 번째에 위치한 문서 객체의 글자를 추출
+text()  문서 객체 내부의 글자 조작       text() 메소드를 사용하면 모든 문서 객체의 글자를 추출 -->

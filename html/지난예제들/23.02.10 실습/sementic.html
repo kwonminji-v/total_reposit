@@ -1,0 +1,86 @@
+<!-- 시맨틱 웹을 지향하기 위한 시맨틱 태그
+문서의 구조와 의미를 전달하는 태그로 페이지를 각 구획별로 나누고 사용자의 사용성을 좋게한다. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 문서구조 시맨틱 태그 사용</title>
+    <!-- style 태그 구분 방법
+    #name일 경우 : 태그의 id="name"과 일치하는 태그 
+     .name일 경우 : 태그의 class="name"과 일치하는 태그
+    name 일 경우 (아무것도 없을 경우) : 태그 이름과 일치하면 스타일 적용 
+    -->
+    <style>
+        html, body{margin:0; padding:0; height: 100%;}
+        .header{ 
+            width:100%; height:15%;
+            background : yellow;
+        }
+        .nav{
+            width:15%; height:70%; float:left;
+            background : orange;
+        }
+        .section{
+            width:70%; height:70%; float:left;
+            background : olivedrab;
+        }
+        .aside{
+            width:15%; height:70%; float:left;
+            background : orange;
+        }
+        .footer{
+            width:100%; height:15%; clear:both;
+            background : plum;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">header머릿말_페이지를 소개하는 간단한 설명</header>
+    <nav class="nav">nav목차_하이퍼링크 모음집</nav>
+    <section class="section">section내용_문서의 장을 구성하는 역할</section>
+    <aside class="aside">aside오른쪽메뉴_본문에서 살짝 벗어난 노트나 팁</aside>
+    <footer class="footer">footer꼬릿말_저자나 저작권 정보</footer>
+
+</body>
+</html>
+<!-- 시맨틱 웹
+    웹 문서를 구조화하여 의미 있는 내용 탐색이 용이한 웹
+    기존 태그
+        <p>,<div>,<h1>,<h2> 등 태그 사용. -> 문서의 구조나 의미 전달이 어려움
+    시맨틱 태그
+        문서의 구조와 의미를 전달하는 태그
+    <header>,<section>,<article>,<main>,<summary>,<mark>,<time>,<header>
+        <header>
+            페이지나 섹션의 머리말 표현
+            페이지 제목, 페이지를 소개하는 간단한 설명
+        <nav>
+            하이퍼링크들을 모아 놓은 특별한 섹션
+            페이지 내 목차를 만드는 용도
+        <section>
+            문서의 장(chpter, section) 혹은 절을 구성하는 역할
+            일반 문서에 여러장이 있듯이 웹 페이지에 여러 <section> 가능
+            헤딩 태그를 사용하여 절 혹은 섹션의 주제 기입
+        <article>
+            본문과 연관 있지만, 독립적인 콘텐츠를 담는 영역
+            혹은 보조 기사, 블로그 포스트, 댓글 등 기타 독립적인 내용
+            <article>에 담는 내용이 많은 경우 여러 <section>을 둘 수 있다.
+        <aside> : 
+            본문에서 약간 벗어난 노트나 팁
+	        신문,잡지에서 주요 기사 옆 관련 기사 삽입 어구로 표시된 논평 등 
+            페이지의 오른쪽이나 왼쪽에 주로 배치한다.
+        <footer> : 꼬리말 영역, 주로 저자나 저작권 정보
+    시맨틱 블록 태그
+        <figure>
+            책이나 보고서 등 본문에 삽입하는 사진, 차트 ,삽화, 소스 코드 등을 통상적으로 '그림'으로 표현
+        <details> 와 <summary>
+            <details>는 상세 정보를 담는 시맨틱 블록 태그
+            <summary>는 <details>로 구성되는 블록의 제목 표현
+    시맨틱 인라인 태그
+        <mark> : 중요한 텍스트임을 표시
+        <time> : 텍스트의 내용이 시간임을 표시
+        <meter> : 주어진 범위나 % 데이터 량 표시
+        <progress> : 작업의 진행 정도 표시
+ -->

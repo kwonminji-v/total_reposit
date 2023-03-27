@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 생성 및 응용</title>
+</head>
+<body>
+    <h3>객체 생성 및 활용</h3>
+    <!-- Date 객체 생성
+         자바의 객체 생성 방법과 유사
+         단 js에는 객체 변수 타입 마저 var로 표현하는 것이 다름 -->
+    <script>
+        let today = new Date();
+        /* Date객체의 toGMTString() 메서드 호출
+           toGMTString() : 그리니치 평균 시
+           즉, Date 객체의 시간을 세계 표준 시 형식으로 표현 */
+        document.write("현재 시간 : " + today.toGMTString() + "<br>");
+        /* String 객체 생성
+           보통 " " 이나 ' '를 사용해 리터럴로 사용하지만 new 연산자를 이용해 명시적 String 객체 생성 가능
+           이러한 String 객체는 문자열 값을 감싸고 있는 래퍼(wrapper) 객체 */
+        let mystr = new String();    // (자바의 래퍼 클래스 같은 의미)
+        mystr = "반갑습니다.";
+        document.write("mystr의 내용 : " + mystr + "<br>");
+        // String.length : 문자열의 길이를 구한느 메소드
+        document.write("mystr의 길이 : " + mystr.length + "<br>");
+        // mystr.length = 10;    // 이 문장은 오류이다.
+    </script>
+</body>
+</html>

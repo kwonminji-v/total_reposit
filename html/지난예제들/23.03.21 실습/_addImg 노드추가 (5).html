@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 추가하기</title>
+    <link rel="stylesheet" href="../23.03.20 실습/main.css">
+    <style>
+        h1 {
+            padding: 10px 20px;
+            margin-bottom: 20ps;
+            border-radius: 8px;
+            background-color: #222;
+            color: #fff;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Enjoy your life</h1>
+        <img src="" id="toggleImage">
+    </div>
+
+    <script>
+        const today = new Date(); //현재 날짜와 시간 정보를 담은 today 객체
+        const hrs = today.getHours(); // 현재 시간 중 시(hour) 정보 가져오기
+        const container = document.querySelector("#container");
+        const h1_title = document.querySelector("h1");
+        const body = document.body;
+
+        container.style.display='none';
+
+        let newImg = document.createElement("img");
+        newImg.src = (hrs < 12) ? "c:/media/girl.png" : "c:/media/boy.png";
+        container.appendChild(newImg);
+        
+        let select = 0;
+
+       body.addEventListener("click", function() {
+            if(select%2 == 0) {
+                container.style.display='block';
+            }else {
+                container.style.display='none';
+            }select++;
+            console.log()
+        })
+
+        body.addEventListener("keydown", function(e) {
+            if( e.key == "t") {
+                container.style.display='block';
+            }else {
+                container.style.display='none';
+            }
+        })
+    
+     
+/* 
+    <h1>키보드의 아무 키나 눌러보세요.</h1>
+    <div id="result"></div>
+
+
+    <script>
+        const body = document.body;
+        const result = document.querySelector("#result");
+
+        body.addEventListener("keydown", (e) => {
+            result.innerText = `code : ${e.code}, key : ${e.key}`; 
+        }); */
+        </script>
+
+</body>
+
+</html>
+<body>
+    <!-- <h1>키보드의 아무 키나 눌러보세요.</h1> -->
+<!--     <div id="result"></div>
+
+
+    <script>
+        const body = document.body;
+        const result = document.querySelector("#result");
+
+        body.addEventListener("keydown", (e) => {
+        });
+    </script> -->
+<!-- 
+document.body를 body라는 변수에 저장한다 
+body 요소에 "keydown" 이벤트 리스 너를 추가하고, "keydown" 이벤트가 발생하면, 익명의 화살표 함수가 실행된다
+함수 내에서 result.innerText를 변경하여, "result" 요소에 키보드 이벤트에 대한 정보를 출력
+e.code는 눌린 키의 코드를, e.key는 눌린 키의 문자를 나타낸다.
+e.code는 눌린 키의 고유한 식별자(이름 값)을 나타내는 것이라고 할 수 있다.
+ -->
+
+<!-- 
+키보드 키를 눌렀을 때 키 값 알아내기
+키보드와 관련된 프로퍼티
+event.code : 키 코드, event.key : 키 이름
+(예전에는 event.keyCode를 사용했지만 지금은 폐기됨)
+웹 페이지에서 키보드를 누를 때마다 눌린 키의 코드와 문자를 화면에 표시하는 기능을 구현

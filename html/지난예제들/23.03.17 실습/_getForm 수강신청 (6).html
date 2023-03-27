@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수강신청 하기</title>
+    <link rel="stylesheet" href="getForm.css">
+</head>
+<body>
+    <div id="container">
+        <h1>수강신청</h1>
+        <form name="testForm">
+    <!-- <form action="/exapmles/media/action_target.jsp" method="get"></form> -->
+            <fieldset>
+    <!-- fieldset 태그는 <form> 요소에서 연관된 요소들을 하나의 그룹으로 묶을 때 사용 -->
+                <legend>신청인</legend>
+                <ul>
+                    <li>
+                        <label class="reg" for="userName">이름</label>
+                        <input type="text" id="userName" name="userName" maxlength="50">
+                    </li>
+                    <li>
+                        <label class="reg" for="class">학과</label>
+                        <select name="major" id="major">
+                            <option>ㅡㅡㅡ 학과 선택 ㅡㅡㅡ</option>
+                            <option value="archi">건축공학과</option>
+                            <option value="mechanic">기계공학과</option>
+                            <option value="indust">산업공학과</option>
+                            <option value="elec">전기전자공학과</option>
+                            <option value="computer">컴퓨터공학과</option>
+                            <option value="chemical">화학공학과</option>
+                        </select>
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset>
+                <legend>신청 과목
+                    <p>이 달에 신청할 과목을 선택하세요.</p>
+                    <label><input type="radio" name="subject" value="speaking">회화</label>
+                    <label><input type="radio" name="subject" value="grammar">문법</label>
+                    <label><input type="radio" name="subject" value="writing">작문</label>
+                </legend>
+            </fieldset>
+            <fieldset>
+                <legend>메일링</legend>
+                <p>메일로 받고 싶은 뉴스 주제를 선택해주세요</p>
+                <label><input type="checkbox" id="new" name="mailing" value="news">해외 단신</label>
+                <label><input type="checkbox" id="dialog" name="mailing" value="dialog">5분 회화</label>
+                <label><input type="checkbox" id="pops" name="mailing" value="pops">모닝 팝스</label>
+            </fieldset>
+        </form>
+        <button id="send">전송하기</button>
+    </div>
+</body>
+<script>
+    const selectMenu = document.querySelector("#major");
+    //선택 목록을 가져와 selectMenu로 저장
+
+    function displaySelect() {
+        let selectedText = selectMenu.options[selectMenu.selectedIndex].innerText;
+        alert(`[${selectedText}]를 선택했습니다.`);
+    }
+    selectMenu.onchange = displaySelect;
+    let selectedText = selectMenu.options[selectMenu.selectedIndex].innerText;
+
+/* 
+selectMenu는 <select> 요소를 참조합니다.
+selectMenu.options는 <select> 요소의 모든 <option> 요소를 포함하는 배열입니다.
+selectMenu.selectedIndex는 사용자가 선택한 <option>의 인덱스를 반환합니다.
+따라서 selectMenu.options[selectMenu.selectedIndex]는 사용자가 선택한 <option> 요소를 참조합니다.
+.innerText를 사용하여 선택한 <option> 요소의 텍스트를 가져와서 selectedText 변수에 저장
+
+alert({`${selectedText}]를 선택했습니다.`);
+alert () 함수를 사용하여 사용자에게 알림 창을 표시합니다.
+알림창의 메세지는 "선택한 옵션 텍스트를 선택했습니다."로 표시되며, 대괄호[ ] 안에 선택한 옵션의 텍스트가 들어갑니다.
+
+displaySelect() 함수를 <select> 요소의 이벤트 리스너에 연결하면,
+사용자가 새로운 항목을 선택할 때마다 해당 함수가 호출되어 알림창이 표시됩니다.*/
+</script>
+</html>
+
+<!-- 
+    체크박스 중북 선택을 막는 스크립트 예제
+    function doOpenCheck(chk){
+    var obj = document.getElementsByName("aaa");
+    for(var i=0; i<obj.length; i++){
+        if(obj[i] != chk){
+            obj[i].checked = false;
+        }
+    }
+}
+<input name="aaa" type="checkbox" value="1" onclick="doOpenCheck(this);">aaa <br />
+<input name="aaa" type="checkbox" value="2" onclick="doOpenCheck(this);">bbb <br />
+<input name="aaa" type="checkbox" value="3" onclick="doOpenCheck(this);">ccc <br /> -->

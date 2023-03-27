@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ready(function) & this 이용해서 만들어보기</title>
+    <script src="C:\Users\Administrator\Desktop\jquery\jquery-3.6.3.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.ans1').hide()
+            $('.ans2').hide()
+            $('.p1').click(function () {
+                $('.ans1').show()
+                $('.ans1').click(function () {
+                    $(this).hide()
+                    $('.p2').click(function () {
+                        $('.ans2').show()
+                        $('.ans2').click(function () {
+                            $(this).hide()
+                        });
+                    });
+                });
+            });
+        });
+
+
+
+    </script>
+</head>
+
+<body>
+    <h3>질문1 : 대한민국의 수도는 어디입니까?</h3>
+    <p class="p1"><small>[정답 보기]</small></p>
+    <p class="ans1">대한민국의 수도는 <strong>서울</strong>입니다.</p>
+    <br>
+    <h3>질문2 : 대한민국의 국보 1호는 무엇입니까?</h3>
+    <p class="p2"><small>[정답 보기]</small></p>
+    <p class="ans2">대한민국의 국보 1호는 <strong>남대문</strong>입니다.</p>
+</body>
+
+</html>
+
+<!-- ready(function) & this 이용해서 만들어보기 -->

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function displayLetter() {
+            console.log("A");
+            setTimeout( () => {
+                console.log("B");
+                setTimeout( () => {
+                    console.log("C");
+                    setTimeout( () => {
+                        console.log("D");
+                        setTimeout( () => {
+                            console.log("STOP!")
+                        },1000);
+                    },1000)
+                },1000)
+            },1000)
+        }
+
+        console.log(displayLetter());
+    </script>
+
+<!-- 
+대표적인 콜백 지옥의 시작
+콜백이 계속 반복되는 상태를 '콜백 지옥' 이라고 한다.
+소스의 가독성이 떨어지고, 오류가 발생했을 때 디버깅하기 어렵다
+예) 1초마다 A -> B -> C -> D -> STOP! 순으로 표시
+ -->
+</body>
+</html>

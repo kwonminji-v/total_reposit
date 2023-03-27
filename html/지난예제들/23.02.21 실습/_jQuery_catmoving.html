@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#mio1').click(function () {
+                $('#mio1').stop().animate({
+                    left: "0px"
+                },2000);
+            });
+                $('#mio2').click(function () {
+                    $('#mio2').stop().animate({
+                        left: "0px"
+                    },2000);
+                    $('#mio3').click(function () {
+                        $('#mio3').stop().animate({
+                            left: "0px"
+                        },2000);
+                    });
+                    $('button').click(function () {
+                        $('#mio1,#mio2,#mio3').stop().animate({
+                            left: '350px'
+                        });
+                    });
+                });
+            });
+    </script>
+    <style>
+        div {
+            position: absolute;
+            margin: 50px;
+            padding: 0px;
+            width: 500px;
+            height: 300px;
+            border: 2px solid black;
+        }
+
+        #mio1 {
+            position: absolute;
+            left: 350px;
+        }
+
+        #mio2 {
+            position: absolute;
+            left: 350px;
+            top: 100px;
+        }
+
+        #mio3 {
+            position: absolute;
+            left: 350px;
+            top: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <br>
+    <button>초기화</button>
+    <div>
+        <img id="mio1" src="c:\media\mio.png" alt="">
+        <img id="mio2" src="c:\media\mio.png" alt="">
+        <img id="mio3" src="c:\media\mio.png" alt="">
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frame Animation</title>
+    <script>
+        window.onload = function () {
+            //변수를 선언
+            var count = 0;
+            //img 태그 객체 생성 
+            var image=document.getElementById("image");
+            //이미지 배열 객체 생성
+            var frames = [
+                'c:\\media\\0.png','c:\\media\\1.png', 'c:\\media\\2.png', 'c:\\media\\3.png',
+                'c:\\media\\4.png', 'c:\\media\\5.png', 'c:\\media\\6.png', 'c:\\media\\7.png',
+                'c:\\media\\8.png', 'c:\\media\\9.png', 'c:\\media\\10.png', 'c:\\media\\11.png',
+                'c:\\media\\12.png', 'c:\\media\\13.png', 'c:\\media\\14.png'
+            ]; // setInterval : 해당 동작을 반복적으로 실행
+            setInterval(function() {
+                //count % frames.length : % 연산이기 때문에 길이 값에 도달하지 않는 이상 해당 값이 그대로 출력
+                image.src = frames[count % frames.length]; //0~14번 이미지를 반복해준다.
+                //다음 이미지 출력을 위한 +1
+                count = count + 1;
+            }, 1000 / 20); // 1/20초 간격으로 반복
+        }
+    </script>
+</head>
+<body>
+    <img id="image">
+</body>
+</html>
+<!-- setInterval(함수 , 시간) : 특정한 시간마다 함수 실행-->
+<!-- var image = document.getElementById("image"); -->
+<!-- 함수 뜻 그대로 생각해본다면 get(가져오다) Element(요소)
+     ById(Id로부터) 이 정도로 해석할 수 있다.-->

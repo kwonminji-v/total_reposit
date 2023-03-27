@@ -1,0 +1,155 @@
+<<<<<<< HEAD:Project_1/css/container4.css
+#container4 {
+    width:99vw;
+    height:100vh;
+    position: relative;}
+
+#container4 #image{
+    width:100%;
+    height:100%;
+    background-image: url('porsche-container4.jpeg');
+    background-size: cover;
+    background-position: center center;
+    display:flex;
+    justify-content: center;
+    margin-top: -120px;}
+
+#container4 #image:hover {
+        filter: brightness(50%);
+    }
+    
+
+
+#container4 >#text{
+    position: absolute;
+    top: 20% ;
+    left: 5%;
+    color:white;
+    font-weight: bold;
+} 
+
+#container4 >#text h1{ 
+    font-size: 35px;
+
+}
+
+#container4 >#text h3{
+    font-size: 16px;
+    padding: 10px;
+}
+
+#container4 >#text p{
+    font-size: 16px;
+    padding: 15px;
+    margin-left: -15px;
+    font-weight: normal;
+}
+
+
+.title1:hover + .hr1{
+    border: 1px solid red;
+    animation-name: lineanimation;
+    animation-duration: 2s;
+    animation-iteration-count: 1;   
+}
+.title2:hover + .hr2{
+    border: 1px solid red;
+    animation-name: lineanimation;
+    animation-duration: 2s;
+    animation-iteration-count: 1;   
+}
+.title3:hover + .hr3{
+    border: 1px solid red;
+    animation-name: lineanimation;
+    animation-duration: 2s;
+    animation-iteration-count: 1;   
+}
+
+
+/* 라인애니메이션 title:hover안먹음 해결해야함 
+h3으로 타이틀 구간을 만들었는데 hover가 안먹어서 
+h3을 감싸는 <div>영역을 만들어서 해결함*/
+
+@keyframes lineanimation {
+    0% {
+       width: 30px;
+    }
+    100% {width: 380px;}
+    
+    }
+=======
+#container4{
+  width: 99vw;
+  height: 100vh;
+}
+#container4 > .img {
+  background: url("../img/porsche-normal(7).jpeg") center center no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.body_type_911 {
+  width: 20vw;
+  color: white;
+  margin-left: 180px;
+  margin-bottom: 70px;
+}
+h1{
+  font-size: 60px;
+}
+.coupe, .cabriolet, .targa{
+  font-size: 20px;
+  font-weight: bold;
+  
+  padding: 10px 0;
+  cursor: pointer;
+}
+.coupe_intro, .cabriolet_intro, .targa_intro{
+  margin-top: 10px;
+}
+
+hr {
+  background-color: red;
+  height: 1.5px;
+  border: 0;
+
+}
+.coupe:hover + hr {
+  
+  background-color: red;
+  height: 1.5px;
+  border: 0;
+  animation-name: underline;
+  animation-duration: 1s;
+}
+@keyframes underline {
+  from {width: 0%;}
+  to{width: 100%;}
+}
+.cabriolet:hover + hr {
+
+  background-color: red;
+  height: 1.5px;
+  border: 0;
+  animation-name: underline;
+  animation-duration: 1s;
+}
+@keyframes underline {
+  from {width: 0%;}
+  to{width: 100%;}
+}
+.targa:hover + hr {
+
+  background-color: red;
+  height: 1.5px;
+  border: 0;
+  animation-name: underline;
+  animation-duration: 1s;
+}
+@keyframes underline {
+  from {width: 0%;}
+  to{width: 100%;}
+}
+>>>>>>> 598875116ea00e0b6ab95cd47d35eb33f41a110e:first_project/css/container4.css

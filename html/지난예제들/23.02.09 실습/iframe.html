@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iframe을 가지는 웹 페이지</title>
+</head>
+<!-- 인라인 프레임 만들기 <iframe>
+    HTML 페이지 내에 HTML 페이지 삽입
+    예) 200x150 크기의 인라인 프레임에 iframe.html 출력
+    브라우저는 iframe 태그를 지원하지 않는다.
+<iframe> -->
+<body>
+    <h3>2개의 &lt;iframe&gt;을 가집니다.</h3>
+    <hr>
+    <!-- iframe에 태그를 활용해 사각의 프레임(틀을 가진 공간)을 만들고
+    링크에 데이터를 출력할 수 있다.
+    본 코드에서는 동일 폴더에 있기 때문에 파일명만 작성해도 자동으로 찾아준다. -->
+    <iframe src="iframe1.html" width="200" height="150"></iframe>
+    <iframe src="iframe2.html" width="200" height="150"></iframe>
+    
+</body>
+</html>
+<!-- 다른 html 페이지를 지정한 크기로 내 페이지에 삽입할 수 있다. -->

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지오로케이션</title>
+    <script>
+        function showPosition(pos) {
+            //p 태그에 아래 내용을 출력
+            //pos.coords.latitude : 위도 -> x축
+            //pos.coords.longitude : 경도 -> y축
+            document.getElementById("demo").innerHTML = "위도: " + pos.coords.latitude
+            + "<br>경도 : " + pos.coords.longitude;
+        }
+
+        function locationEventHandler () {
+            if(navigator.geolocation) {
+                //사용자의 위치를 받는 메소드, showPosition 함수를 실행
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }else {
+                //p태그에 다음 내용을 출력
+                document.getElementById("demo").innerHTML = "브라우저가 Geolocation을 지원하지 않습니다.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>현재 위치가 궁금한가요?</p>
+    <!-- 버튼을 클릭하면 locationEventHandler 함수 실행 -->
+    <button onclick="locationEventHandler()">위도/경도</button>
+    <!-- 결과 값이 출력되는 태그 -->
+    <p id="demo"></p>
+</body>
+</html>
+<!-- 
+google Map API 연동
+Google Map API는 위치 기반 지도를 서비스하기 위한 지도 기반 앱을 만든다
+Geolocation API 속성
+    center : 위도와 경도를 설정한다
+    zoom : 지도에서 표시의 크기를 나타낸다 (설정 범위 0~22)
+    mapTypeId : 지도 유형
+
+google.maps.MapTypeId.ROADMAP : 도로 지도 뷰를 표시 (기본 지도 유형)
+google.maps.MapTypeId.SATELLITE : 위성 지도 표시를 표시
+google.maps.MapTypeId.HYBRID : 일반 뷰와 위성 뷰를 섞어서 표시
+google.maps.MapTypeId.TERRAIN : 지도 정보를 기반으로 실제 지도를 표시
+google.maps.LatLng : 위도와 경도를 나타낸다 (latitude, longitude)
+google.maps.Map : 지도를 나타낸다
+google.maps.Marker : 마커를 표시한다 (setMap() 메서드를 호출하여 마커를 추가한다.)
+
+지오로케이션(Geolocation) API
+지오로케이션은 Javascript API를 이용해서 사용자의 위치 정보를 제공하는 API 이다.
+    1. 위치를 수집하는 방식
+        Wi-fi 네트워크와 IP주소, GPS를 이용하여 현재의 위치 정보를 받아온다
+    2. 개인 정보 보호
+       사행활 침해 등의 이유로 사용자의 동의를 받아야 한다.
+    navigator.getlocation.getCurryentPosition(success, [error], [option]);
+    메서드는 기기가 있는 곳의 현재 위치를 얻어온다.
+ -->

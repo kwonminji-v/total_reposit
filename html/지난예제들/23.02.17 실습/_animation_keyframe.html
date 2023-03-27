@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션 키프레임 사용</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: relative;
+            animation: boxmove 5s linear infinite alternate;
+        }
+        /* ↓ 애니메이션 (=움직임) 효과 규칙을 지정할 때 사용
+             CSS 스타일이 변경되는 걸 의미하며, 여러 번 변경가능
+             애니메이션 시작 부분 : 0% 또는 from 사용
+             애니메이션 끝난 부분 : 100% 또는 to 사용 */
+        /* keyframes 구문
+            --> @keyframes animation-name { keyframes_selector {CSS_code}} */
+        @keyframes boxmove {
+            from { left: 0px;}
+            to { left: 300px;}
+        }
+    </style>
+</head>
+<body>
+    <div>애니메이션 박스</div>
+</body>
+</html>

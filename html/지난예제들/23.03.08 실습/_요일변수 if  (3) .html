@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>방문 요일에 따라 변하는 배경색</title>
+</head>
+<body>
+    <h3>수요일은 pink, 다른 요일은 gold</h3>
+    <script>
+        let day = new Date();
+        // ↓ 요일 배열 변수를 선언하고,
+        let week = new Array("일", "월", "화", "수", "목", "금","토");
+        // ↓ day.getDay() : 날짜 객체에 현재 날씨를 저장하는 메소드
+        let a = day.getDay();
+        console.log(a);
+        //↓ 날짜가 수요일일 경우 분홍색
+
+     if(week[3] == "수" )
+        document.body.style.backgroundColor = "pink";
+        // console.log = (a);
+    else
+        document.body.style.backgroundColor = "gold";
+        // + 또는 , 둘 다 문자랑 변수를 연결지어줄 수 있다.
+    document.write("오늘 : " , day.getDate() , "일" , week[a] , "요일");
+    //document.write(day.getDate() , "일" + week[a] + "요일");
+    </script>
+</body>
+</html>

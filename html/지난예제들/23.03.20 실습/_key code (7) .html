@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>키 코드</title>
+    <style>
+        #result {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.5em;
+            color: crimson;
+        }
+    </style>
+</head>
+<body>
+    <h1>키보드의 아무 키나 눌러보세요.</h1>
+    <div id="result"></div>
+
+
+    <script>
+        const body = document.body;
+        const result = document.querySelector("#result");
+
+        body.addEventListener("keydown", (e) => {
+            result.innerText = `code : ${e.code}, key : ${e.key}`; 
+        });
+    </script>
+<!-- 
+document.body를 body라는 변수에 저장한다 
+body 요소에 "keydown" 이벤트 리스너를 추가하고, "keydown" 이벤트가 발생하면, 익명의 화살표 함수가 실행된다
+함수 내에서 result.innerText를 변경하여, "result" 요소에 키보드 이벤트에 대한 정보를 출력
+e.code는 눌린 키의 코드를, e.key는 눌린 키의 문자를 나타낸다.
+e.code는 눌린 키의 고유한 식별자(이름 값)을 나타내는 것이라고 할 수 있다.
+ -->
+
+<!-- 
+키보드 키를 눌렀을 때 키 값 알아내기
+키보드와 관련된 프로퍼티
+event.code : 키 코드, event.key : 키 이름
+(예전에는 event.keyCode를 사용했지만 지금은 폐기됨)
+웹 페이지에서 키보드를 누를 때마다 눌린 키의 코드와 문자를 화면에 표시하는 기능을 구현 
+-->
+</body>
+</html>

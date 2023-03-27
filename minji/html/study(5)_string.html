@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열</title>
+</head>
+<body>
+    <h1>String</h1>
+    <h2>charAt();</h2>
+    <pre>
+        charAt - 문자열에서 특정 인덱스 번호에 해당하는 문자를 반환
+        배열명.charAt(인덱스 번호);
+        문자열도 배열과 마찬가지로 문자 하나하나를 배열로 이용할 수 있다.        
+
+    </pre>
+    <script>
+        var str = "hello world";
+        console.log(str.charAt(4));
+    </script>   
+    <h2>IndexOf, Search</h2>
+    <pre>
+        indexOf - 문자열에서 특정 문자의 인덱스 번호를 반환 / 일치하는 값이 없다면 -1을 반환
+        문자열.indexOf('찾을 문자')
+        대상 문자열에 특정 문자열이 존재하는지 확인할 때 유용하다.
+    </pre>
+    <script>
+        //대상.indexOf('찾을 문자') -> 해당 글자의 인덱스 번호를 알려준다
+        console.log(str.indexOf('world')); // 6출력
+        console.log(str.search('worlds')); //없다면 -1출력
+        //현재 주소를 기반으로 사용자가 보고있는 페이지가 무엇인지를 확인할 때 사용함
+        //location.href
+        console.log(location.href);
+        var currentUrl = location.href;
+        console.log(currentUrl.indexOf('string')); //31
+        //주소 표시줄에서 우리가 원하는 문자열이 어디있는지 확인할 때 사용
+
+    </script>
+
+    <h2>concat</h2>
+    <pre>
+        concat - 문자열과 문자열을 병합
+        문자열.concat(문자열);
+        대상.concat(대상1)
+    </pre>
+    <script>
+        var str2 = "welcome universe";
+        var str3 = str.concat(str2);
+        console.log(str3);  // hello world weclome universe
+        console.log(str);   // hello world
+    </script>
+
+    <h2>replace</h2>
+    <pre>
+        replace - 문자열과 특정 문자를 변경 / a문자열에서 b를 C로 변경
+        a.replace('b','c') / 새로운 변수에 변경한 것을 저장할 수 있음
+        검색된 문자열이 여럿 존재할 경우, 첫번째로 검색된 문자열만 치환
+        대상.replace('바꾸고자 하는 타겟문자,문자열', 값);
+    </pre>
+    <script>
+        var str4 = str2.replace('welcome','bye');
+        console.log(str4);  // bye universe
+        console.log(str2);  // welcome universe
+    </script>
+    <h2>slice</h2>
+    <pre>
+        slice - 인덱스 번호에 해당하는 문자열을 복사하여 추출 / 시작 번호부터 끝 번호 엎 부분까지 추출(-1)
+        문자열.slice(시작번호,끝번호) ex) hello world -> st.slicce(0,5); -> hello까지만 출력된다.
+                                  012345678910 
+        대상.slice(start,end) end의 바로 전 번호까지만 복사해준다.
+    </pre>
+    <script>
+         var str5 = str2.slice(0,7);
+         console.log(str5, str2);  // welcome   welcome universe
+    </script>
+
+    <h2>split</h2>
+    <pre>
+        분리되어 있지 않은 문자열에서 특정 문자열의 패턴을 이용하여 배열로 생성
+        var org = 'httm/css/javascript; -> org.split('/')
+        대상.split('구분자') -> 무엇으로 구분지어서 새로운 배열을 만들것인가
+    </pre>
+    <script>
+        var langs = 'html-css-javascript'
+        var langArr = langs.split('-');
+        console.log(langArr);
+        //문자열을 배열로 분리해주는 함수가 split
+    </script>
+    <!-- 
+   
+split - 분리되어 있지 않은 문자열에서 특정 문자열의 패턴을 이용하여 배열로 생성
+var org = 'httm/css/javascript; -> org.split('/')
+ -->
+</body>
+</html>

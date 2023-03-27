@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function createDIV() {
+        // id를 이용해 body 태그 객체 생성 (부모 객체)
+        let obj = document.getElementById("parent");
+        // div 요소 생성 (div DOM 객체 생성)
+        // html에 작성되지 않아도, div를 만들어 줄 수 있음.
+        let newDIV = document.createElement("div");
+        // newDIV 요소에 텍스트 문구 추가
+        newDIV.innerHTML = "새로 생성된 DIV입니다.";
+        // newDIV 요소의 id 속성에 myDiv 값을 입력
+        newDIV.setAttribute("id", "myDiv");
+        // newDIV 요소의 스타일 지정
+        newDIV.style.fontSize = "15px";
+        newDIV.style.backgroundColor = "yellow";
+        // newDIV 요소에 클릭 동작이 수행되면 함수 수행
+        newDIV.onclick = function() {
+        // 이 부분을 실행하면 newDIV 객체가 부모 객체의 요소를 물려받고, 자신은 부모 클래스로부터 독립된다.
+        let p = this.parentElement;  // 부모 HTML 태그 요소
+        p.removeChild(this);         // 자신을 부모로부터 제거
+        };
+        // newDIV 객체를 parent 태그 객체의 지식 객체로 만듬
+        obj.appendChild(newDIV);
+        }
+</script>
+<body id="parent">
+    <h3>DIV 객체를 동적으로 생성, 삽입, 삭제하는 예제</h3><hr>
+    <p>DOM 트리에 동적으로 객체를 삽입할 수 있습니다.
+        createElement(), appendChild(), removeChild()
+        메소드를 이용하여 새로운 객체를 생성, 삽입, 삭제하는 예제
+    </p>
+    <p><a href="javascript:createDIV()">DIV 생성 </a></p>
+</body>
+</html>
+<!-- 
+document와 selector는 웹 페이지의 요소에 엑세스하고 조작하는데 사용되는 자바스크립트 개념
+
+document: document 객체는 웹 페이지의 모델을 나타내며, 웹 페이지의 콘텐츠, 구조 및 스타일에 엑세스 하고
+조작할 수 있는 기능을 제공한다. 
+document 객체는 웹 페이지의 DOM(Document Object Model)을 표현하며, 웹 페이지의 모든 요소와 속성에 대한 정보를 포함한다.
+
+selector : selector는 특정 요소를 선택하고 참조하는데 사용되는 방법을 나타낸다
+CSS 선택자와 유사한 문법을 사용하여 웹 페이지의 요소를 찾고 선택할 수 있다.
+자바스크립트에서는 querySeletor와 querySelectorAll과 같은 메소드를 사용하여
+선택자를 이용해 원하는 요소를 선택한다
+
+예를 들어, document.querySelector('.className')을 사용하면 클래스 이름이
+           'className'인 첫 번째 요소를 선택할 수 있다.
+
+최종적으로, document는 웹 페이지의 DOM을 나타내는 객체이며
+selector는 웹 페이지의 특정 요소를 찾고 선택하기 위한 방법이다.
+document 객체와 함께 사용되는 선택자 메소드를 사용하여 웹 페이지의 요소를 조작할 수 있다.
+ -->

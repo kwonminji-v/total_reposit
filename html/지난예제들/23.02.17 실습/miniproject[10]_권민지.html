@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 만들기</title>
+    <style>
+        table {
+            padding: 10px;
+            text-align: center;
+            font-size: 12px;
+            border: 1px solid #e6ecd4;
+            font-family: 돋움;
+            color: #444444;
+            height: 30px;
+            border-collapse: collapse;
+         }
+         th,td {
+            padding: 10px;
+            border: 1px solid #e6ecd4;
+         }
+         .col1 {
+            width: 80px;
+         }
+         .col2,.col3 {
+            width: 150px;
+         }
+         .col4 {
+            width: 120px;
+         }
+         .col5 {
+            width: 100px;
+         }
+         #title {
+            background-color:#f8f9f2;
+            color: #7a7e6f;
+         }
+    </style>
+</head>
+<body>
+    <h3>
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/009/369/014/small/3d-rendering-green-tick-icon-isolated-free-png.png" alt="이미지" width="15"> 영어 교재 안내</h3>
+    <table>
+        <tr id="title">
+            <th class="col1">수강레벨</th>
+            <th class="col2">코스 A</th>
+            <th class="col3">코스 B</th>
+            <th class="col4">수강 기간</th>
+            <th class="col5">세부내용 보기</th>
+        </tr>
+        <tr>
+            <td>레벨 1</td>
+            <td>Side by Side 1</td>
+            <td>American Headway 1</td>
+            <td>1개월</td>
+            <td><img src="\\192.168.0.132\공유폴더\풀스택 박용준강사님\media\세부내용보기.png" alt="이미지"></td>
+        </tr>
+        <tr>
+            <td>레벨 2</td>
+            <td>Side by Side 2</td>
+            <td>American Headway 2</td>
+            <td>1개월</td>
+            <td><img src="\\192.168.0.132\공유폴더\풀스택 박용준강사님\media\세부내용보기.png" alt="이미지"></td>
+        </tr>
+        <tr>
+            <td>레벨 3</td>
+            <td colspan="2">Exploring English 1</td>
+            <td>2개월</td>
+            <td><img src="\\192.168.0.132\공유폴더\풀스택 박용준강사님\media\세부내용보기.png" alt="이미지"></td>
+        </tr>
+        <tr>
+            <td>레벨 4</td>
+            <td colspan="2">Exploring English 2</td>
+            <td>2개월</td>
+            <td><img src="\\192.168.0.132\공유폴더\풀스택 박용준강사님\media\세부내용보기.png" alt="이미지"></td>
+        </tr>
+
+    </table>
+</body>
+</html>

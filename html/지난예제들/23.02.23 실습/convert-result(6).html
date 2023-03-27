@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>화씨를 섭씨로 변환하기</title>
+    <script src="_js_file.js/convert-result.js"></script>
+</head>
+<body>
+    
+</body>
+</html>
+<!-- 숫자형으로 변환하기 Number ()
+parseInt() 함수 : 괄호 안의 값을 정수로 변환
+parseFloat() 함수 : 괄호 안의 값을 실수로 변환
+
+문자열로 변환하기 - toString() 함수
+    null 데이터형과 undefined 데이터형을 제외한 데이터 형을 문자열 데이터로 변환
+    원래 값 뒤에 마침표를 붙이고 함수를 작성
+    숫자를 문자열로 변환할 때에는 basis 옵션을 사용해 숫자가 10진수인지, 2진수인지 같이 지정.
+
+    값.toString()
+    값.toSting(basis)
+    num = 10    // 원래 값 숫자형
+    isEmpty = true  // 원래 값 논리형
+    num.toString()  //'10', 10진수 문자열
+    num.toString(2) // '1010', 2진수 문자ㅕㄹ
+    isEmpty.toString() //'true'
+
+문자열로 변환하기 - String() 함수 String(값)
+    null 데이터형과 undefined 데이터 형을 포함해서 문자열 데이터로 변환
+    String() 함수의 괄호 안에 값을 넣어서 변환
+    null이면 'null'로, undefined이면 'undefined'로 변환. 그 외에는 toString()- 함수와 같다.
+    isFull = false     //원래 값 논리형
+    initValue = null   //원래 값 null형
+    String(isFull)     //'false'
+    String(initValue)  //'null' 
+
+논리형으로 변환하기 - Boolean() 함수  Boolean(값)  true, false
+    0이 아닌 값은               true    0이면           false
+빈문자열("")이 아닌 모든 문자열  true   빈문자열         false
+    undefinde 는 false이다
+    Boolean(5 * 4)      //true
+    Boolean("hi?")      //true
+    Boolean(undefined)  //false--> 

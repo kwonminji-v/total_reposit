@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메소드 체이닝</title>
+    <script src="http://code.jquery.com/jquery-3.6.3.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#p2').slideDown (2000)
+            $('#p2').slideUp (3000)
+            $('#p2').fadeTo ('slow',0.5);
+        });
+            
+    </script>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            text-align: center;
+            font-size: 14px;
+        }
+        #p1 {
+            padding: 5px;
+            border: 1px solid hs1;
+            color: blue;
+            background-color: hsl(116, 56%, 82%);
+        }   
+        #p2 {
+            padding: 10px;
+            display: none;
+            color: red;
+            background-color: yellow;
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <p id="p1">[오늘의 공지사항]</p>
+    <p id="p2">오늘은 jQuery 프로그램을 학습합니다.<br>
+        예제를 작성한 후 실행해 보세요.
+    </p>
+</body>
+</html>

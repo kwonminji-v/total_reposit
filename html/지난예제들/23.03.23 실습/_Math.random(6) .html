@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또 번호 생성기</title>
+    <style>
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 10vh;
+        }
+        button {
+            width: 200px;
+            padding: 20px;
+            font-size: 1.2em;
+        }
+        #result {
+            padding: 20px;
+            font-size: 2.5em;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <h1>로또 번호 생성기</h1>
+    <button>클릭</button>
+    <div id="result"></div>
+    <script>
+        const result = document.querySelector("#result");
+        const button = document.querySelector('button');
+
+        const luckyNumber = {
+            digitCount: 6, //숫자 6개
+            maxNumber: 45, //최대 숫자 45개
+        };
+
+        button.addEventListener("click" , () => {
+            let {digitCount, maxNumber} = luckyNumber;
+            let myNumber = new Set(); //숫자가 중복되지 않게 하기 위해 set을 생성
+            
+            // for (let i =0; i < digitCount; i++) {
+                //     myNumber.add(Math.floor(Math.random() * maxNumber));
+                // }
+                while (myNumber.size < digitCount) {
+                    let number = Math.floor(Math.random() * maxNumber)+1;
+                    myNumber.add(number);
+                }
+                console.log(myNumber.sort);
+            result.innerText = `${[...myNumber]}`;  //set을 array로 변환
+        })
+        
+
+        
+        //myNumber Set 객체를 배열로 변환하기 위해 전개 연산자(...를 사용)
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="C:\Users\Administrator\Desktop\jquery\jquery-3.6.3.min.js"></script>
+    <script>
+        $(document).ready(function(){ 
+            // 내부 글자 변경하기
+            $('h1:nth-child(1)').text('<a href="#">text()</a>');
+            $('h1:nth-child(2)').html('<a href="#">html()</a>');
+
+        })
+    </script>
+</head>
+<body>
+    <h1>Header - 0</h1>
+    <h1>Header - 1</h1>
+</body>
+</html>
+<!-- text() 메소드를 사용하면 일반글자처럼 출력
+     html() 메소드를 사용하면 글자에 태그가 적용 -->

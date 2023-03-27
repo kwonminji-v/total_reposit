@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>드래그 & 드롭</title>
+    <!-- Drag & Drop은 쇼핑몰에서 상품을 카트에 담을 때 많이 사용된다.
+         메일이나 게시판에서 파일을 첨부할 때도 사용한다.
+         setData(type, data)
+            끌어다 놓기 위해 새로운 type을 정의하고 끌어올 data를 저장한다.
+        getData(type)
+            setData에서 정의한 type을 가져온다.
+         -->
+     <style>
+        #shopping_cart {
+            width: 610px;
+            height: 100px;
+            padding: 10px;
+            border: 1px dotted red;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+        .shopping_cart_item {
+            position: relative;
+            display: inline-block;
+            margin-right: 10px;
+
+        }
+        /* 중첩되는 문제를 해결하기 위해 shopping_cart_item 클래스를 추가하여
+           이미지를 절대적인 위치에 위치시키는 것이 아니라, 상대적인 (relative)위치에 배치하도록 수정할 수 있습니다. */
+     </style>
+         <script>
+            /* ↓ allowDrop 함수는 드롭 대상 요소에서 dragover 이벤트가 발생했을 때 호출되는 이벤트 핸들러 함수입니다.
+                 이벤트의 기본 동작을 막기 위한 코드인 ev.preventDefault() 만을 포함합니다.
+                 브라우저가 수행하는 기본 동작 (ex: 요소 드롭을 혀옹하지 않음)을 막습니다.*/
+            function allowDrop(ev){
+                ev.preventDefault();
+            }
+
+            /*  ↓ drag함수는 드래그할 요소에서 dragstart 이벤트가 발생했을 때 호출되는 이벤트 핸들러 함수입니다.
+                  ev.dataTransfer.setData("text", ev.target.id) 코드는 드래그된 요소의 데이터를 설정하는 코드입니다.
+                  이 경우 "text" 데이터 형식을 사용하며, 드래그된 요소의 ID 값을 데이터로 설정합니다.
+                  이 데이터는 이후 드롭 이벤트에서 사용됩니다.*/
+            function drag(ev) {
+                ev.dataTransfer.setData("text", ev.target.id);
+            }
+            function drop(ev) {
+                ev.preventDefault();
+                let data = ev.dataTransfer.getData("text");
+                let img = document.getElementById(data).cloneNode(true);
+                img.className = "shopping_cart_item";
+                ev.target.appendChild(img);
+            }
+            // function removeImg() {
+            //     let cart = document.getElementById("shopping_cart");
+            //     let img = cart.querySelector("img");
+            //     if (img) {
+            //         cart.removeChild(img);
+            //     }
+            // }
+
+            /*  ↓ 쇼핑카트에서 특정 상품 이미지를 제거하는 함수이다.
+                  removeFromCart 함수는 imgId 매개변수로 제거할 이미지 요소의 ID 값을 전달 받습니다.
+                  document.getElementById("shopping_cart")는 shopping_cart ID 값을 가진 요소를 찾아 cart 변수에 저장하는 코드입니다.
+                  
+                  document.getElementById(imgId)는 imgId 값에 해당하는 요소를 찾아 img 변수에 저장하는 코드이다.
+                  
+                  if (img && img.parentNode == cart) 는 img 변수가 null이 아니고,
+                      img 요소의 부모 요소가 cart 변수에 저장된 요소인지 확인하는 조건문입니다.*/
+            function removeFromCart(imgId) {
+                let cart = document.getElementById("shopping_cart")
+                let img = document.getElementById(imgId)
+                if (img && img.parentNode == cart)
+                 /* ↓ cart.removeChild(img)는 cart 요소에서 img 요소를 제거하는 코드입니다.
+                    쇼핑 카트에서 선택한 상품 이미지가 제거됩니다. */
+                    cart.removeChild(img);
+  
+            }
+        </script>
+</head>
+<body>
+    <p>원하는 상품을 카트에 담으세요</p>
+    <div id="shopping_cart" ondrop="drop(event)" ondragover="allowDrop(event)"></div><br>
+    <img id = "img1" src="c:\\media/back1.jpg" draggable="true" ondragstart="drag(event)" onclick="removeFromCart('img1')">
+    <img id = "img2" src="c:\\media/back2.jpg" draggable="true" ondragstart="drag(event)" onclick="removeFromCart('img2')">
+    <img id = "img3" src="c:\\media/back3.jpg" draggable="true" ondragstart="drag(event)" onclick="removeFromCart('img3')">
+    <img id = "img4" src="c:\\media/back4.jpg" draggable="true" ondragstart="drag(event)" onclick="removeFromCart('img4')">
+    <img id = "img5" src="c:\\media/back5.jpg" draggable="true" ondragstart="drag(event)" onclick="removeFromCart('img5')">
+    <img id = "img6" src="c:\\media/back6.jpg" draggable="true" ondragstart="drag(event)" onclick="removeFromCart('img6')">
+
+
+
+
+
+    
+    <!-- <img id = "img1" src="c:\\media/back1.jpg" draggable="true" ondragstart="drag(event)">
+    <img id = "img2" src="c:\\media/back2.jpg" draggable="true" ondragstart="drag(event)">
+    <img id = "img3" src="c:\\media/back3.jpg" draggable="true" ondragstart="drag(event)">
+    <img id = "img4" src="c:\\media/back4.jpg" draggable="true" ondragstart="drag(event)">
+    <img id = "img5" src="c:\\media/back5.jpg" draggable="true" ondragstart="drag(event)">
+    <img id = "img6" src="c:\\media/back6.jpg" draggable="true" ondragstart="drag(event)"> -->
+</body>
+
+</html>

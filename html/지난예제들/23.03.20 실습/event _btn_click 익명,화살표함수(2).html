@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            border-style: 1px solid #ccc;
+        }
+
+        p {
+            margin: 20px;
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="alert('클릭!')">Click</button>
+
+    <script>
+        
+        // 익명함수 사용
+        // 익명함수는 일반함수와 달리 변수 및 객체의 선언이 먼저 되지 않으면 에러가 발생한다.
+        button.addEventListener("click", function() {
+            document.body.style.backgroundColor = "black";
+        });
+        const button = document.querySelector("button");
+        
+    /* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+    // 정석의 방식
+    function changeBackground()  {
+        document.body.style.backgroundColor = "yellow";
+    }  
+    const button = document.querySelector("button");
+    button.addEventListener("click", changeBackground);
+
+    ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+    const button = document.querySelector("button");
+
+        button.onclick = function() {
+            document.body.style.backgroundColor = "red"
+        }
+ 
+    alert 창이 안뜨는 이유는 버튼 요소에 대한 onclick 이벤트가 위에 html body 태그 안에서 이미 설정되었기 때문이다.
+    button.onclick = chagneBackground;
+    onclick 이벤트와 충돌이 발생하고, 경고창이 발생하지 않게 됩니다.
+    대부분의 브라우저에서는 자바스크립트 코드의 이벤트 핸들러가 우선적으로 실행된다.
+
+    ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ   
+    const button = document.querySelector("button");
+
+        button.addEventListener("click", () => {
+            document.body.style.backgroundColor = "green";
+        }) */
+    </script>
+</body>
+</html>

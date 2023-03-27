@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../23.03.16 실습/main.css">
+    <link rel="stylesheet" href="../23.03.16 실습/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title" onclick="change()">My Profile</h1>
+    <div id="profile">
+        <img src="c:\media\girl.png" id="img_1" alt="도레미">
+        <div id="desc">
+            <p class="user"><span>이름 : 권민지</span></p>
+            <p class="user">주소 : 용인시</p>
+            <p class="user">연락처 : 1234-5678</p>
+        </div>
+    </div>
+    <!-- title.innerText == "My Profile" ? "내 프로필" : "My Profile";
+         title 객체의 innerText 속성 값을 변경하지 않는다.
+         삼항 연산자는 단지 조건에 따라 "내 프로필" 또는 "My Profile" 값을 반환할 뿐
+         첫 번째 부분 title.innerText = 는 반환된 값을 title.innerText에 할당하는 역할을 한다.
+         title 객체의 텍스트가 조건에 따라 교대로 변경된다 (토글 효과) -->
+    <script>
+        const title = document.getElementById("title");
+        const pic = document.getElementsByTagName("img");
+        const users = document.getElementsByClassName("user");
+
+        title.addEventListener("click", function() {
+            title.innerText = title.innerText == "My Profile" ? "내 프로필" : "My Profile";
+        });
+
+        pic[0].addEventListener("click", function() {
+            pic[0].src = pic[0].src.endsWith("c:/media/girl.png") ? "c:/media/boy.png" : "c:/media/girl.png";
+
+        });
+ // pic[0].src = pic[0].src == "file:///C:/media/girl.png"? "file:///C:/media/boy.png" : "file:///C:/media/girl.png"
+
+
+        console.log(pic[0].src);
+
+        for (let i = 0; i<users.length; i++) {
+            users[i].addEventListener("click", function(){
+                if (this.innerText == "이름 : 권민지") {
+                    this.innerText = "이름 : 진달래";
+                    this.style.fontweight = "bold";
+                } else if (this.innerText == "이름 : 진달래") {
+                           this.innerText = "이름 : 권민지";
+                           this.style.fontweight = "normal";
+                }
+            })
+        }
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // title.addEventListener("click", function () {
+        //     if (title.innerText == "My Profile") {
+        //         title.innerText = "내 프로필";
+        //     }else {
+        //         title.innerText = "My Profile";
+        //     };
+        // });
+        // for (let i = 0; i < pic.length; i++) {
+        //     pic[i]
+        // }
+        // pic[0].addEventListener("click", function() {
+        //    //if (pic[0].src == "girl.png"){}
+        //     pic[0].src = "c:\\media\\boy.png";
+        //     // } else {
+        //     // pic[0].src = "girl.png";
+        //     // };
+        //  } );
+
+        //  for (let i = 0; i < users.length; i++) {
+        //     users[i].addEventListener("click", function() {
+        //         if (this.innerText =="이름 : 권민지") {
+        //             this.innerText = "이름 : 진달래";
+        //             this.style.fontweight = "bold";
+        //         } else if (this.innerText == "이름 : 진달래") {
+        //             this.innerText = "이름 : 권민지"
+        //             this.style.fontweight = "normal";
+        //         }
+        //     })
+        //  }
+    </script>
+</body>
+</html>
+
+<!--  -->

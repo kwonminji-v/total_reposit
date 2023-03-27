@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let count = 0;
+        let repeat = setInterval(() => {        //타이머 시작
+            console.log("안녕하세요?")
+            count++;                            //인사말 표시 횟수가 1 증가
+            if (count === 5)
+                clearInterval(repeat);              //repeat = 5라면 타이머 종료
+        }, 1000);
+    </script>
+</body>
+
+</html>

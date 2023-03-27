@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수의 재선언과 재할당</title>
+</head>
+<body>
+    <script src="variable-2.js"></script>
+</body>
+</html>
+
+<!-- 자바스크립트에서는 변수를 선언할 때 3개를 사용할 수 있다.
+     var, let, const 이 3가지 선언 타입을 어떨 때 사용하는지 비교해보자
+    
+     let과 const는 ES6부터 생긴 변수들이다. 그 이전 버전에서는 var을 사용했다.
+    
+     var과 let은 크게 다르지 않고, 대부분의 경우 서로 바꿔 사용해도 크게 문제는 없음
+    
+     특징을 살펴보면
+     1. var은 한번 선언된 변수를 다시 선언할 수 있다.
+     ex ) var name = 'cookie';
+          console.log(name);  -> cookie가 출력
+          var name = 'miro';
+          console.log(name);  -> miro가 출력
+    name이 두번이나 선언됐는데 전혀 문제가 발생하지 않는다.
+
+    같은 상황에서 var대신 let을 사용하면 아래와 같은 에러 메세지를 출력한다.
+        (name)이 이미 선언되었다ㅡㄴ 뜻
+    
+    2. var은 선언하기 전에 사용할 수 있다.
+       console.log(name);  -> undefinded
+       var name = 'cookie';
+        name이 선언되기 전에 먼저 콘솔로 직었는데도 오류가 발생하지 않았다.
+        물론 그렇다고 할당된 값이 출력된 것은 아니고, undefinded가 출력되었다.
+    
+    왜 이렇게 동작 하는지는 아래와 같은 코드 동작으로 설명이 가능ㅎ다ㅏ.
+
+        var name;
+        console.log(name);  -> undefinded
+    
+        name = 'cookie'; 
+        var로 선언한 모든변수는 코드가 실제로 이동하는 것은 아니지만, 
+        최상위로 끌어 올려진 것처럼 동작한다 ->이것을 hoisting 이라고 한다.-->

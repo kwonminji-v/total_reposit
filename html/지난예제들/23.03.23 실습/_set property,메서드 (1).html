@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 
+set - 배열은 키 없이 여러개의 값을 모아 놓은 것으로, 값이 중복되어도 상관없다.
+set은 키 없이 여러개의 값을 모아놓은 건 배열과 같지만, 값이 중복되지 않는다.
+ -->
+ <div> </div>
+
+<script>
+    let numSet1 = new Set()
+    numSet1.add("one");   //{"one"}
+    numSet1.add("two")    //{"two"}
+    console.log(numSet1); // ["one" , "two"]
+
+    // 위 문장을 체이닝 해서 작성한다면 
+    //let numSet1 = new Set().add("one").add("two")
+    let numSet2 = new Set([1,2,3])
+    console.log(numSet2); //{1,2,3}
+
+    let numSet3 = new Set([1,2,1,3,1,5])
+    console.log(numSet3); //{1,2,3,5}
+    // 중복 값이 있는 배열을 받아도 중복 값을 모두 제거하고 set을 만든다.
+/* 
+set의 프로퍼티와 메서드
+예) 강의실에 출석 체크하기 위해 입장하는 학생 이름을 저장할 경우
+학생이 잠시 나갔다가 다시 강의실에 들어와도 학생 이름을 2번 저장할 필요가 없으므로 이 경우에는 배열보다 set이 적합하다.
+set메서드의 종류에는 size =  개수를 반환한다 add(값) = 추가한다 has(값) = 값이 있는지 체크한다 */
+
+let student = new Set();
+student.add("도레미")
+student.add("백두산")
+student.add("도레미")
+console.log(student);  //{'도레미', '백두산'}
+//keys(), values(), entries() 메서드는 이터러블 객체를 반환한다.
+
+console.log(student.keys())  //{'도레미', '백두산'}
+console.log(student.values())  //{'도레미', '백두산'}
+console.log(student.entries())  //{'도레미', '백두산'}
+//[값,값] 형식으로 모든 값을 반환한다. entries()
+
+/* 
+이터러블 객체
+이터러블 객체에서 이터러블(iterable)이란, '순서대로 처리할 수 있다'는 뜻
+예를 들어, 배열은 인덱스와 값을 가지고 있으므로 인덱스 0부터 차례대로 값을 가져와서 처리할 수 있기 때문에 이터러블 객체이다.
+String, Array, Map, Set은 모두 이터러블 객체라 한다.
+이터러블 객체에서는 다음과 같은 기능을 사용할 수 있다.
+for...of (반복문)
+전개 연산자 (...)
+구조 분해 할당
+*/
+
+let hi = "hello"
+
+//for..of로 반복문을 만들어보자
+
+for(let ch of hi) {
+    console.log(ch)
+}  // h , e , l , l , o (하나하나 개별로 출력된다.)
+
+let chArray = [...hi]
+console.log(chArray); //['h','e','l','l','o']
+
+
+let[ch1,ch2] = hi
+console.log(ch1);
+console.log(ch2);
+
+/* 
+Iterator 객체
+콘솔 창에서 배열을 만든 후, 배열의 프로퍼티, 메서드를 확인해본다.
+이터러블 객체에는 Symbol.iterator 메서드가 포함되어 있다.
+    '이터러블 프로토콜' 이라고 한다.
+Symbol.iterator 메서드를 실행하면 iterator 객체가 반환된다.
+*/
+
+let arr = [5,6,7,8,9]
+let it = arr[Symbol.iterator]();
+console.log(it);
+console.log(it.next()); //{value: 5, done: false}
+console.log(it.next()); //{value: 6, done: false}
+console.log(it.next()); //{value: 7, done: false}
+console.log(it.next()); //{value: 8, done: false}
+console.log(it.next()); //{value: 9, done: false}
+console.log(it.next()); //{value: undefined, done: true}
+
+/* 
+이터레이터 객체란 객체의 요소를 순서대로 꺼낼 수 있는 객체
+next() 메서드가 있기 때문에 가능하다.
+next() 메서드는 value와 done을 반환한다. value - 다음 값, done - 이터레이터 객체가 끝났는지 여부
+
+일반 객체는 이터러블 하지 않다.
+객체 안에 많은 자료를 저장하고 처리해야 하기때문에 전개 연산자나 구조 분해 할당을 사용하거나 for..of문으로
+순회하는 것이 편리하다. / 일반 객체를 이터러블하게 만들어서 사용한다 (제너레이터 함수 사용)
+
+이터러블 객체에는 Symbol.iterator 메서드가 포함된다는 것은 해당 객체가 for..of 루프를 사용하여 순회 가능하다는 의미
+이터레이터 객체는 next() 메서드를 가지고 있어서 for..of 루프를 사용하여 객체를 순회할 수 없다.
+Symbol은 유일한 값을 나타내기 위한 자바스크립트의 데이터 타입 중 하나 , 객체의 프로퍼티를 식별하는데 사용
+예를들어, Map이나 Set과 같은 자료구조에서 키로 Symbol 값을 사용하여 다른 키와 혼동되지 않고 고유한 값을 가지게 해줌.
+내부적으로 사용되는 프로퍼티를 표시하기 위해 사용
+*/
+
+
+</script>
+</body>
+</html>

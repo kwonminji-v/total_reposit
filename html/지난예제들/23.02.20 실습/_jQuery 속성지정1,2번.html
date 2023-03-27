@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Basic</title>
+    <script src="C:\Users\Administrator\Desktop\jquery\jquery-3.6.3.min.js"></script>
+    
+    <!-- 속성을 지정하는 방법
+    1. 첫 번째 매개변수에 속성의 이름을 입력하고 두 번째 매개변수에 속성 값을 입력하는 방법 
+    $('img').attr('src','http://placehoid.it/300*200') -->
+    <script>
+        // 이벤트를 연결합니다.
+        $(document).ready(function () {
+            // 속성을 지정합니다.
+            $('img').attr('alt', 'jQuery 라이브러리를 사용한 속성 지정');
+            $('img').attr('src', 'http://placehold.it/100x100');
+            $('img').attr('width', '100');
+        });
+    </script>
+</head>
+
+<body>
+    <img />
+    <img />
+    <img />
+</body>
+
+</html>
+
+<!-- 
+2. attr() 메소드의 매개변수에 객체를 넣어 속성을 조작하는 방법
+$('img').attr({
+    src:'http://placehold.it/300*200',
+    width : 300, height : 200 -->
+
+<script>
+    $(document).ready(function () {
+        $('img').attr({
+            alt: 'jQuery 라이브러리를 사용한 속성 지정',
+            src: 'http://placehold.it/100x100',
+            width: 100
+        });
+    });
+</script>
+</head>
+
+<body>
+    <img />
+    <img />
+    <img />
+</body>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masonry 실습</title>
+    <script src="http://code.jquery.com/jquery-3.6.3.js"></script>
+    <!-- masonry : 여러 이미지들을 페이지 크기와 폭에 맞게 알아서 잘 배치해줌
+         SNS 이미지 표시나 웹 쇼핑몰 제품 표현 시 활용 -->
+    <script src="http://masonry.desandro.com/masonry.pkgd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+
+<script>
+    window.onload = function () {
+        var count = 0; //변수 선언
+        var image=document.getElementById("image"); // img 태그 객체 생성
+        for (var v=0; v<100; v++) {
+        var frames = [ // 이미지 배열 객체 생성
+            'c:\\media\\apple.png','c:\\media\\banana.png', 'c:\\media\\mango.png' ]; 
+        setInterval(function() { //setInterval : 해당 동작을 반복적으로 실행
+            image.src = frames[count % frames.length]; 
+            count = count + 1;
+        }, 5000 / 20);
+    }};
+</script>
+
+   <script>
+        $(document).ready(function() {
+            for(var i=0; i<100; i++) {
+                $('<div><img src="c:\\media\\apple.png"></div>').css ({
+                    width : 100,
+                    height:Math.floor(Math.random()*100)+50
+                }).appendTo('body');
+                $('<div><img src="c:\\media\\banana.png"></div>').css ({
+                    width : 100,
+                    height:Math.floor(Math.random()*100)+50
+                }).appendTo('body');
+                $('<div><img src="c:\\media\\mango.png"></div>').css ({
+                    width : 100,
+                    height:Math.floor(Math.random()*100)+50
+                }).appendTo('body');}
+            
+                $('body').masonry ({
+                    columnWidth:110
+                });
+            });
+        </script>   
+</head>
+<body>
+    <img id="image">
+</body>
+</html>
+<!-- // jQuery와 aapendTo를 활용해 body 태그 안에 이미지 객체 생성
+// random 메소드를 활용해 임의의 높이를 갖는 100개의 박스 생성
+// 세로 랜덤 함수 0~99 +50을 하면 51~150까지 세로가 랜덤으로 지정됨
+// mansonry 플러그인을 적용한다.
+//body의 masonry 함수를 이용해 열 넓이를 110으로 지정
+appendTo 메소드를 활용해 <div></div>태그가 이 안에 위치하게 된다. 
+<-- 타이머 함수
+setInterval(함수 , 시간) : 특정한 시간마다 함수 실행
+setTimeout(함수 , 시간) : 특정한 시간 후에 함수 실행
+clearInterval(식별 번호) : setIterval() 함수로 설정한 타이머 제거 
+clearTimeout(식별 번호) : setTimeout() 함수로 설정한 타이머 제거
+
+라이트 박스 : 배경을 어둡게 하고 정보는 밝게 보여주는 플러그인-->

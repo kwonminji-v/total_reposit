@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math를 활용한 구구단 연습</title>
+</head>
+<body>
+    <script>
+        // ↓ 아래에 실행되는 난수 함수
+        function randomInt() {
+            return Math.floor(Math.random() * 9 + 1);
+        /* (Math.random() * a + 1) -> 1부터 a까지 무작위의 숫자를 생성해줌
+            Math.random() * 9 + 1은 1부터 10까지
+            Math.floor(m)은 m의 소수점 이하를 제거한 숫자를 정수로 변환하여 출력해줌 
+            Math.floor를 해주지 않으면 소숫점 난수가 발생하기에 꼭 필요하다.*/
+        }
+    </script>
+
+    <h3>Math를 활용한 구구단 연습</h3>
+    <script>
+        /* 구구단 문제 생성, ques는 문자열로 쓰임
+            randomInt : 랜덤 난수 출력 (임의 함수) */
+        let ques = randomInt() + "*" + randomInt();
+        // 사용자로부터 답 입력 , 0은 최초값
+        let user = prompt(ques + "값은 얼마입니까? " , undefined);
+        //취소 버튼이 클릭된 경우 (null)
+        if(user == null) {
+            document.write("구구단 연습을 종료합니다.");
+        } else {
+            let ans = eval(ques); //구구단 정답 계산 , 문자열인 ques를 숫자로 변환
+            if(ans == user)       // 정답과 사용자 입력 값이 동일한지 체크
+            document.write("정답! <br>");
+            else document.write("틀렸습니다. <br>");
+            document.write(ques + " = " + "<strong>" + ans + "</strong>입니다. <br>");
+        }
+        </script>
+</body>
+
+</html>

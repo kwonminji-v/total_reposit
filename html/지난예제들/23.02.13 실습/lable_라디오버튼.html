@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>라디오 버튼 만들기</title>
+</head>
+<body>
+    <h3>먹고 싶은 것 하나만 선택</h3>
+    <hr>
+    <form>
+        <!-- label 태그
+            label 태그로 묶인 것은 한 몸처럼 움직임
+            본 예제에서는 label에 묶은 문자나 그림을 클릭해도 라디오 버튼이 클릭됨
+            radio checkbox와 다르게 같은 form 태그 안에서는 한 번에 하나의 버튼만 생성됨 -->
+        <label>
+            <input type="radio" name="menu" value="1"> 짜장면
+            <img src="c:\media\jajang.png">
+        </label><br>
+         <label>
+            <input type="radio" name="menu" value="2" checked>짬뽕
+            <img src = "c:\media\jjambbong.png"><br>
+         </label><br>
+         <label>
+            <input type="radio" name="menu" value="3">탕수육
+            <img src="c:\media\tangsuyuk.png"><br>
+         </label><br>
+    </form>
+</body>
+</html>
+<!-- value 폼 요소가 선택된 상태일 때, 웹 서버에 전송되는 값
+<input type="radio" 라디오 버튼 만들기
+name 속성 값이 같은 라디오 버튼들이 하나의 그룹 형성
+name = "요소 이름" value = "요소 값" 이름이 같은 name을 가진 하나만 선택이 가능하다.
+<select> 드롭 다운 리스트 목록 출력, 목록을 선택하는 입력 방식
+<option> 태그로 항목 하나 표현 -->

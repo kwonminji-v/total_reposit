@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #user-number {
+            width: 60%;
+            padding: 10px 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 32%;
+            padding: 8px 15px;
+            margin-left: 5px;
+        }
+
+        #result {
+            margin-top: 30px;
+            width: 100%;
+            text-align: center;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="container">
+    <h1>10보다 작은 숫자를 입력하세요</h1>
+    <label for="">
+        <input type="text" name="" id="user-number">
+    </label>
+    <button>입력</button>
+    <div id="result"></div>
+</div>
+
+<script>
+    const userNumber = document.querySelector("#user-number");
+    const button = document.querySelector("button");
+
+    button.addEventListener("click", function(){
+        let n = userNumber.value;
+    try {
+        if (n === "" || isNaN(n)) { throw "숫자를 입력하세요."};
+        n = Number(n);
+        if (n <= 10) {
+            document.querySelector("#result").innerText = n;
+            } if(n > 10) {throw "10보다 작은 수를 입력하세요."
+        };
+    } catch (err) {
+        alert(err);
+    }finally { userNumber.value = "";}
+    })
+    </script>
+
+</body>
+
+</html>
+<!-- try, catch, finally
+try 실행할 코드
+catch try 블록에서 예외가 발생했을 때 실행할 코드입니다.
+finally 예외와 상관없이 실행됩니다.
+throw() 사용자가 직접 예외를 만들고 오류 메세지를 지정한다.  -->

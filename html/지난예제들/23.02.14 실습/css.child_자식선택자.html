@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자식 선택자</title>
+    <style>
+        body > div > h3 { color: red;}
+        body > p { color: green; background-color: yellow;}
+        body > h3 > tel > home { color: blue;}
+        /* body안에 있는 h3 -> tel -> home에만 글자 색상을 파란색으로 적용 */
+        /* 바로 아래 요소인 자식 요소에만 스타일이 적용됨! */
+        /* 아래 하나더 h3태그가 적혀있지만 반영되지 않는다 */
+    </style>
+</head>
+<body>
+    <div>
+        <h3>Child Selector_1</h3>
+    </div>
+    <p>자식 선택자</p>
+    <h3>
+        <sno>123456</sno><br>
+        <std>김상준</std><br>
+        <tel>
+            <office>02-4567-1111</office><br>
+            <home>010-6636-4897</home>
+        </tel>
+    </h3>
+    <h3>sadfsafsfs</h3>
+</body>
+</html>

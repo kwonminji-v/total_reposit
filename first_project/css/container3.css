@@ -1,0 +1,58 @@
+<<<<<<< HEAD:Project_1/css/container3.css
+#container3{
+    width:99vw;
+    height:100vh;
+    position: relative;
+   
+}
+
+#container3 #image{
+    width:100%;
+    height:100%;
+    background-image: url('porsche-container3.jpeg');
+    background-size: cover;
+    background-position: center center;
+    display:flex;
+    justify-content: center;
+    
+}
+
+#container3 #image:hover {
+    filter: brightness(50%);
+}
+
+
+
+#container3 #text {
+    position: absolute;
+    top : 50%;
+    left: 8%;
+    font-size:50px;
+    color:white;
+    font-weight: bold;  
+}
+
+
+
+
+
+=======
+#container3 {
+  width: 99vw;
+  height: 100vh;
+}
+#container3 .img{
+  background: url("../img/4.webp") center center no-repeat;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: end;
+}
+.intro {
+  color: white;
+  font-size: 60px;
+  font-weight: bold;
+  margin-bottom: 150px;
+  margin-left: 100px;
+}
+>>>>>>> 598875116ea00e0b6ab95cd47d35eb33f41a110e:first_project/css/container3.css

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배경꾸미기</title>
+    <style>
+        div{
+            background-color: skyblue; /* 배경색 지정 */
+            background-size: 100px 100px ;/* 배경 사이즈 지정 */
+            /* background-image: url("C:/media/boy.png"); 배경 이미지 지정 */
+            background-image: url("d:\\banana.png");
+            /* 이미지 출력이 되지 않았을 때, 슬래시 방향을 바꿔주거나, 
+               슬래시를 추가한다면 이미지 출력이 가능함.
+               c or d 드라이브 앞에 file 입력 후 슬래시 추가하는 등의 변경도 가능 */
+            background-repeat: repeat-y; /* 배경 이미지 연속해서 출력 */
+            /*background-repeat : repeat;*/
+            background-position: center center; /* 배경 이미지 기본 위치, x축 , y축 모두 센터 */
+        }
+        /* div 태그 위치에 스타일 태그 추가 */
+        div {
+            /* 200x200 크기의 보라색 배경 생성 */
+            width : 200px;
+            height: 200px;
+            color: blueviolet;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h3>div 박스에 배경 꾸미기</h3>
+    <div> SpongeBob is an over-optimistix 
+         sponge that annoys other characters.
+    </div>
+</body>
+</html>
+<!-- 둥근 모서리 테두리 만들기 - border-radius 
+border-radius : 50px;
+border-radius : 0px 20px 40px 60px; 시계방향 11시, 2시, 4시, 8시 순서 적용-->
+<!-- 이미지 테두리 만들기 - border-image
+모서리 (corner)와 에지(edge)로 구분하며 각각의 이미지 삽입
+border-width와 border-style 역시 미리 지정 필요
+ex) border.png에서 30픽셀 크기 조각으로 이미지 테두리만들기
+border-image : url("border.png") 30 round;
+round : 엣지 이미지 반복 배치 , 테두리 길이만큼
+repeat - 엣지 이미지 반복 배치
+stretch - 엣지 이미지를 테두리 길이만큼 늘여서 배치 -->

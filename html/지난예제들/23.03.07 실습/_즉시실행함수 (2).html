@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>즉시 실행 함수</title>
+</head>
+<body>
+    <!-- 1번 -->
+    <script>
+        (function (a,b) {
+            let sum = a+b;
+            console.log(`함수 실행 결과 : ${sum}`)
+        }) (100,200);
+        // 함수 실행 결과 : 300 출력
+    </script>
+    
+    <!-- 2번 -->
+    <script>
+        (function() {
+            let username = prompt(' 이름을 입력하세요 .');
+            alert(`${username}님, 안녕하세요?`);
+        }) () ;
+        // 페이지 상단에 alert창이 뜨며 사용자에게 입력을 받아 username을 입력한 값에 맞게 출력해준다.
+        // ex) 권민지 -> 권민지님 안녕하세요?
+        /* 즉시 실행 함수
+           지금까지는 함수를 선언한 후 실행 -> 같은 함수를 여러 번 실행할 수 있음
+           한번만 사용하는 함수라면 -> 선언과 동시에 실행할 수 있다.  */
+    </script>
+    
+
+    <!-- 3번 -->
+    <script>
+        (function() {
+            // ....
+        }) (); //인자가 없는 경우의 수식
+        
+        (function( 매개변수 ) {
+            // ....
+        }) (인수); //인자가 있는 경우
+    </script>
+</body>
+</html>

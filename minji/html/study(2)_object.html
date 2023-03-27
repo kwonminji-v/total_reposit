@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!-- 객체의 구조
+     변수와 함수가 모여 만든 하나의 꾸러미 / 객체 안의 변수는 property, 함수는 method
+    
+    var 객체명 = new Object()
+        var 객체명 = {}-->
+</head>
+<body>
+    <h1>Object</h1>
+    <pre>
+        객체(object) = 변수 (property) + 함수 (method)
+    </pre>
+    <script>
+        //let 이름(객체이름) = new Object();
+        //let 이름 = {}; -> 바로 값들을 지정할 수도 있음. 
+        
+        // 1번의 방법
+        let s1 = {}; //빈 객체를 만들고 그 안에다가 넣어봄.
+        //객체명.변수명(property명) = 값; 
+        s1.kor = 100; //객체명.변수명 = 100;
+        s1.eng = 90;
+        s1.math = 80;
+        //s1이라는 객체안에는 kor,eng,math라는 값들이 각각 저장되어 있다.
+        console.log(s1.math); //eng: 90 kor: 100 math: 80 (함수는 포함되어 있지 않고, 변수만 있는 객체가 만들어짐)
+
+        // 2번의 방법
+        // s1이라는 객체에다가 프로퍼티와 함수를 함께 담아서 사용해보았다.
+        var s1 = {
+            kor:100,
+            eng:90,
+            math:80,
+            total :function () {
+                var sum = this.kor + this.eng + this.math;
+                return sum;
+            }
+        } 
+
+        /* sum을 구하려면 { }안에서의 s1이라는 객체자체를 this로 대변해서값을 가져오고 싶으면 this를 사용하여 호출이 가능하다. */
+        console.log(s1.total()); 
+
+        //위 상태에서 출력하게되면 total은 그냥 함수이기 때문에 total 안에 함수를 실행하도록 ()를 넣어주어야 함수가 기능하게 된다.
+        //조건문,반복문까지 학습하게 되면 응용이 더 가능하게 된다.
+    </script>
+</body>
+</html>

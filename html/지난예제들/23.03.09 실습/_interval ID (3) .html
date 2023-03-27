@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        intervalId
+        setInterval() ID - clearInterval() 메서드를 호출하여 해당 타이머를 중지시킬 수 있습니다.
+    setInterval() 메서드는 일정한 간격으로 함수를 반복적으로 실행할 수 있도록 합니다.
+    이 메서드는 첫 번째 인수로 실행할 함수를 받고, 두번째 인수로 함수를 실행할 간격(ms단위)를 받습니다.
+    setinterval()메서드는 타이머 식별자를 반환하는데, 이 식별자를 변수에 저장해 두면,
+    이후에 clearInterval()메서드를 사용하여 해당 타이머를 중지시킬 수 있습니다. -->
+</head>
+<body>
+    <script>
+        let count = 0;
+        let intervaliID;
+
+        let greeting = () => {aa=document.getElementById("aaa"); 
+        aa.innerText=(`hello ${count}`); count+=1;}
+        
+        let stop = () => {clearInterval(intervalId)}
+        let start = () => {intervalId = setInterval(greeting, 500)}
+    
+        
+    </script>
+    <button onclick="start()">START</button>
+    <button onclick="stop()">STOP</button>
+    <p id="aaa"></p>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다크 모드로 바꾸기</title>
+    <link rel="stylesheet" href="darkmode.css">
+</head>
+
+<body>
+    <div id="toggle_box"><button>다크 모드로 바꾸기</button></div>
+
+    <div id="contents">
+        <p>classList와 toggle 메서드를 사용하면 필요한 스타일을 껐다 켰다 할 수 있기 때문에 다양하게 활용할 수 있습니다.</p>
+        <p>오른쪽 위에 있는 버튼을 클릭할 때마다 다크모드 , 또는 라이트 모드로 바뀝니다.</p>
+    </div>
+    <script>
+        // toggle_box.onclick = () => {document.body.classList.toggle('dark')}
+        
+        const bttn = document.querySelector("button");
+        bttn.onclick = function () {
+            document.body.classList.toggle("dark");
+        }
+
+    
+     </script>
+</body>
+<!-- document.body.classList.toggle("dar");
+dark는 CSS 클래스 이름 (class name)으로 사용됨
+대입을 하기위해 저장을 해야하기 때문에 documenty btn 변수에 저장을 해야 함
+
+
+docu를 완성해야 한다. docunment.querSeletor("button")
+bttn.onclick = function () {
+   document.body.classList.toggle("dark");
+}
+ -->
+ </html>

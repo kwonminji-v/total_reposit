@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        .bounce {
+            position: absolute;
+            bottom: 0;
+            left: 10px; 
+            /* 포지션 지정이 되지 않았다면,전체선택자로 인해 
+            margin값이 0이므로 창 왼쪽에 붙어서 출력됨   */
+            animation-name: bounce;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in;
+        }
+        /* ↓ @keyframes은 애니메이션 (= 움직임) 효과 규칙을 지정할 때 사용 */
+        @keyframes bounce {
+            0% { bottom: 0; }
+            /* 0만 적혀있을 때는 변화가 없다. */
+            25% { bottom: 15px; }
+            50% { bottom: 0; }
+            75% { bottom: 30px; }
+            100% {  bottom: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bounce">ball</div>
+</body>
+</html>

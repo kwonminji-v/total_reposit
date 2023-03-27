@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            background-color: yellow;
+            color: red;
+            font-weight: bold;
+            font-size: 16pt;
+        }
+        p.pad {
+            color: purple;
+            padding: 20px;
+            /* 박스안쪽 = 생성되는 공간 내부의 여백 (네모칸이 커지거나 작아짐!)
+                          컨텐츠를 보호하는 공간..? */
+        }
+        p.mar {
+            color: green;
+            margin: 30px;
+            /* 박스 바깥쪽 = 생성되는 공간 외부의 여백 (크면 클 수록 외부가 흰 바탕으로 커짐) */
+        }
+        p.mp {
+            color: blue;
+            padding: 5%;
+            margin: 5%;
+        }
+    </style>
+</head>
+<body>
+    <p>박스의 안쪽 여백과 바깥쪽 여백 지정</p>
+    <p class="pad"> (1) 안쪽 여백 지정 - padding 20px</p>
+    <p class="mar"> (2) 바깥쪽 여백 지정 - margin 30px</p>
+    <p class="mp"> (3) 안쪽 , 바깥쪽 여백 지정 - padding 5%, margin 5%</main></p>
+    <!-- p.mp는 ↑ 바로 윗 문장을 나타내는 것 classs -->
+</body>
+</html>

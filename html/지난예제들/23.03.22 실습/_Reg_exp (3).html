@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        
+    </div>
+    <script>
+        const id = Symbol("id");
+        const tel = Symbol("telephone number");
+        const member = { name : "kim" , age : 25, [id] : 1234, [tel] : function () {
+            alert(prompt("전화번호 : "));
+        }
+    } 
+    console.log(member[id]); //'1234'
+    //prompt 창에 전화번호를 입력하면 알림창에 표시
+
+    // let {name, age} = member
+/*     console.log(name);  //'kim'
+    console.log(age);   //'25' */
+    
+    let {user : userName, age} = member;
+    console.log(userName);
+
+    /* 객체 구조 분해*/
+    const student = {name:"도레미", score : {
+        history : 85,
+        scince : 94
+    }, friends : ["kim", "Lee","Park"]}
+    //변수의 이름을 객체의 프로퍼티 이름이 아닌 다른 이름으로 지정하려면 
+
+    let {name, //student.name의 값 
+        score : {history,scince}, //student.score.history&sciencd의 값
+        friends : [f1,f2,f3]  //friends 배열 구조 분해
+    } = student
+    
+    console.log(student.name);          // 도레미          
+    console.log(student.score.history); // 85
+    console.log(student.score.scince);  // 94
+    console.log([f1]);                  // 'kim'
+    console.log([f2]);                  // 'Lee'
+    console.log([f3]);                  // 'Park'
+
+
+
+
+
+
+/*     for(item in member) {
+        console.log(`${item} : ${member[item]}`);
+    } */
+
+
+
+    /* 
+    심벌(Symbol)
+    ECMAScript2015 이후에 추가된 새로운 원시 자료형
+    한 번 정의하면 값을 변경할 수 없고 유일한 값을 갖는다
+    2명 이상의 개발자가 하나의 프로그램을 개발 할 때 변수나 프로퍼티 이름을 같게 만드는 실수를 피할 수 있다.
+    심벌을 사용해 프로퍼티 정의하기 / 객체를 만들면서 일부 정보를 드러내고 싶지 않을 때 심벌을 사용
+    심벌 값은 다른 값과 중복되지 않는 유일무의한 값이다.
+    
+    심벌키에 접근하기 
+    심벌키를 사용한 프로퍼티나 메서드에 접근하려면 대괄호를 사용한다.
+    심벌키를 사용한 메서드를 실행할 때에는 대괄호의 오른쪽에 소괄호(())를 붙인다.*/
+    </script>
+</body>
+</html>

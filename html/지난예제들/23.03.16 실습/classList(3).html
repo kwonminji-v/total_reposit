@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 id="title">My Profile</h1>
+    <div id="profile">
+        <img src="c:\media\pf.png" alt="도레미">
+        <div id="desc">
+            <p class="user"><span>이름 : 권민지</span></p>
+            <p class="user">주소 : 용인시</p>
+            <p class="user">연락처 : 1234-5678</p>
+        </div>
+    </div>
+    <script>
+        title.onclick = () => { title.classList.toggle('clicked') }
+        // const userName = document.querySelector("#desc p");
+        // const address = document.querySelector("#desc p:nth-child(2)");
+        // const phone = document.querySelector("#desc p:nth-child(3)");
+        const addresses = document.querySelectorAll("#desc p");
+       
+        //querySelectorAll () 메서드는 주어진 셀렉터에 해당하는 모든 요소를 NodeList 객체로 반환합니다. 여러 갯수 이므로 보통 반복문을 사용합니다.
+
+        for (let i=0; i < addresses.length; i++) {
+            addresses[i].onclick = () => {
+                addresses[i].classList.toggle("blue-italic");
+            };    
+        }
+
+
+        // userName.onclick = () => {
+        //     userName.classList.toggle("blue-italic");
+        // }
+        // address.onclick = () => {
+        //     address.classList.toggle("blue-italic");
+        // }
+        // phone.onclick = () => {
+        //     phone.classList.toggle("blue-italic");
+        // }
+    </script>
+
+    <!-- classList와 함께 요소를 id로 사용할 땐 let 이나 const를 선언하지 않고 요소로서 사용이 가능하며,
+         class로 사용할 땐 let이나 const를 사용하여 선언 후 사용이 필요하다. -->
+</body>
+
+</html>

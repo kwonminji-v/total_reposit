@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 50px;
+            width: 100px;
+            height: 100px;
+            background: yellow;
+            border: 1px solid red;
+            transition: width 3s, height 3s, transform 3s;
+        }
+        div:hover {
+            width: 200px;
+            height: 200ps;
+            border: 3px solid blue;
+            transform: rotate(360deg);
+        }
+        
+    </style>
+</head>
+<body>
+    <div>마우스를 올리면 박스가 회전하면서 커집니다.</div>
+</body>
+</html>
+<!-- transition-timing-function 속성
+속성값
+    linear : 처음부터 끝까지 같은 속도
+    ease : 느리게 시작하여 점점 빨라졌다가 느리게 끝남
+    ease-in : 느리게 시작하여 점점 빨라지다가 일정한 속도에 다다르면 같은 속도를 유지
+    ease-out : 일정한 속도의 등속 변화로 시작해서 점점 느려지면서 끝남
+    ease-in-out : 느리게 시작하여 느리게 끝남 
+    cubic-bezier(n, n, n, n) : 처음과 끝의 속도를 설정
+    
+    큐빅 베이지 타이밍 함수
+        원하는 대로 타이밍을 조정할 때 사용
+        ease 기본 값은 cubic-bezier(0.25, 0.1, 0.25, 1.0)-->

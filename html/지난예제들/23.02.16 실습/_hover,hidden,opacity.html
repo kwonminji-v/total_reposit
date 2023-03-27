@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인라인,hover,hidden</title>
+    <style>
+        /* hover를 활용해 배경색 생성 */
+        #menu:hover {
+            background-color: olive;
+        }
+        /* 메뉴의 ul 목록의 넓이 설정 */
+        #menu ul {
+            margin: 0;
+            padding: 0;
+            width: 567px;
+            /* 모든 아이템을 한줄에 품을 수 있는 폭 */
+        }
+        #menu ul li {
+            display: inline;
+            list-style-type: none;
+            padding: 0px 15px;
+            /* = top bottom = 0, left , right=15; */
+        }
+        #menu ul li a {
+            color: white;
+            /* 하얀색으로 해서 초기화면에 아무것도 보이지 않는 것처럼 만듬 */
+            text-decoration: none;
+        }
+        #menu ul li a:hover {
+            color: violet;
+        }
+        /* ul {
+            opacity: 0.0;
+            background-color: olive;
+        }
+        li {
+            display: inline;
+            margin: 20px;
+            padding: 15px;
+        }
+        ul:hover {
+            color: white;
+            cursor: pointer;
+            opacity: 1.0;
+        }
+        #menu:hover {
+            color: violet;
+        } */
+    </style>
+</head>
+<body>
+    <nav id="menu">
+        <ul>
+            <li><a href="#">뭐줄까?</a></li>
+            <li><a href="#">아메리카노</a></li>
+            <li><a href="#">카푸치노</a></li>
+            <li><a href="#">카페라떼</a></li>
+            <li><a href="#">다른거!</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

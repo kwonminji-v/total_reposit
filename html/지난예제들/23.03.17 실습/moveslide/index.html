@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            background-color: #eeeeee;
+            font-family: "돋움";
+            font-size: 12px;
+            color: #666666;
+        }
+
+        .title {
+            font-weight: normal;
+            font-size: 16px;
+            color: #3e2b23;
+            width: 97vw;
+            height: 5vh;
+            background-color: #dddddd;
+            padding: 10px 0px 0px 30px;
+        }
+
+        .top_menu {
+            list-style: none;
+            position: absolute;
+            top: 10px;
+            right: 65px;
+        }
+
+        nav {
+            width: 15vw;
+            height: 99vh;
+            background-color: #343333;
+            color: #e2e2e2;
+            display: inline-block;
+        }
+
+        nav ul span {
+            font-weight: normal;
+            font-size: 18px;
+            padding: 0px 0px 30px;
+        }
+
+        nav ul {
+            font-size: 14px;
+            padding: 10px 10px 5px 25px;
+        }
+
+        nav ul li {
+            padding: 3px;
+            display: flex;
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: 0fr 1fr;
+            background-color: #252525;
+        }
+
+        .section_title {
+            padding: 10px;
+            border: 5px solid #444444;
+            margin: 25px;
+            font-size: 18px;
+            color: white;
+            font-weight: bold;
+            background-color: #252525;
+            display: grid;
+        }
+
+        .main_img img {
+            padding: 15px 0px 0px 24px;
+            width: 730px;
+            height: 450px;
+        }
+
+        .img_box {
+            padding: 15px 0px 0px 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .img_box img {
+            border: 2px solid white;
+            margin-top: 3px;
+        }
+
+        .slides {
+            position: relative;
+        }
+
+        .slides li {
+            display: inline;
+        }
+
+        /* 이전, 다음 화살표에 마우스 커서가 올라가 있을때 */
+        .prev:hover,
+        .next:hover {
+            transform: scale(1.5);
+            color: rgb(251, 235, 15);
+        }
+
+        .prev {
+            z-index: 50;
+            font-size: 20px;
+            top: 675px;
+            left: 157px;
+            color: white;
+            cursor: pointer;
+            padding: 0px 20px 0px 20px;
+        }
+
+        .next {
+            font-size: 20px;
+            top: 673px;
+            right: 150x;
+            padding: 0px 25px 0px 25px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <div class="title">PHOTO GALLERY</div>
+        <ul class="top_menu">
+            <li>로그인 |
+                회원가입 |
+                방명록</li>
+        </ul>
+    </header>
+    <section>
+        <nav>
+            <ul><span>포토갤러리</span>
+                <li>+ 풍경</li>
+                <li>+ 일상</li>
+                <li>+ 인물</li>
+                <li>+ 가족</li>
+            </ul>
+        </nav>
+        <div>
+            <div class="section_title">풍경사진</div>
+            <div class="main_img"><img src="gangneung2.jpg"></div>
+            <div class="img_box">
+                <span class="prev">&lang;</span>
+                <ul class="slides" style="list-style: none;">
+                    <li><img src="Desert.png" style="width: 130px; height: 80px;"></li>
+                    <li><img src="home.jpg" style="width: 130px; height: 80px;"></li>
+                    <li><img src="pull.jpg" style="width: 130px; height: 80px;"></li>
+                    <li><img src="pull1.jpg" style="width: 130px; height: 80px;"></li>
+                    <li><img src="pic1.jpg" style="width: 130px; height: 80px;"></li>
+                </ul>
+                <span class="next">&rang;</span>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script>
+    let slides = document.querySelector('.slides'),
+        slideImg = document.querySelectorAll('.slides li'),
+        slideCount = slideImg.length,
+        currentIdx = 0;
+        slideWidth = 130,
+        slideMargin = 10,
+        prev = document.querySelector('.prev'),
+        next = document.querySelector('.next');
+
+    slides.style.width = (slideWidth + slideMargin) * slideCount + 'px';
+
+    console.log(slides.style.width);
+    function moveSlide(num) {
+        slides.style.left = -num * 140 + 'px';
+        currentIdx = num;
+    }
+    prev.addEventListener("click", function () {
+        if (currentIdx !== 0) {
+            moveSlide(currentIdx - 1);
+        }
+    })
+    next.addEventListener("click", function () {
+        console.log(currentIdx);
+        if (currentIdx !== slideCount - 1) {
+            moveSlide(currentIdx + 1);
+        }
+    }); v
+
+</script>
+
+</html>

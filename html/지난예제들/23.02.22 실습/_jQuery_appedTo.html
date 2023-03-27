@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-3.6.3.js"></script>
+    <script>
+
+        // jQuery 형태
+        $(document).ready(function () {
+            for(var i = 0; i < 10; i++) {
+                $('<h1>Create Document Object + ' +i + '<h1>').css ({
+                    backgroundColor : 'black',
+                    color : 'red'
+        //문서 객체를 생성하고, 해당 태그 내용을 appendTo를 활용해 body 태그 위에 오게함
+        //body 태그 안에 h1 태그를 생성하고 그 안에 값을 입력한 것과 동일
+
+                }).prependTo('body'); // $(객체).appendTo(대상) 객체를 대상의 뒷 부분에 추가
+            }
+        })
+    </script>
+</head>
+<body>
+</body>
+</html>
+<!-- 
+    대상 내부에 추가한다
+    $(객체).prependTo(대상) : 객체를 대상의 앞 부분에 추가
+    $(객체).appendTo(대상) : 객체를 대상의 뒷 부분에 추가
+
+    대상 외부에 추가한다.
+    $(객체).beforeTo(대상) : 객체를 대상의 앞에 추가
+    $(객체).afterTo(대상) : 객체를 대상의 뒤에에 추가
+
+    무한 스크롤
+    스크롤을 맨 아래까지 내리면 자동으로 데이터를 추가해주는 기능
+    페이스북, 핀터레스트 , 쿠팡 등에서 사용됨
+    무한 스크롤 이벤트가 발생하면 다음 조건을 확인하고 데이터 추가
+    전체 문서의 높이 = 스크롤 높이 + 브라우저 창의 높이
+    append : 선택된 요소의 마지막에 새로운 요소나 콘텐츠를 추가한다.
+    appendTo : 선택된 요소를 해당 요소의 마지막에 추가한다.
+    body 쪽에서도 작성해서 적용할 수 있다.
+ -->

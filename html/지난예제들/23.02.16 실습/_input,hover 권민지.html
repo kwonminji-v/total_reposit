@@ -1,0 +1,41 @@
+<!-- input 사용
+iceblue
+hover 일때 배경색 변경
+클릭 ( 주목받을때)할때 박스가 커지면서 확대 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input+hover 사용하여 만들기</title>
+    <style>
+        ul {
+            list-style-type: none;
+            text-indent: 50px;
+            margin: 0px;
+            padding: 0px;
+        }
+        li {
+            margin: 10px;
+            padding: 5px;
+        }
+        input:hover { background-color: aliceblue; }
+        input[name=name]:hover { color: red;}
+        textarea:hover {background-color: aliceblue;}
+        input:active {font-size: 120%;}
+        
+    </style>
+
+</head>
+<body>
+    <h2>CONTACT us</h2>
+    <hr>
+    <ul>
+    <li>name <input type="text" name="name" placeholder="권민지"></li>
+    <li>email <input type="text" name="email" placeholder="minji6313@yahoo.com"></li>
+    <li>comment <textarea placeholder="메세지를 남겨주세요"></textarea></li>
+    <li>send <input type="button" value="숙제 제출"> </li>
+    </ul>
+</body>
+</html>

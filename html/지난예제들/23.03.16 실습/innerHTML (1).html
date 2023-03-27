@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innerHTML 활용</title>
+    <style>
+        /* result id에 스타일 적용 */
+        /* #result {
+            background-color: yellow;
+            color: darkblue;
+            font-size: 20px;
+        } */
+    </style>
+    <script>
+        function change() {
+            //firstP 라는 아이디를 갖는 태그 객체를 생성
+            let p = document.getElementById("firstP");
+            // innerHTML 프로퍼티를 활용해 이미지를 삽입
+            // result.innerHTML : id가 result인 태그에 적용
+            result.innerText = "바꿀 문자"
+        }
+    </script>
+</head>
+<body>
+    <h3>innerHTML 활용 : 아래 글자를 클릭하면 예쁜 강아지가 보입니다.</h3><hr>
+    <p id="firstP" style="color:blue;" onclick="change();">
+    여기에 <span style="color: red;">클릭하세요</span></p>
+    <p id="result"></p>
+</body>
+</html>
+
+innerHTML 프로퍼티
+시작 태그와 종료 태그 사이에 들어있는 HTML 컨텐츠
+innerHTML 프로퍼티 수정 -> HTML 태그의 콘텐츠 변경
+let p = document.getElementById("firstP");
+result.innerHTML = "나의 <img src='puppy.png' width='100px' height='100px'>강아지"
+
+this 키워드
+객체 자신을 가리키는 자바스크립트 키워드 / DOM 객체에서 객체 자신을 가리키는 용도로 사용
+예) <div>태그 자신의 배경을 orange 색으로 변경
+    <div onclick = "this.style.backgroundColor='orange'">
+예) 버튼이 클릭되면 자신의 배경을 orange 색으로 변경
+    <button onclick="this.style.backgroundColor='orange'"></button>
+
+1.<p id="firstP" style="color: blue"; onclick="change()">
+    여기에 <span style="color:red">클릭하세요</span></p>
+    : (HTML) id가 firstP인 P태그가 제일 먼저 보이게 된다. 거기다 CSS 속성인 style로 블루 "여기에"
+    라인을 나타내느 태그인 span 태그의 클릭하세요를 레드로 값을 준 것
+    onclick 속성 때문에 클릭했을 때 change() 함수가 호출된다.
+
+toggle() - 특정 스타일 토글
+    특정 클래스를 추가하거나 삭제하기를 반복할 경우에는 classList의 toggle() 함수가 더 편리하다.
+    요소.classList.toggle(클래스명)
+
+classList 프로퍼티
+    두 개 이상의 class 스타일이 적용되었을 경우 class 스타일 정보를 담아두는 프로퍼티
+    classList를 사용해서 적용 중인 class 스타일을 제거할 수도 있고, 새로운 class 스타일을 추가할 수도 있다.
+    예) 콘솔 창에서 확인하기
+    document.querySelector("#desc p").classList
+
+    <div id="desc"><p class="user clicked">이름 : 권민지</p>
+        <p class="user">주소 : 어딘가</p>
+        <p class="user">연락처 : 1234-5678</p>
+    </div>
+
+클래스 스타일 추가하기 및 삭제하기를   
+    새로운 클래그 스타일을 추가하거나 (이 경우, 클래스 스타일이 만들어져 있어야 함)
+    기존에 적용 중인 클래스 스타일을 제거할 수 있습니다.
+요소.classList.add(클래스명)
+요소.classList.remove(클래스명)
+
+contatins() - 특정 클래스 스타일이 있는지
+제목을 클릭하면 배경색과 글자색이 바뀌는데, 원래 상태로 되돌아가지는 않는다.
+추가했던 클래스 스타일을 제거하면 원래대로 돌아간다.
+그러기 위해서는 특정 클래스 스타일이 있는지 체크할 수 있어야한다.
+-> classList의 contains() 함수 사용
+   요소.classList.contains(클래스명)
+
+힌트 1) contains()함수를 사용해서 .clicked 스타일이 있는지 살펴보고,
+     2) .clicked 스타일이 있다면 remove()를 사용해서 제거한다.
+    title.onclick = () => {
+        title.classList.add("clicked");
+    }

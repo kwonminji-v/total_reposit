@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h3>물품을 선택하면 금액이 자동으로 계산됩니다.</h3>
+    <form>
+        <!-- 체크박스에 체크를 하면 바로 calc 함수로 객체 정보를 이동시킴 -->
+        <input type="checkbox" class="item" name="cap" value="10000" onclick="calc(this)">모자 만원
+        <input type="checkbox" class="item" name="shose" value="30000" onclick="calc(this)">구두 3만원
+        <input type="checkbox" class="item" name="bag" value="80000" onclick="calc(this)">가방 8만원
+        <!-- 여기에 calc 함수의 sum 값이 출력 -->
+        지불하실 금액 <input type="text" id="sumtext" value="0원">
+    </form>
+
+    <script>
+        var sum = 0;
+        function calc(cBox) {
+        //체크 되면 cBox(checkbox 객체) 객체가 checked 상태가 되고
+        if(cBox.checked)
+        //해당 객체의 value 값을 더함
+        sum += parseInt(cBox.value);
+        else
+        sum -= parseInt(cBox.value);
+        /* 합산 결과를 id=sumtext인 객체에 전송
+           getElementById로 연산을 하는 방법
+           1) 함수 내부 변수에 메소드를 대입해 객체 변수 생성
+              객체에 .메소드를 활용해 정보 입/출력
+           2) document 또는 innerHTML 등을 활용해 객체가 가진 정보를 태그에 전송 */
+        document.getElementById("sumtext").value = sum;
+        }
+
+        // function calc(chk) {
+        //     var select = document.getElementsByClassName("item")
+        //     for (var i = 0; i < select.length; i++) {
+        //         if (select[i] != chk) {
+        //             select[i].checked = false;
+        //         }
+        //     }
+
+        // }
+    </script>
+</body>
+
+</html>
