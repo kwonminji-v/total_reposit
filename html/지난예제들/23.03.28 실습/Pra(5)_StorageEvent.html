@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로컬 스토리지에 StorageEvent</title>
+</head>
+<body>
+
+
+    <h3>로컬 스토리지에 StorageEvent</h3><hr>
+    <!-- 로컬 스토리지 키 : 값 입력란 -->
+    품목명 : <input type="text" id="item" size="10">
+    개수 : <input type="text" id="count" size="10">
+
+    <!-- 입력된 키 : 값을 로컬 스토리지에 저장하는 버튼을 생성 -->
+    <button id="save" onclick="store()">로컬 스토리지에 저장</button>
+
+    <!-- 입력된 키에 대한 값을 로컬 스토리지에서 불러오기 버튼 -->
+    <button id="retrieve" onclick="retrieve()">로컬 스토리지에서 불러오기(검색)</button>
+
+        <!-- 로컬 스토리지에서 내용 변경에 대한 데이터 출력 -->
+    로컬 스토리지의 변경 내용 (storage 이벤트) : <br>
+    <textarea id="textarea" cols="60" rows="6"></textarea>
+
+
+
+
+
+    <script>
+        /* 이벤트 리스너 등록(발생이벤트, 실행할 이벤트 리스너, 캡처링 여부(true=캡처링)) */
+        window.addEventListener("storage" , storageEventListener, false);
+        /* e는 StorageEvent 객체 */
+        function storageEventListener(e) {
+            //발생한 이벤트의 각 속성 값들을 불러와 문자열 형식을 만들고
+            var eventDetail = 
+            "key:\t\t\t" + e.key + "\n" + 
+            "oldValue : \t\t" + e.oldValue + "\n" + 
+            "newValue : \t\t" + e.newValue + "\n" + 
+            "storageArea :\t" + e.storageArea + "\n" + 
+            "url :\t\t\t" + e.url;
+        // textarea에 출력
+        document.getElementById("textarea").innerHTML = eventDetail; }
+    </script>
+
+
+    <script>
+        //키 : 값 입력란 요소 객체 생성
+        var item = document.getElementById("item");
+        var count = document.getElementById("count");
+        //키 : 값 저장함수
+        function store() {
+            if(!window.localStorage) {
+                alert("로컬 스토리지를 지원하지 않습니다.");
+                return;
+            }
+            //로컬 스토리지에 키, 값 저장
+            localStorage.setItem(item.value, count.value);
+        }
+
+        //로컬 스토리지에서 입력된 키에 대한 값 검색
+        function retrieve() {
+            if(!window.localStorage) {
+                alert("로컬 스토리지를 지원하지 않습니다.");
+                return;
+            }
+        //로컬 스토리지에서 입력된 키에 대한 값 가져오기
+        var val = localStorage.getItem(item.value);
+        if(val == null) {
+            alert(item.value + "는 구입 리스트에 없습니다.")
+        }
+        //해당 값을 count 요소에 입력
+        else {
+            count.value = val;
+        }
+    }
+        </script>
+
+</body>
+</html>
+<!-- 
+StorageEvent는 로컬 스토리지의 변경사항을 감지할 때 사용되는 이벤트이다. 그러나 이 이벤트는 현재 페이지에서
+발생한 로컬 스토리지 변경 사항에 대해서는 감지하지 않습니다. 다른 탭이나 창에서 로컬 스토리지 변경이 발생했을 때 이벤트가 발생한다
+변경 내용이 출력되지 않는 이유는 StorageEvent가 같은 페이지에서 발생한 로컬 스토리지의 변경사항을 감지하지 않기 때문입니다.
+ -->

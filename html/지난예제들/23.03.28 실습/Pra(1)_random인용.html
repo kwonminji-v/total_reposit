@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quotes</title>
+    <link rel="stylesheet" href="quotes.css">
+</head>
+<body>
+    <div id="result">
+        <div class="quote"></div>
+        <div class="author"></div>
+    </div>
+    
+
+    <script>
+        const quotesURL = "http://dummyjson.com/quotes"
+        //코드는 가져올 데이터의 URL을 변수에 저장합니다.
+        fetch(quotesURL)
+        //fetch() 함수를 호출하여 데이터를 가져오는 HTTP 요청을 보낸다.
+        //이 때, quotesURL변수에 저장된 URL 주소로 요청을 보내고, 서버에서 응답을 받습니다.
+        .then(response => response.json())
+        //서버에서 받은 응답(response) 객체의 내용을 JSON으로 파싱하여 반환하는 Promise를 반환한다.
+        .then(data => {  //JSON 데이터를 처리하는 콜백 함수를 등록
+            const result = document.querySelector('#result');
+            const random = Math.floor(Math.random() * 30);   //0 ~ 29 사이의 수
+            result.querySelector(".quote").innerHTML = data.quotes[random].quote;
+            //result 요소 내에 class가 "quote"인 요소를 찾아, 해당 요소의 내용을 data 객체에서 랜덤하게 선택한 명언으로 설정
+            result.querySelector(".author").innerHTML = `- ${data.quotes[random].author}`;
+            //result 요소 내에 class가 "author"인 요소를 찾아, 해당 요소의 내용을 data 객체에서 랜덤하게 선택한 명언의 작가로 설정 
+        })
+        .catch(error => console.log(error));
+
+/* 
+"http://dummyjson.com/quotes"  path는 URL의 경로(path)를 의미한다.
+URL은 프로토콜 :// 도메인 / 경로의 형식을 따른다.
+http://는 프로토콜을 의미하며, "dubbyjson.com"은 도메인을 의미한다.
+quotes는 이 URL에서의 경로(path)를 나타낸다.
+경로는 보통 서버에서 요청된 자원의 위치를 나타내는 문자열이다.
+URL 예> http://www.exapmle.com/index.html
+
+URL과 URI는 유사한 개념이지만, URL은 URI의 하위 개념이다.
+URI는 Uniform Resource Identifier의 약자이며, 인터넷에서 특장 자원을 나타내기 위한 식별자(identifier)이다.
+
+URI는 두 가지 형태로 구성된다. 하나는 URL(Uniform Resource Locater), 다른 하나는 URN (Uniform Resource Name)이다.
+URL은 특정 자원의 위치를 나타내며, URN은 특정 자원의 이름을 나타낸다.
+
+반면 URI는 URL을 포함하여 모든 인터넷 상의 자원을 식별할 수 있는 통합 식별자 입니다.
+URI는 프로토콜:// 도메인 / 경로 외에도, 데이터베이스 쿼리 문자열, 이메일 주소 등의 다양한 형식으로 구성될 수 있습니다.
+ */
+
+    </script>
+</body>
+</html>
+<!-- 
+fetch API란 서버에 자료를 요청하거나 자료를 받아올 때 사용하는 API
+    HTTP 요청 전송 기능을 제공하는 클라이언트 사이드 web API를 말하기도 한다.
+    XMLHttpRequest를 대신한다 / fetch는 프로미스를 반환한다.
+
+fetch(위치, 옵션)
+    위치 : 자료가 있는 URL이나 파일 이름
+    옵션 : GET이나 POST 같은 요청 방식 지정 (따로 지정하지 않으면 GET 메서드 사용)
+    사용 예 ) fetch(student-2.json) / const promise = fetch(url [, options])
+    then()을 사용해 결과 표시 fetch(student-.json).then(console.log)
+    XMLHttpRequest 객체 대신 fetch API를 사용해보자.
+
+1. XHRHttpRequest(XHR)
+    가장 기본적인 방법으로, 클라이언트가 서버에 HTTP요청을 보내고, 서버가  응답하는 방식을 사용
+    비동기적 요청을 처리하기 위한 onreadystatechange 이벤트 핸들러나 readystatechange 이벤트를 이용한다.
+    XHR은 웹 브라우저에서 널리 지원되며, 기존 브라우저에서도 작동한다.
+
+2. fetch
+    ES6의 기능으로 promise 기반의 비동기적 HTTP 요청 방식이다. XHR보다 간단하게 요청을 보낼 수 있다.
+    fetch 함수는 HTTP응답을 나타내는 Response 객체를 래핑한 Promise 객체를 반환한다.
+    fetch API는 CORS 요청 및 리 다이렉션을 자동으로 처리하는 등의 기능을 제공한다.
+    fetch 함수가 반환하는 프로미스는 기본적으로 404 Not Found나 500 Internal Server Error와 같은 HTTP 에러가 발생해도 에러를 reject 하지 않고
+    불리언 타입의 ok 상태를 false로 설정한 Response 객체를 resolve한다. 오프라인등의 네트워크 장애나 CORS 에러에 의해 요청이 완료되지 못한 경우에만 프로미스를 reject한다.
+    
+    CORS란?
+    자원에서 다른 출처에 있는 자원에 접근하도록 한느 개념이다. 직역하면, 교차되는 출처 자원들의 공유를 말한다.
+    
+    교차 출처 리소스 공유 (Cross-Origin Resource Sharing, CORS)
+    보안상의 이유로 동일한 출처(same-origin)를 가지지 않는 다른 도메인 간의 HTTP 요청이 기본적으로 차단되는 것을 허용하기 위해, 서버에서 클라이언트에게 추가적인 HTTP 헤더를 전송하도록 지시하는 체제이다.
+
+    추가 HTTP 헤더를 사용하여, 한 출처에서 실행 중인 웹 애플리케이션이 다른 출처의 선택한 자원에 접근할 수 있는 권한을 부여하도록 브라우저에 알려주는 체제이다.
+    ** 추가 헤더란, Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Header 등의 CORS 관련 헤더를 의미한다. 
+       이러한 추가 헤더를 사용함으로써, 서버는 브라우저가 자신의 도메인 외부에서 온 요청에 대해 허용하거나 차단할 수 있게 된다.
+       서버에서 클라이언트로 전송되는 HTTP 응답 헤더이다. HTML 속성은 태그안에 지정되는 속성으로, 예를 들어 <img> 태그의 src 속성과 같은 것
+
+
+    출처란?
+    https:// github.io: 443  /tech /svelte?page=1   #Origin
+    프로토콜  호스트    포트  패스(=403호)   쿼리스트링     프래그먼트
+    *path의 개념이 제일 중요하다. path만 알아두자!
+
+    ↑ 위의 구성요소 중에서 Protocol + Host + Port 3가지가 같으면 동일 출처(Origin)이라고 한다. 
+    포트는 생략이 가능하다.
+
+    예> http://example.com/app1/index.html
+        http://exapmle.com/app2/index.html
+        Protocol, Host, Port(생략)이 같으며, Path부터 다르므로 동일 출처이다.
+
+        http://example.com          //port에 값이 적혀져 있지 않으면 80을 의미.
+        http://example.com:8080      80,8080으로 포트가 다르다 동일 출처가 아니다
+        다른 출처 요청일 경우, CORS 정책에 준수하여 요청해야만 정상적으로 응답을 받는다.
+
+        다른 출처 요청의 위험성
+        <img>, <script>, <frame>, <video>, <audio> 등이 웹에 등장하면서, 페이지 로딩 이후에 브라우저에서 이러한 하위 자원들을 가져올 수 있게 되었다.
+        그러므로 동일 출처, 다른 출처 모두 호출이 가능하게 되었다.
+            
+3. Axios
+    Promise 기반의 HTTP 클라이언트 라이브러리이다.
+    브라우저와 Node.js 환경에서 모두 사용할 수 있다.
+    비 동기적 요청을 처리하기 위해 then()과 catch() 메소드를 이용한다.
+    보안을 위한 CSRF 및 XSRF 보호를 자동으로 처리하는 등의 기능을 제공한다.
+
+4. JQuery Ajax
+    기존 XHR과 유사한 방식으로 요청을 보내고, 비동기적 요청을 처리하기 위해 success()와 error() 콜백 함수를 이용한다.
+    간단히 말해, XHR과 fetch는 기본적으로 HTTP 요청을 보내는 방법으로서, Axios 는 더 간편한 HTTP 요청 처리를 제공하며, 
+    jQuery Ajax는 jQuery 라이브러리 사용 시 일관된 방식으로 Ajax 요청을 처리하는 방법이다.
+    
+
+ -->

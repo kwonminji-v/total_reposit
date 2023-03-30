@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비동기 프로그래밍</title>
+</head>
+<body>
+    
+
+    <script>
+        function order(coffee, callback) {
+            console.log(`${coffee} 주문 접수`);
+            setTimeout( () => { callback(coffee); },3000 );
+        }
+
+        function display(result) {
+            console.log(`${result} 준비 완료 🎈`);
+        }
+
+        order("아메리카노", display);  //display 함수를 콜백 함수로 전달했다.
+    </script> 
+
+<!-- 
+1.order("아메리카노", display) 호출 : "아메리카노" 커피 주문을 접수하고 display 함수를 콜백으로 전달합니다.
+2.order() 함수가 실행된다.
+3.order() 함수 내부에서 console.log(`${coffee} 주문 접수`)를 실행한다
+order() 함수 내부에서 setTimeout() 메서드를 사용하여 콜백함수 display()를 3초 후에 실행하도록 예약합니다.
+5.3초 대기 후, display() 함수가 실행됩니다.
+6. display() 함수 내부에서 console.log(`${result} 준비완료`)를 실행하여 아메리카노 준비완료를 출력한다.
+ -->
+
+</body>
+</html>

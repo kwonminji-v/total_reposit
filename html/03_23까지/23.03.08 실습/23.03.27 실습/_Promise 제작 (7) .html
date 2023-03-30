@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <div class="start"></div>
+        <div class="end"></div>
+    </div>
+
+    <script>
+        const order = new Promise((resolve, reject) => {
+            let coffee = prompt("어떤 커피를 주문하시겠습니까?", " ");
+            if(coffee != null && coffee != "") {
+                document.querySelector(".start").innerText = `${coffee} 주문 접수`;
+                setTimeout(() => {
+                    resolve(coffee);
+                }, 3000);
+            } else {
+                reject("커피를 주문하지 않았습니다.");
+            }
+        });
+
+        function display(result) {
+            document.querySelector(".end").innerText = `${result} 준비완료 `;
+            document.querySelector(".end").classList.add("active");
+            document.querySelector(".start").classList.add("done");
+        }
+
+        function showErr(err) {
+            document.querySelector(".start").innerText = err;
+        }
+
+        order
+            .then(display)
+            .catch(showErr);
+
+        //따로 reject를 설정하지 않을 경우 아래와 같이 간단하게 작성
+        /* let coffee = "아메리카노";
+           const order = new Promise(resolve => {
+            console.log(`${coffee} 주문 접수`);
+             setTimeout( () => {
+                resolve(coffee);
+             }, 3000)
+           });
+           
+           function display(result) {
+            console.log(`${result} 준비완료 `*/
+    </script>
+</body>
+</html>
+<!-- 
+프로미스 제작 코드
+프롬프트 창을 통해 사용자에게 원하는 커피를 입력하게 한다.
+커피 메뉴가 입력되었으면 화면에 주문이 접수되었다고 표시하고, 3초 후에 resolve 함수에 커피 메뉴를 건네준다.
+커피 메뉴가 입력되지 않았으면 주문이 없다는 오류 메세지를 표시한다.
+
+프로미스 소비 코드
+    성공했으면 display 함수를, 실패하면 showErr 함수를 실행한다.
+    화면에 내용을 표시하는 display 함수와 오류를 표시하는 showErr 함수를 만든다.
+
+
+1. order 라는 프로미스 객체를 만든다. (우선 프로미스만 만들기)
+const order = new Promise((resolve, reject) => {
+})
+2. 라이브 서버를 사용해 콘솔 창에서 order 객체의 상태를 확인한다. (웹 브라우저 창은 계속 열어두기)
+3.order 객체 완성하기
+4.웹 브라우저 창으로 돌아와 원하는 메뉴를 입력하고 [Enter]를 누른다
+5.웹 브라우저 창에는 '아메리카노 접수'가 나타난다.
+6.콘솔 창에서 order 객체의 상태 확인하기
+7.then()을 실행했을 때 어떻게 실행되는지 확인하기
+8.프로미스 소비 코드를 작성하기
+9.웹 브라우저로 돌아가, 다시 커피 메뉴 주문하기 -->

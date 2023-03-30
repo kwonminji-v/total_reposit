@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+header {
+  font-size:1.5em;
+}
+
+header, form {
+  min-height:20vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form label {
+  display:none;
+}
+
+form input, 
+form button {
+  padding:0.5rem;
+  font-size:1.5rem;
+}
+
+#container {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+#todo-list {
+  min-width: 30%;
+  list-style: none;
+}
+
+ /* todo 항목 */
+ .todo {
+  margin:0.5rem;
+  font-size:1.2rem;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo .todo-content {
+  flex:1;
+  padding:0.5rem 1rem;
+  border-bottom: 1px dotted #ccc;
+}
+
+.todo button {  
+  padding: 0.5rem;
+  margin-right:0.2rem;
+  font-size:0.8rem;
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #d8d8d8;
+  opacity: 0.5;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>오늘의 할 일</h1>
+      </header>
+      <form>
+        <label for="todo-input">할 일</label>
+        <input type="text" id="todo-input" placeholder="할 일을 입력하세요" required autocomplete="off">
+        <button id="add-button">추가</button>
+      </form>
+      <div id="container">
+        <ul id="todo-list"></ul>
+      </div>
+
+    <script>
+//웹 요소 가져오기
+const todoInput = document.querySelector('#todo-input');
+    const addButton = document.querySelector('#add-button');
+    const todoList = document.querySelector('#todo-list');
+//사용자 입력을 받는 요소를 찾아서 변수에 저장 
+//이벤트 처리
+
+document.addEventListener("DOMContentLoaded", getLocal);
+addButton.addEventListener('click', addTodo);
+todoList.addEventListener('click', manageTodo);
+//추가 버튼을 찾아서 변수에 저장
+//함수를 작성한다.
+
+function addTodo(e) {
+    e.preventDefault();    //기본 동작 취소
+/* 입력값을 가져와 새로운 소스로 추가 테스트 코드
+   <div class="todo">
+     <li class="todo-content">내용</li>
+     <button class="complete-button">완료</button> 
+     <button class="delete-button">삭제</button> 
+    </div>*/
+
+    const newDiv = document.createElement('div');
+    newDiv.classList.add('todo');
+    const newTodo = document.createElement('li');
+    newTodo.innerText = todoInput.value;
+    newTodo.classList.add('todo-content');  
+    newDiv.appendChild(newTodo);  //새로운 내용 추가
+
+
+
+    saveToLocal(todoInput.value);  //로컬 스토리지에 저장
+
+    const completeButton = document.createElement('button');
+    completeButton.innerText = '완료';
+    completeButton.classList.add('complete-button');
+    newDiv.appendChild(completeButton)
+
+    const deleteButton = document.createElement('button');
+    deleteButton.innerText='삭제';
+    deleteButton.classList.add('delete-button');
+    newDiv.appendChild(deleteButton);
+
+    todoList.appendChild(newDiv);    // ul요소의 자식 요소로 추가
+
+    todoInput.value=" ";   //입력 창 초기화
+}
+//saveToLocal 함수를 정의하는 부분이 시작, 사용자가 입력한 값을 로컬 스토리지에 저장하는 역할
+
+function saveToLocal(todo) {
+    let todos;
+    if (localStorage.getItem('todos') === null) {
+//저장된 항목이 없으면 빈 배열을 생성한다.
+        todos = []; 
+    }else {    //로컬 스토리지에 저장된 To-do 항목을 가져오거나
+        todos = JSON.parse(localStorage.getItem('todos'));
+    }
+
+    todos.push(todo);
+    localStorage.setItem('todos' , JSON.stringify(todos));
+}
+
+function getLocal() {
+    let todos;
+    if (localStorage.getItem('todos') === null) {
+        todos = [];
+    }else {
+        todos = JSON.parse(localStorage.getItem('todos'));
+    }
+
+    todos.forEach(function(todo) {  // todos요소마다 반복
+        const newDiv = document.createElement('div');
+        newDiv.classList.add('todo');   //저장된 각 To-do 항목을 가져와 새로운 요소를 생성
+        const newTodo = document.createElement('li');
+        newTodo.innerText = todo;  //로컬 스토리지의 값 표시
+        newTodo.classList.add('todo-content');
+        newDiv.appendChild(newTodo);
+
+        const completeButton = document.createElement('button')  //완료 버튼을 만들어준다.
+        completeButton.innerText='완료';
+        completeButton.classList.add('complete-button');
+        newDiv.appendChild(completeButton);
+
+
+        const deleteButton = document.createElement('button')  //완료 버튼을 만들어준다.
+        deleteButton.innerText='삭제';
+        deleteButton.classList.add('delete-button');
+        newDiv.appendChild(deleteButton);
+
+    //todo리스트에 추가해줍니다.
+        todoList.appendChild(newDiv);   //ul 요소의 자식 요소로 추가
+
+        
+        todoInput.value = " ";   //입력 창 초기화
+    })
+}
+
+    function manageTodo(e) { //To-Do 리스트에서 발생한 이벤트를 처리하는 역할을 한다.
+        const whichButton = e.target.classList[0]; //클릭한 부분의 class 명 가져오기
+        if(whichButton === 'complete-button') {    //클릭한 부분이 완료 버튼이면
+            const todo = e.target.parentElement;
+            todo.children[0].classList.toggle('completed');
+            //내용 부분에 .completed 클래스 토글
+        }else if(whichButton === 'delete-button') {  //클릭한 부분이 삭제 버튼이면
+            const todo = e.target.parentElement;
+            removeLocal(todo);  //todo 항목 제거
+            todo.remove();
+        }
+    }
+
+    function removeLocal(todo) {
+        let todos;   //로컬 스토리지에서 가져온 할 일들
+        if (localStorage.getItem('todos') === null) {
+            todos = [];
+        }else {
+            todos = JSON.parse(localStorage.getItem('todos'));
+        }
+        const index = todos.indexOf(todo.children[0].innerText);  //삭제할 할일의 인덱스
+        todos.splice(index,1);    // index 1번째 해당 인덱스 요소 삭제
+        localStorage.setItem('todos', JSON.stringify(todos));  //변경된 todos 저장
+    }//변경된 배열을 로컬스토리지에 다시 저장합니다.
+    </script>
+</body>
+</html>

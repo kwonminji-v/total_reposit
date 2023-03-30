@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비 동기 프로그래밍</title>
+</head>
+<body>
+    <script>
+        let likePizza = true;    //이 값을 false로 바꿔서도 테스트가 가능하다.
+        const pizza = new Promise((resolve, reject) => {
+            if (likePizza)  //likePizza의 값에 따라
+            resolve('피자를 주문합니다.');
+            else
+            reject('피자를 주문하지 않습니다.');
+        });
+
+        pizza  //Promise 객체의 상태에 따라
+            .then (
+                result => console.error(result)
+            )
+            .catch (
+            err => console.log(err)
+            );
+
+/* 
+아래와 같이 작성할 수도 있다. 
+pizza.then(
+    result => console.log(result),
+    err => console.log(err)
+); */
+    </script>
+</body>
+<!--
+Promise
+콜백 안에 콜백, 그 안에 또 콜백... 이와 같은 상황을 콜백지옥이라고 부른다.
+콜백을 사용했을 때의 복잡함을 피하기 위해, ES6부터 "프로미스 (promise)"가 등장하였다.
+처리에 성공했을 때 실행할 함수와 성공하지 못했을 때, 실행할 함수를 미리 약속하기 위해서 사용한다.
+프로미스를 사용하려면, promise 객체를 먼저 만들어야 한다.
+성공했을 때 실행할 함수 resolve()와 실패했을 때 실행할 함수 reject()도 함께 지정한다.
+new Promise(resolve, reject)
+프로미스는 객체를 생성(제작) 하는 부분과 소비하는 부분으로 나뉜다.
+
+프로미스를 실행할 때 사용하는 함수
+.then() - 프로미스에서 성공했다는 결과를 보냈을 때 실행할 소스
+.catch() - 프로미스에서 실패했다는 보냈을 때 실행할 소스
+.finally() - 프로미스에서 성공과 실패에 상관없이 실행할 소스
+
+프로미스 객체 .then( ) .catch( ) .finally( );
+가독성이 좋게 작성하려면 세로형으로 아래로 나열하여 작성하는 편이다.
+
+프로미스의 상태
+프로미스는 resolve() 함수나 reject() 함수를 매개변수로 받아서 실행하는 객체
+프로미스 객체는 resolve() 함수나 reject() 함수를 실행하면서 상태가 바뀜
+pending 처음 프로미스를 만들면 대기상태가 됩니다. -- 객체를 만드는 상태 new
+fulfilled 처리에 성공하면 이행상태가 됩니다.     -- then()의 상황
+rejected 처리에 성공하지 못하면 거부상태가 됩니다.--catch()의 상황
+ -->
+</html>

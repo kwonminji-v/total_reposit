@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로컬 스토리지</title>
+<!-- 
+로컬 스토리지   크기는 5-10Mb 브라우저마다 차이는 있다.
+    로컬 스토리지의 생성과 소멸 , 공유
+    윈도우에 상관 없이 웹 서버(웹 사이트)당 하나씩 생성
+    브라우저를 종료하거나 컴퓨터가 꺼져도 존재한다 / 웹 사이트의 모든 웹 페이지가 로컬 스토리지 공유
+    로컬 스토리지의 용도는 오프라인 상태에서 웹 애플리케이션이 로컬 컴퓨터와 로컬 스토리지에 저장이 가능하다.
+ -->
+</head>
+<body>
+
+    <h2>localStorage로 데이터 저장하기</h2>
+    <p>브라우저 탭이나 창을 닫아도 Counter의 횟수는 초기화 되지 않습니다.</p>
+    <p>
+        <button id="countbtn">카운터 증가</button>
+        <button id="clearbtn">카운터 리셋</button>
+    </p>
+    <div id="counter"></div>
+    <script>
+    /* 아래 명령어를 통해 함수를 실행시킨다 , 이름이 없기 때문에 무명함수로 칭한다. */
+    window.onload = function () {
+
+        //countbtn, clearbtn 태그 객체를 생성한다.
+        var countbtn = document.getElementById("countbtn");
+        var clearbtn = document.getElementById("clearbtn");
+        //countbtn 버튼을 클릭하면 함수를 실행
+        countbtn.onclick = function() {
+            /* localStorage라고 하는 저장소가 있는데, 정보 만료 날짜가 없다 (무기한)
+               localStorage는 키와 값의 형태로 저장한다.
+               localStorage를 생성하지 않았을 때 ↓ */
+            if(typeof(localStorage != "undefined")) {
+                //이전에 localStorage.clickcount가 됐다면
+                if(localStorage.clickcount) {
+                    //기존 값에 +1을 하고
+                localStorage.clickcount = Number(localStorage.clickcount) + 1;
+                }
+                else {  //없었다면, 신규로 1의 값을 입력한다.
+                    localStorage.clickcount = 1;
+                }
+                document.getElementById("counter").innerHTML = "카운터의 현재 횟수는" + localStorage.clickcount + "입니다."
+            }
+            //localStorage == "undefined" (정의 되지 않았다면) 
+              else {
+            //아래 내용을 출력한다.
+            document.getElementById("counter").innerHTML = "이 문장은 사용자의 웹 브라우저가 Web Storage API를 지원하지 않을 때 나타납니다!"
+        }
+    }
+    }
+    //클리어 버튼을 클릭하면 (무명함수 실행)
+    clearbtn.onclick = function() {
+        // localStorage.clear() 메소드를 활용해 localStorage를 초기화
+        localStorage.clear();
+        document.getElementById("counter").innerHTML = "카운터의 현재 횟수는" + localStorage.clickcount + "입니다!";
+    }
+
+    /* localStorage 컴퓨터를 껐다 켜도 저장된 데이터는 지워지지 않는다 
+       삭제는 리셋을 클릭 localStorage.clear() 초기화 */
+    </script>
+</body>
+</html>

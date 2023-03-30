@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>템플릿 리터럴</h2>
+    <pre>
+        변수와 문자열을 연결할 때 유용하게 사용
+        `(backtick,백틱)`으로 감싸고 변수명은 ${ }안에 기술
+
+        ex. var msg = '문자' + 변수명1 + 변수명2 + '문자';
+        ↓아래와 같이 작성이 가능해졌다.
+        ex. var msg = `문자 + ${변수명1 + 변수명2} + 문자`;
+    </pre>
+
+    <script>
+        var str1 = 'javascript';
+        var str2 = '기초';
+        var num1 = 10;
+        var num2 = 20;
+        // var msg = '여러분은 지금' + str1 + str2 + '를 학습하고 있습니다.';
+        var msg = `여러분은 지금 ${num1 + num2} 를 학습하고 있습니다.`;
+        console.log(msg);
+    </script>
+
+
+
+    <h2>가변변수와 불변변수</h2>
+    <pre>var vs let
+        var는 전역변수와 함수 내에서만 사용할 수 있는 지역변수로 구분
+        블록 스코프 밖에서도 변수를 참조할 수 있어 문제가 발생한다.
+        스코프는 변수에 접근 가능한 영역을 의미
+        let은 블록 스코프의 범위에서만 값을 유지 (스코프내에서만 변수 설정이 가능 중괄호안에서)
+    </pre>
+    <script>
+        var a = 0;
+        if(true) {
+            let a = 2;
+            console.log(a);
+        }
+        console.log(a);
+    </script>
+
+
+
+
+    <pre>const
+        한번 지정하면 절대 변경되지 않는 불변변수
+        var, let은 변수의 값 변경 가능
+    </pre>
+    <pre>화살표 함수 - 기존의 function()을 화살표 함수로 축약해서 사용
+         () => {}
+         function add (first,second) {
+            return first + second;
+         }
+
+         var add = (first,second) => {
+            return first + second;
+         }
+    </pre>
+    <pre>전개 연산자
+        객체 혹은 배열을 펼칠 시 확장 / 유사배열을 배열로 반환 / 배열 또는 객체를 병합
+        ex. var array1 = ['one', 'two'];
+            var array2 = ['three', 'four'];
+            const combined = [...array, ...aral];
+    </pre>
+</body>
+</html>
