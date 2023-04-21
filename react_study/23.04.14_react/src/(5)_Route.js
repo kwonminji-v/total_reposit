@@ -14,7 +14,7 @@ export default function App() {
         <Route path="/" element={<Index />}/>
         <Route path="/one" element={<One name = 'licat' />}/>
         <Route path="/two" element={<Two />}/>
-        <Route path="/three/" element={<Outlet />}>
+        <Route path="/three" element={<Outlet />}>
             <Route path="" element={<ThreeIndex/>} />
             <Route path="hojunone/" element={<ThreeOne/>} />
             <Route path="hojuntwo/" element={<ThreeTwo/>} />
