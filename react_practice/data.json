@@ -1,0 +1,25 @@
+{
+    "data": [
+        {
+            "id": "ID1",
+            "title": "넷플릭스 월정액",
+            "text": "넷플릭스에서 영화와 시리즈를 무제한 즐겨보세요!",
+            "option": "옵션: 베이식(동시접속 1명, HD화질",
+            "price": "월 9,500원"
+        },
+        {
+            "id": "ID2",
+            "title": "asfasfsadf",
+            "text": "넷플릭스에서 asdfasdfasdasdv영화와 시리즈를 무제한 즐겨보세요!",
+            "option": "옵션: 베이식(동시접속 1명,sadvsadvasdvasdv HD화질",
+            "price": "월 9,500원"
+        },
+        {
+            "id": "ID3",
+            "title": "넷플릭asdvasdvsdav스 월정액",
+            "text": "넷플릭스에서 영화sdvasdvsadv와 시리즈를 무제한 즐겨보세요!",
+            "option": "옵션: 베이식(동시sadvsadvsavd접속 1명, HD화질",
+            "price": "월 asdvasdvsadvadvs9,500원"
+        }
+    ]
+}
